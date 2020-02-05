@@ -1,2 +1,0 @@
-# PushNote
-Notification based application

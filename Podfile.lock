@@ -1,0 +1,55 @@
+PODS:
+  - Alamofire (4.8.0)
+  - CardIO (5.4.1)
+  - PayPal-iOS-SDK (2.18.1):
+    - PayPal-iOS-SDK/CardIO (= 2.18.1)
+    - PayPal-iOS-SDK/Core (= 2.18.1)
+  - PayPal-iOS-SDK/CardIO (2.18.1):
+    - CardIO (~> 5.4.1)
+  - PayPal-iOS-SDK/Core (2.18.1)
+  - SVProgressHUD (1.1.3)
+  - SwiftValidator (4.0.0)
+  - TextFieldEffects (1.6.0)
+  - TPKeyboardAvoiding (1.3.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - CardIO
+  - PayPal-iOS-SDK
+  - SVProgressHUD (~> 1.1)
+  - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
+  - TextFieldEffects
+  - TPKeyboardAvoiding
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - CardIO
+    - PayPal-iOS-SDK
+  trunk:
+    - SVProgressHUD
+    - TextFieldEffects
+    - TPKeyboardAvoiding
+
+EXTERNAL SOURCES:
+  SwiftValidator:
+    :branch: master
+    :git: https://github.com/jpotts18/SwiftValidator.git
+
+CHECKOUT OPTIONS:
+  SwiftValidator:
+    :commit: d370353b7a0ce758a53b189c81e485dcd53c99a4
+    :git: https://github.com/jpotts18/SwiftValidator.git
+
+SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
+  PayPal-iOS-SDK: 10654cd111e911a9807bddb96fae81aacb8e9915
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
+  TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
+  TPKeyboardAvoiding: 6dd3fe3268b8f2627beb7ff3d82a3cacbdf66a36
+
+PODFILE CHECKSUM: 721dd44a48f145081481585c6e20a3bcd7349981
+
+COCOAPODS: 1.8.4
