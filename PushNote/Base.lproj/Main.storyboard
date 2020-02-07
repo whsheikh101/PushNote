@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vl0-al-Ytt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vl0-al-Ytt">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,6 +65,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="fuY-o1-oHE">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Jr-in-o9E" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -244,6 +247,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2Jr-in-o9E" firstAttribute="top" secondItem="NSs-Ef-Pck" secondAttribute="top" id="77l-XL-Rad"/>
+                            <constraint firstAttribute="trailing" secondItem="fuY-o1-oHE" secondAttribute="trailing" id="Aip-Ak-5ni"/>
                             <constraint firstAttribute="trailing" secondItem="2Jr-in-o9E" secondAttribute="trailing" id="C1f-tE-Yzo"/>
                             <constraint firstItem="2Jr-in-o9E" firstAttribute="top" secondItem="XeT-qJ-CFE" secondAttribute="bottom" constant="-64" id="NLc-nb-8BO"/>
                             <constraint firstItem="C5S-eb-pEk" firstAttribute="top" secondItem="2Jr-in-o9E" secondAttribute="bottom" id="OPn-h0-PfA"/>
@@ -251,6 +255,9 @@
                             <constraint firstItem="2Jr-in-o9E" firstAttribute="leading" secondItem="NSs-Ef-Pck" secondAttribute="leading" id="XQf-Nj-SCh"/>
                             <constraint firstItem="2Jr-in-o9E" firstAttribute="bottom" secondItem="C5S-eb-pEk" secondAttribute="top" id="bsH-93-Jdl"/>
                             <constraint firstItem="2Jr-in-o9E" firstAttribute="leading" secondItem="NSs-Ef-Pck" secondAttribute="leading" id="cdg-D9-oO2"/>
+                            <constraint firstItem="C5S-eb-pEk" firstAttribute="top" secondItem="fuY-o1-oHE" secondAttribute="bottom" id="eHJ-w8-wF8"/>
+                            <constraint firstItem="fuY-o1-oHE" firstAttribute="leading" secondItem="NSs-Ef-Pck" secondAttribute="leading" id="lcf-od-toE"/>
+                            <constraint firstItem="fuY-o1-oHE" firstAttribute="top" secondItem="XeT-qJ-CFE" secondAttribute="bottom" id="nYc-V3-Ab5"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -331,7 +338,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all" translatesAutoresizingMaskIntoConstraints="NO" id="Hfo-IQ-buQ">
-                                                    <rect key="frame" x="1" y="2" width="101" height="103"/>
+                                                    <rect key="frame" x="1" y="2" width="101.00000000000003" height="103.00000000000003"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Lbk-fQ-wvG" customClass="Label" customModule="PushNote" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="104" width="103" height="23"/>
@@ -435,7 +442,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51W-uf-bvm">
-                                                    <rect key="frame" x="71" y="16" width="79.5" height="20"/>
+                                                    <rect key="frame" x="71" y="16" width="98" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="Hnk-9f-sc5"/>
                                                         <constraint firstAttribute="width" constant="200" id="dY7-xx-cJu"/>
@@ -451,7 +458,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfE-cH-Ka8">
-                                                    <rect key="frame" x="71" y="36" width="79.5" height="26.5"/>
+                                                    <rect key="frame" x="71" y="36" width="98" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -473,7 +480,7 @@
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" tag="1004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockIcn" translatesAutoresizingMaskIntoConstraints="NO" id="fWs-2S-XBP">
-                                                    <rect key="frame" x="155.5" y="12" width="38" height="48"/>
+                                                    <rect key="frame" x="174" y="23.999999999999996" width="19.5" height="24.500000000000004"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="fWs-2S-XBP" secondAttribute="height" multiplier="19:24" id="ByH-xa-HpR"/>
                                                         <constraint firstAttribute="width" secondItem="fWs-2S-XBP" secondAttribute="height" multiplier="19:24" id="YD0-Bw-qf2"/>
@@ -2354,7 +2361,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="privacy-policyIcn" translatesAutoresizingMaskIntoConstraints="NO" id="enF-cB-yH8">
-                                                    <rect key="frame" x="16" y="12" width="23" height="25"/>
+                                                    <rect key="frame" x="16" y="12" width="23.000000000000007" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="enF-cB-yH8" secondAttribute="height" multiplier="31:26" constant="-7" id="Cqa-1a-0A0"/>
                                                     </constraints>
@@ -4839,6 +4846,7 @@
     </scenes>
     <resources>
         <image name="Icon-40" width="80" height="80"/>
+        <image name="LoginBackground" width="375.66665649414062" height="812.33331298828125"/>
         <image name="addBtn" width="35" height="35"/>
         <image name="addIcn" width="44.5" height="46"/>
         <image name="all" width="103" height="103"/>

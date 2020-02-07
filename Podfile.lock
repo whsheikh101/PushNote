@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.0)
+  - Alamofire (4.9.1)
   - CardIO (5.4.1)
   - PayPal-iOS-SDK (2.18.1):
     - PayPal-iOS-SDK/CardIO (= 2.18.1)
@@ -22,11 +22,10 @@ DEPENDENCIES:
   - TPKeyboardAvoiding
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - CardIO
     - PayPal-iOS-SDK
-  trunk:
     - SVProgressHUD
     - TextFieldEffects
     - TPKeyboardAvoiding
@@ -42,7 +41,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/jpotts18/SwiftValidator.git
 
 SPEC CHECKSUMS:
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   PayPal-iOS-SDK: 10654cd111e911a9807bddb96fae81aacb8e9915
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1

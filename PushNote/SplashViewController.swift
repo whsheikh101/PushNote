@@ -9,22 +9,19 @@
 import UIKit
 
 class SplashViewController: BaseViewController {
-    var homeViewController: HomeViewController!
-   
     
+    var homeViewController: HomeViewController!
     var is1st: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("HERE AGAIN")
-        Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(SplashViewController.startLogin), userInfo: nil, repeats: false)
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    override func viewDidAppear(_ animated: Bool) {
         
+        Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(SplashViewController.startLogin), userInfo: nil, repeats: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("HERE")
-        print(self.is1st)
+        
         if self.is1st {
             Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(SplashViewController.startLogin), userInfo: nil, repeats: false)
             self.is1st = false
@@ -39,10 +36,6 @@ class SplashViewController: BaseViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     @objc func startLogin() {
         
         let defaults = UserDefaults.standard;

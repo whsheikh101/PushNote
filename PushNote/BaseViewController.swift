@@ -33,36 +33,28 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         let shadow = NSShadow()
         shadow.shadowColor = UIColor.lightGray
         shadow.shadowOffset = CGSize(width: 0, height: 1)
         
         var size:CGFloat = 16.0
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad){
-            
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
             size = size * IPAD_SCALING_FACTOR
         }
-        let font:UIFont = UIFont(name:"HelveticaNeue" , size: size)!
         
+        let font:UIFont = UIFont(name:"HelveticaNeue" , size: size)!
         let titleDict: NSDictionary = [NSAttributedString.Key.foregroundColor: UIColor.white,NSAttributedString.Key.shadow:shadow,NSAttributedString.Key.font:font]
         
-        UINavigationBar.appearance().titleTextAttributes = titleDict as? [NSAttributedString.Key : Any]
+//        UINavigationBar.appearance().titleTextAttributes = titleDict as? [NSAttributedString.Key : Any]
         
-        UINavigationBar.appearance().tintColor = UIColor(red:31.0/255.0 , green: 39.0/255.0, blue: 125.0/255.0, alpha: 1.0)
+      //  UINavigationBar.appearance().tintColor = UIColor(red:31.0/255.0 , green: 39.0/255.0, blue: 125.0/255.0, alpha: 1.0)
       //  UINavigationBar.appearance().setBackgroundImage(UIImage(named: IMG_BAR), forBarMetrics: UIBarMetrics.Default)
         
-        UINavigationBar.appearance().tintColor = UIColor.white
-        /*
-        var config = SwiftLoader.Config()
-        config.size = 120
-        config.spinnerColor = .white
-        config.foregroundColor = .black
-        config.titleTextColor = .white
-        config.foregroundAlpha = 0.5
-        config.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
-        SwiftLoader.setConfig(config: config)
-        */
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
+ 
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 31.0/255.0, green: 39.0/255.0, blue: 125.0/255.0, alpha: 1.0)], for:UIControl.State())
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 242/255.0, green: 70.0/255.0, blue: 33.0/255.0, alpha: 1.0)], for:.selected)
@@ -83,27 +75,6 @@ class BaseViewController: UIViewController {
     @objc func actionBackNav() {
         print("HERE")
         self.navigationController?.popViewController(animated: true)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    @IBAction func backBtnPressed (_ sender: AnyObject) {
-         print("HERE1")
-        if (self.navigationController != nil) {
-            /*
-            if self.navigationController?.viewControllers.count == 3 {
-                if self.navigationController?.viewControllers[1].isKindOfClass(AddPhoneViewController) == true {
-                    self.navigationController?.popToRootViewControllerAnimated(true)
-                }
-            }
-*/
-         //   self.navigationController?.popViewControllerAnimated(true);
-        }
-        else {
-           // self.dismissViewControllerAnimated(true, completion: nil);
-        }
     }
     
     func isReachable() -> Bool {

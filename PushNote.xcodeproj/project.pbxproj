@@ -71,7 +71,6 @@
 		49B3508B1C9EC8220081026C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B3508A1C9EC8220081026C /* MessageUI.framework */; };
 		49B3508D1C9EC8370081026C /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B3508C1C9EC8370081026C /* SafariServices.framework */; };
 		49B3508F1C9EC8450081026C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B3508E1C9EC8450081026C /* CoreMedia.framework */; };
-		49CCCCDF1C9937DD00C45340 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49CCCCDC1C9937DD00C45340 /* Info.plist */; };
 		49CCCCE01C9937DD00C45340 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CCCCDE1C9937DD00C45340 /* Reachability.swift */; };
 		49CCCCE51C994C6100C45340 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CCCCE41C994C6100C45340 /* MKMapViewExtension.swift */; };
 		49CCCCE71C994C6C00C45340 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CCCCE61C994C6C00C45340 /* Service.swift */; };
@@ -148,9 +147,11 @@
 		83EE75C71C95DE7000A616D2 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75C61C95DE7000A616D2 /* TextView.swift */; };
 		83EE75C91C95DEE900A616D2 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75C81C95DEE900A616D2 /* TermViewController.swift */; };
 		83EE75CB1C95DEF400A616D2 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */; };
+		ABB9837E1933853CC0D8F01D /* Pods_PushNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD314850CBC806E2DBCCA5B /* Pods_PushNote.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FD314850CBC806E2DBCCA5B /* Pods_PushNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49075E0F1CAEF3C30034FD7B /* CustomCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		49075E111CAF03CD0034FD7B /* 1-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-1.png"; sourceTree = "<group>"; };
 		49075E131CAF03F40034FD7B /* 2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-1.png"; sourceTree = "<group>"; };
@@ -233,7 +234,6 @@
 		49B3508A1C9EC8220081026C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		49B3508C1C9EC8370081026C /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		49B3508E1C9EC8450081026C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		49CCCCDC1C9937DD00C45340 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49CCCCDD1C9937DD00C45340 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		49CCCCDE1C9937DD00C45340 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		49CCCCE41C994C6100C45340 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
@@ -299,7 +299,6 @@
 		838AB90A1C7E3A74008EFD80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		838AB90C1C7E3A74008EFD80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		838AB90F1C7E3A74008EFD80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		838AB9111C7E3A74008EFD80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		838AB9171C7E474E008EFD80 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ../BaseViewController.swift; sourceTree = "<group>"; };
 		83A351381C81ADB00070BEBD /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		83A3513A1C8236230070BEBD /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +316,9 @@
 		83EE75C61C95DE7000A616D2 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		83EE75C81C95DEE900A616D2 /* TermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
 		83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		CAEA0C82B6B07F6E5701DEC8 /* Pods-PushNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.debug.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.debug.xcconfig"; sourceTree = "<group>"; };
+		DA76ADDF23EB52AB00D67869 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDEE849899A42FD34B687F14 /* Pods-PushNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.release.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +351,7 @@
 				49B350891C9EC8140081026C /* MobileCoreServices.framework in Frameworks */,
 				49CCCD0C1C994F5E00C45340 /* Accounts.framework in Frameworks */,
 				49CCCCEB1C994CA800C45340 /* CoreFoundation.framework in Frameworks */,
+				ABB9837E1933853CC0D8F01D /* Pods_PushNote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +435,6 @@
 		49CCCCDB1C9937DD00C45340 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
-				49CCCCDC1C9937DD00C45340 /* Info.plist */,
 				49CCCCDD1C9937DD00C45340 /* Reachability.h */,
 				49CCCCDE1C9937DD00C45340 /* Reachability.swift */,
 			);
@@ -573,6 +575,15 @@
 			name = UItableViewCell;
 			sourceTree = "<group>";
 		};
+		7A944545EC9F2E7E172F911A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CAEA0C82B6B07F6E5701DEC8 /* Pods-PushNote.debug.xcconfig */,
+				DDEE849899A42FD34B687F14 /* Pods-PushNote.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8344984A1C833DCB00344ED5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,6 +638,7 @@
 				838AB9041C7E3A74008EFD80 /* PushNote */,
 				838AB9031C7E3A74008EFD80 /* Products */,
 				F20B6691295E11BF54172C82 /* Frameworks */,
+				7A944545EC9F2E7E172F911A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -653,13 +665,12 @@
 				838AB9191C7E4765008EFD80 /* ViewControllers */,
 				838AB9051C7E3A74008EFD80 /* AppDelegate.swift */,
 				838AB9091C7E3A74008EFD80 /* Main.storyboard */,
-				49FFE5A51CA7F14200CDC5F6 /* ResetPasswordViewController.swift */,
 				838AB90C1C7E3A74008EFD80 /* Assets.xcassets */,
 				834498591C83803F00344ED5 /* sampleImg.png */,
 				832ECE231C88DDFA002DB79B /* imageSample.png */,
 				838AB90E1C7E3A74008EFD80 /* LaunchScreen.storyboard */,
-				838AB9111C7E3A74008EFD80 /* Info.plist */,
 				83B6F3C31C80E2F8000E2657 /* PushNote-Bridging-Header.h */,
+				DA76ADDF23EB52AB00D67869 /* Info.plist */,
 			);
 			path = PushNote;
 			sourceTree = "<group>";
@@ -667,6 +678,7 @@
 		838AB9191C7E4765008EFD80 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				49FFE5A51CA7F14200CDC5F6 /* ResetPasswordViewController.swift */,
 				49B254BB1CB4641C00FFB9E4 /* MapViewController.swift */,
 				49FFE5B81CA8384F00CDC5F6 /* ShareFriendsViewController.swift */,
 				49FFE5B91CA8384F00CDC5F6 /* ShareViewController.swift */,
@@ -771,6 +783,7 @@
 				49CCCCEE1C994CC000C45340 /* AudioToolbox.framework */,
 				49CCCCEC1C994CB400C45340 /* AVFoundation.framework */,
 				49CCCCEA1C994CA800C45340 /* CoreFoundation.framework */,
+				2FD314850CBC806E2DBCCA5B /* Pods_PushNote.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -782,9 +795,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 838AB9141C7E3A74008EFD80 /* Build configuration list for PBXNativeTarget "PushNote" */;
 			buildPhases = (
+				26D7BEF766F276CC84AA1B8F /* [CP] Check Pods Manifest.lock */,
 				838AB8FE1C7E3A74008EFD80 /* Sources */,
 				838AB8FF1C7E3A74008EFD80 /* Frameworks */,
 				838AB9001C7E3A74008EFD80 /* Resources */,
+				15113B57136BE21DE859F4CF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -849,7 +864,6 @@
 				4977C73F1CA2B588009F0D6C /* open-house.caf in Resources */,
 				4977C7401CA2B588009F0D6C /* party_time.caf in Resources */,
 				49FA66D31CA052CD003C868D /* about.html in Resources */,
-				49CCCCDF1C9937DD00C45340 /* Info.plist in Resources */,
 				4977C7491CA2B588009F0D6C /* yummy.caf in Resources */,
 				49CCCD041C994E9A00C45340 /* README in Resources */,
 				49075E1B1CAF04750034FD7B /* 5-2.png in Resources */,
@@ -889,6 +903,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15113B57136BE21DE859F4CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PushNote/Pods-PushNote-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PushNote/Pods-PushNote-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26D7BEF766F276CC84AA1B8F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PushNote-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		838AB8FE1C7E3A74008EFD80 /* Sources */ = {
@@ -1090,6 +1155,7 @@
 		};
 		838AB9151C7E3A74008EFD80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAEA0C82B6B07F6E5701DEC8 /* Pods-PushNote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1142,6 +1208,7 @@
 		};
 		838AB9161C7E3A74008EFD80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDEE849899A42FD34B687F14 /* Pods-PushNote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
