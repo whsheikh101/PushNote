@@ -7,11 +7,10 @@
 //
 
 
-let IPAD_SCALING_FACTOR:CGFloat = 1.5
+let IPAD_SCALING_FACTOR: CGFloat = 1.5
 
 
-struct ScreenSize
-{
+struct ScreenSize {
     static let SCREEN_WIDTH         = UIScreen.main.bounds.size.width
     static let SCREEN_HEIGHT        = UIScreen.main.bounds.size.height
     static let SCREEN_MAX_LENGTH    = max(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
