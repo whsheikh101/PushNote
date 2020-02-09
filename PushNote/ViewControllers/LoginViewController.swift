@@ -14,10 +14,15 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var textFieldUsername: TextField?
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        title = "Login"
         
+        // configure view
+        configureView()
+    }
+    
+    private func configureView() {
+        
+        title = "Login"
         let defaults = UserDefaults.standard
         if defaults.object(forKey: "userData") != nil {
             let tabController = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_TAB)

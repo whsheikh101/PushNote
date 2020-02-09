@@ -148,6 +148,7 @@
 		83EE75C91C95DEE900A616D2 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75C81C95DEE900A616D2 /* TermViewController.swift */; };
 		83EE75CB1C95DEF400A616D2 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */; };
 		ABB9837E1933853CC0D8F01D /* Pods_PushNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD314850CBC806E2DBCCA5B /* Pods_PushNote.framework */; };
+		DA76ADE323F078F800D67869 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -318,6 +319,7 @@
 		83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		CAEA0C82B6B07F6E5701DEC8 /* Pods-PushNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.debug.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.debug.xcconfig"; sourceTree = "<group>"; };
 		DA76ADDF23EB52AB00D67869 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		DDEE849899A42FD34B687F14 /* Pods-PushNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.release.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -657,6 +659,7 @@
 				49FFE62F1CA8428200CDC5F6 /* PushNote.xcdatamodel */,
 				49FFE62C1CA8410900CDC5F6 /* MapPoint.h */,
 				49FFE62D1CA8410900CDC5F6 /* MapPoint.m */,
+				DA76ADE123F078D900D67869 /* Extensions */,
 				4977C7251CA2B588009F0D6C /* AudioSounds */,
 				49FA66DE1CA07A50003C868D /* slices */,
 				49FA66D11CA052B9003C868D /* Supporting Files */,
@@ -755,6 +758,14 @@
 				49CE21801D2665CF0073E3CC /* MP3Player.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DA76ADE123F078D900D67869 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F20B6691295E11BF54172C82 /* Frameworks */ = {
@@ -973,6 +984,7 @@
 				497F42F41C9C5FF600A3F434 /* UIView+WebCacheOperation.m in Sources */,
 				49CCCCE71C994C6C00C45340 /* Service.swift in Sources */,
 				497F42EB1C9C5FF600A3F434 /* SDWebImageDownloaderOperation.m in Sources */,
+				DA76ADE323F078F800D67869 /* UITextFieldExtensions.swift in Sources */,
 				497360D91C9F41ED006CC030 /* AlertViewWithCallbackMock.swift in Sources */,
 				49CCCCE91C994C7B00C45340 /* Location.swift in Sources */,
 				49FFE62E1CA8410900CDC5F6 /* MapPoint.m in Sources */,
