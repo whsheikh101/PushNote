@@ -15,7 +15,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     var refreshControl:UIRefreshControl = UIRefreshControl()
     @IBOutlet weak var collectionViewData: UICollectionView!
     var arrNotifications: Array<NSDictionary>! = []
-   // var arrNotifications: NSMutableArray! = []
+    // var arrNotifications: NSMutableArray! = []
     var isRefreshing            : Bool = false
     var notificationId          : Int = 0 ;
     var topMenuBtn              : String = ""
@@ -37,66 +37,51 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         collectionViewData.backgroundColor = UIColor.white
         collectionViewData.addSubview(refreshControl)
         self.collectionViewData.alwaysBounceVertical = true
-        if DeviceType.IS_IPAD{
-            lblPushCount = UILabel(frame: CGRect(x: 130, y: 0, width: 22, height: 22))
+        
+        if DeviceType.IS_IPAD {
+            labelPushNotificationCount = UILabel(frame: CGRect(x: 130, y: 0, width: 22, height: 22))
             
-        }else{
-            lblPushCount = UILabel(frame: CGRect(x: 40, y: 0, width: 22, height: 22))
-
+        } else {
+            
+            labelPushNotificationCount = UILabel(frame: CGRect(x: 40, y: 0, width: 22, height: 22))
         }
-        lblPushCount.layer.borderColor = UIColor.red.cgColor
-        lblPushCount.layer.borderWidth = 2
-        lblPushCount.layer.cornerRadius = lblPushCount.bounds.size.height/2
-        lblPushCount.textAlignment = NSTextAlignment.center
-        lblPushCount.layer.masksToBounds = true
-        lblPushCount.font = UIFont(name: "Arial", size: 12)
-        lblPushCount.textColor = UIColor.white
-        lblPushCount.backgroundColor = UIColor.red
-        lblPushCount.text = "0"  //if you no need remove this
-       
-        lblPushCount.tag = 999;
-       //self.tabBarController?.tabBar.items.ind
-       // self.tabBarController!.tabBarItem.badgeValue = "0"
+        labelPushNotificationCount?.layer.borderColor = UIColor.red.cgColor
+        labelPushNotificationCount?.layer.borderWidth = 2
+        labelPushNotificationCount?.layer.cornerRadius = (labelPushNotificationCount?.bounds.size.height ?? 0)/2
+        labelPushNotificationCount?.textAlignment = NSTextAlignment.center
+        labelPushNotificationCount?.layer.masksToBounds = true
+        labelPushNotificationCount?.font = UIFont(name: "Arial", size: 12)
+        labelPushNotificationCount?.textColor = UIColor.white
+        labelPushNotificationCount?.backgroundColor = UIColor.red
+        labelPushNotificationCount?.text = "0"
+        labelPushNotificationCount?.tag = 999
         
-        //self.tabBarController!.tabBar.addSubview(lblPushCount)
-       
+        // register push notification
         registerPushNotification()
-        
-        
-        // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-       // if ( arrNotifications.count == 0){
+        super.viewDidAppear(animated)
         
         let btnRight: UIButton! = UIButton(type: UIButton.ButtonType.custom)
-            
-        //let imgRight: UIImage! = UIImage(named: "notifiedit.png")
-        // btnRight.setImage(imgRight, forState: UIControlState.Normal)
-            
         btnRight.setTitle("Edit", for: UIControl.State())
         btnRight.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
         btnRight.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
         btnRight.addTarget(self, action: #selector(HomeViewController.btnEditAction(_:)), for: UIControl.Event.touchUpInside)
         
-        
         let barBtnRight: UIBarButtonItem = UIBarButtonItem(customView: btnRight)
         self.navigationItem.rightBarButtonItem = barBtnRight
         self.navigationItem.leftBarButtonItem = nil
-        self.page = 1;
+        self.page = 1
         self.arrNotifications = []
         self.topMenuBtn = ""
-          
+        
         selectedNotifications = []
         
-            setNotificationCount();
+        setNotificationCount();
         
-            getNotifications()
+        getNotifications()
         self.tabBarController!.tabBar.isHidden = false
-        
-        //}
-       
     }
-    
     
     @objc func reloadNotifications(){
         
@@ -125,11 +110,11 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     func setTabbar() {
         
         self.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "homeTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "home-activeTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal))
-       
-       // self.tabBarItem.image = UIImage(named: "homeTab");self.tabBarItem.selectedImage = UIImage(named: "home-activeTab")
-
+        
+        // self.tabBarItem.image = UIImage(named: "homeTab");self.tabBarItem.selectedImage = UIImage(named: "home-activeTab")
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -158,14 +143,14 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         }
         else if(DeviceType.IS_IPHONE_6P){
             
-             height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:cell.lblDesc.text! )
+            height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:cell.lblDesc.text! )
         }
         else if(DeviceType.IS_IPHONE_6){
-             height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:cell.lblDesc.text! )
+            height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:cell.lblDesc.text! )
         }
             
         else{
-             height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0*IPAD_SCALING_FACTOR), text:cell.lblDesc.text! )
+            height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0*IPAD_SCALING_FACTOR), text:cell.lblDesc.text! )
         }
         
         var frame = cell.lblDesc.frame
@@ -176,16 +161,16 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         let txt: String = self.arrNotifications[indexPath.row]["title"] as! String
         
         cell.lblTitle.text = txt.replacingOccurrences(of: "\n", with: "")
-       
+        
         
         if let t = self.arrNotifications[indexPath.row]["image"] as? String{
             let defaultImg = UIImage(named: "pushIcn2")
             
             let imageUrl = URL(string: t)
             cell.imgViewC.sd_setImage(with: imageUrl, placeholderImage: defaultImg)
-           
+            
         }
-       
+        
         if(self.arrNotifications[indexPath.row]["status"] as! String == "0" ){
             cell.imgViewDot.isHighlighted = true
         }else{
@@ -195,14 +180,14 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         if (selectedNotifications.contains((Int((self.arrNotifications[indexPath.row]["id"] as? String)!)!))){
             cell.selectUnSelectButton.isSelected = true;
         }else{
-             cell.selectUnSelectButton.isSelected = false;
+            cell.selectUnSelectButton.isSelected = false;
         }
         if self.topMenuBtn == ""{
             cell.selectUnSelectButton.isHidden = true
         }else{
             cell.selectUnSelectButton.isHidden = false
         }
-   
+        
         
         return cell
     }
@@ -212,7 +197,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         
-         
+        
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeCollectionViewCell
         
@@ -221,7 +206,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         let newArr1 = newArr.mutableCopy() as! NSDictionary
         newArr1.setValue("0", forKey: "status")
         self.arrNotifications[indexPath.row] = newArr1
-       // print( self.arrNotifications[indexPath.row])
+        // print( self.arrNotifications[indexPath.row])
         collectionView.reloadData()
         //self.arrNotifications[indexPath.row].setValue("1", forKey: "status")
         let dic: NSDictionary = self.arrNotifications[indexPath.row]
@@ -231,23 +216,23 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             if (selectedNotifications.contains(self.notificationId)){
                 self.selectedNotifications.remove(notificationId)
             }else{
-               self.selectedNotifications.add(notificationId)
+                self.selectedNotifications.add(notificationId)
             }
             
-           
+            
             self.collectionViewData.reloadData()
         }else{
-        
-        //if(!_tableView.editing){
+            
+            //if(!_tableView.editing){
             //tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-         
-      //  cell.imgViewDot.highlighted = true
+            
+            
+            //  cell.imgViewDot.highlighted = true
             
             if let sndId = dic["senderId"] as? String{
                 self.senderId = Int(sndId)!
             }
-        
+            
             if(dic["notification_type"] as! String == "Location"){
                 let mapController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
                 mapController.lat_long = dic["url"] as? String
@@ -261,7 +246,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                 alert.show()
                 
                 self.saveAnalytics("", objectID: dic.value(forKey: "objectId") as! String , merchantID: dic.value(forKey: "subAdminId") as! String,notificationType: dic["notification_type"] as! String)
-              
+                
             }
             else if(dic["notification_type"] as! String == "Weather"){
                 let alert:UIAlertView = UIAlertView(title: "Weather", message: dic["url"] as? String, delegate: nil, cancelButtonTitle: "OK")
@@ -270,7 +255,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                 
                 self.saveAnalytics("", objectID: dic.value(forKey: "objectId") as! String , merchantID: dic.value(forKey: "subAdminId") as! String,notificationType: dic["notification_type"] as! String)
                 
-            
+                
             }else if(dic["notification_type"] as! String == "local" &&  dic["url"] as? String == ""){
                 self.alert(dic["message"] as! String)
                 self.saveAnalytics("", objectID: dic.value(forKey: "objectId") as! String , merchantID: dic.value(forKey: "subAdminId") as! String,notificationType: dic["notification_type"] as! String)
@@ -279,11 +264,11 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                 //dic["notification_type"] as! String == "local" &&
                 if(dic["message"] as! String != "" ){
                     
-                     //self.saveAnalytics("", objectID: dic.value(forKey: "objectId") as! String , merchantID: dic.value(forKey: "subAdminId") as! String,notificationType: dic["notification_type"] as! String)
+                    //self.saveAnalytics("", objectID: dic.value(forKey: "objectId") as! String , merchantID: dic.value(forKey: "subAdminId") as! String,notificationType: dic["notification_type"] as! String)
                     
                     let alert = UIAlertController(title: "Pushnote", message:dic["message"] as? String, preferredStyle: .alert)
                     let action = UIAlertAction(title: "Cancel", style: .default) { _ in
-
+                        
                     }
                     let action1 = UIAlertAction(title: "Go To Link", style: .default) { _ in
                         let webController = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_DETAILS) as! WebViewController
@@ -299,18 +284,18 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                         webController.senderId              = self.senderId
                         
                         if let pD = dic["productData"] as? NSDictionary {
-                           webController.productData           = pD
+                            webController.productData           = pD
                         }
-                       
-            self.navigationController?.pushViewController(webController, animated: true)
-            self.tabBarController!.tabBar.isHidden = true
+                        
+                        self.navigationController?.pushViewController(webController, animated: true)
+                        self.tabBarController!.tabBar.isHidden = true
                     }
                     alert.addAction(action)
                     alert.addAction(action1)
                     self.present(alert, animated: true){}
                     return
                 }
-               
+                
                 let webController = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_DETAILS) as! WebViewController
                 webController.link                  = dic["url"]            as? String
                 webController.titleWeb              = dic["title"]          as? String
@@ -325,20 +310,20 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                     webController.productData           = pD
                 }
                 
-               
+                
                 self.navigationController?.pushViewController(webController, animated: true)
                 self.tabBarController!.tabBar.isHidden = true
-               
+                
             }
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-       
+        
         let text = self.arrNotifications[indexPath.row]["txt"] as! String
         
-       
+        
         
         
         if(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS){
@@ -355,7 +340,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         
         if(DeviceType.IS_IPHONE_6){
             let height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:text )
-
+            
             return CGSize(width: 180.0 , height: 90.0+height)
         }
         else if DeviceType.IS_IPHONE_X{
@@ -371,7 +356,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             return CGSize(width: 375.0 , height:90.0+height)
         }
         
-    
+        
     }
     
     func requiredHeight(_ width:CGFloat,font:UIFont,text:String) -> CGFloat{
@@ -401,7 +386,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         if !self.isReachable() {
             return
         }
-
+        
         if(self.serverFlag == 1){
             return
         }
@@ -412,13 +397,13 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             self.showActivityIndicator()
         }
         self.isRefreshing = false
-       
+        
         let params : Parameters = ["userId" : userId,"page":String(self.page)];
-       
+        
         
         Alamofire.request( baseUrl + "updateNotificationStatus", parameters:params)
             .responseJSON { response in
-        
+                
                 self.serverFlag = 0
                 if let jsonResponse = response.result.value  as? NSDictionary{
                     
@@ -428,7 +413,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                         let newData  = jsonResponse["data"] as! Array<NSDictionary>
                         
                         if(self.page == 1){
-                           
+                            
                             self.arrNotifications = []
                             self.arrNotifications = newData
                             
@@ -437,23 +422,23 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                             var startIndex : Int = self.arrNotifications.count + 1;
                             
                             for newD in newData{
-                               // let indx : String = String(startIndex)
+                                // let indx : String = String(startIndex)
                                 self.arrNotifications.append(newD)
                                 //self.arrNotifications.setObject(newD.value, forKey: indx)
                                 startIndex = startIndex + 1
                             }
                         }
                         self.page = self.page + 1
-                       
+                        
                         self.collectionViewData.reloadData()
-                       
+                        
                     }
                     else {
-                      
+                        
                         self.alert((jsonResponse["msg"] as? String)!)
                     }
                 }
-               
+                
                 self.hideActivityIndicator()
                 self.refreshControl.endRefreshing()
         }
@@ -467,7 +452,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             return
         }
         let strNotificationId = String(self.notificationId);
-       
+        
         let params :  Parameters = [
             "userId"        :   userId,
             "link"          :   lnk,
@@ -520,7 +505,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                                 self.arrNotifications.remove(at: indexPath as! Int)
                             }
                         }
-                       
+                        
                     }
                     else {
                         self.alert(jsonResponse["msg"] as! String)
@@ -544,22 +529,22 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                         
                         if type == "single" {
                             self.arrNotifications.remove(at: index)
-                           
+                            
                         }
                         else {
                             //self.arrNotifications.removeAllObjects()
-                           self.arrNotifications.removeAll(keepingCapacity: false)
+                            self.arrNotifications.removeAll(keepingCapacity: false)
                             self.collectionViewData.reloadData()
                         }
                     }
                     else {
-                       self.alert(jsonResponse["msg"] as! String)
+                        self.alert(jsonResponse["msg"] as! String)
                     }
                     
                 }
         }
     }
-    func updateCollectionView(){
+    func updateCollectionView() {
         
         if(self.topMenuBtn == "Edit"){
             self.navigationItem.rightBarButtonItem = nil;
@@ -588,7 +573,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             let barBtnleft: UIBarButtonItem = UIBarButtonItem(customView: btnleft)
             let barBtnleft1: UIBarButtonItem = UIBarButtonItem(customView: btnleft1)
             self.navigationItem.leftBarButtonItems = [barBtnleft,barBtnleft1]
-           // self.navigationItem.leftBarButtonItem =
+            // self.navigationItem.leftBarButtonItem =
         }
         else{
             self.navigationItem.rightBarButtonItem = nil;
@@ -617,7 +602,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             let barBtnleft1: UIBarButtonItem = UIBarButtonItem(customView: btnleft1)
             self.navigationItem.leftBarButtonItems = [barBtnleft,barBtnleft1]
             
-           
+            
         }
         self.collectionViewData.reloadData()
     }
@@ -625,7 +610,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         self.topMenuBtn = "Done"
         selectedNotifications = []
         for  arrNot in self.arrNotifications{
-          selectedNotifications.add(Int((arrNot["id"] as? String)!))
+            selectedNotifications.add(Int((arrNot["id"] as? String)!))
         }
         self.collectionViewData.reloadData()
         self.updateCollectionView()
@@ -676,7 +661,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             for i in 0 ..< totalNotif {
                 let ind = selectedNotifications.index(of: self.arrNotifications[i]["id"] as! String)
                 if(ind < totalNotif){
-                   indexArr.add(i)
+                    indexArr.add(i)
                 }
             }
             let selectedIDs:String = selectedNotifications!.componentsJoined(by: ",")
@@ -685,8 +670,8 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         }
     }
     @IBAction func selectNotification(_ sender: UIButton) {
-       
-       let notificationData : NSDictionary = arrNotifications[sender.tag] 
+        
+        let notificationData : NSDictionary = arrNotifications[sender.tag]
         
         let notificationId = notificationData["id"] as? String
         
@@ -699,10 +684,10 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             sender.isSelected = true
             selectedNotifications.add(notificationId!)
         }
-       // print(selectedNotifications)
+        // print(selectedNotifications)
         
         
-       // self.arrNotifications[sender.tag] = notificationData
+        // self.arrNotifications[sender.tag] = notificationData
         
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -718,14 +703,14 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         }
         
     }
-
+    
     func firstTimePush(){
         
         let defaults = UserDefaults.standard;
         let userData = defaults.value(forKey: "userData") as! NSDictionary
         
         
-        if(userData.value(forKey: "firstTime") as? Int == 1){
+        if(userData.value(forKey: "firstTime") as? Int == 1) {
             
             var audioPlayer = AVAudioPlayer()
             let soundPath: String = Bundle.main.path(forResource: "hello-2.caf", ofType: "")!
@@ -745,16 +730,5 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             defaults.synchronize()
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
