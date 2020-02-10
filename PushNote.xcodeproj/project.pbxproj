@@ -681,6 +681,7 @@
 		838AB9191C7E4765008EFD80 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				83B6F3BD1C80BD80000E2657 /* LoginAndSignup */,
 				49FFE5A51CA7F14200CDC5F6 /* ResetPasswordViewController.swift */,
 				49B254BB1CB4641C00FFB9E4 /* MapViewController.swift */,
 				49FFE5B81CA8384F00CDC5F6 /* ShareFriendsViewController.swift */,
@@ -698,7 +699,6 @@
 				8344984A1C833DCB00344ED5 /* Home */,
 				838AB9171C7E474E008EFD80 /* BaseViewController.swift */,
 				838AB9071C7E3A74008EFD80 /* SplashViewController.swift */,
-				83B6F3BD1C80BD80000E2657 /* LoginAndSignup */,
 				495E5B7E1C9B126200DE9DA4 /* ViewController.swift */,
 				495E5B801C9B17ED00DE9DA4 /* WebViewController.swift */,
 			);

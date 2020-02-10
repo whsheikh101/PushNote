@@ -99,6 +99,7 @@ class BaseViewController: UIViewController {
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         return (isReachable && !needsConnection)
     }
+    
     func showActivityIndicator() {
         SVProgressHUD.show(with: SVProgressHUDMaskType.black)
     }
