@@ -10,8 +10,8 @@ import UIKit
 import Alamofire
 class LoginViewController: BaseViewController {
     
-    @IBOutlet weak var textFieldPassword: TextField?
-    @IBOutlet weak var textFieldUsername: TextField?
+    @IBOutlet weak var textFieldPassword: UITextField?
+    @IBOutlet weak var textFieldUsername: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()

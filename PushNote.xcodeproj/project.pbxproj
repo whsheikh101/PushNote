@@ -117,6 +117,7 @@
 		49FFE62B1CA83D2800CDC5F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FFE62A1CA83D2800CDC5F6 /* Foundation.framework */; };
 		49FFE62E1CA8410900CDC5F6 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FFE62D1CA8410900CDC5F6 /* MapPoint.m */; };
 		49FFE6301CA8428200CDC5F6 /* PushNote.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 49FFE62F1CA8428200CDC5F6 /* PushNote.xcdatamodel */; };
+		6D03374CC670B9272EE29BC8 /* Pods_PushNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F2EEB2883E0D6AB8141D89 /* Pods_PushNote.framework */; };
 		8300312E1C8611FA00A738EB /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8300312D1C8611FA00A738EB /* HomeCollectionViewCell.swift */; };
 		830035491C8D8DCB0097A830 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830035481C8D8DCB0097A830 /* NotificationsViewController.swift */; };
 		832ECE241C88DDFA002DB79B /* imageSample.png in Resources */ = {isa = PBXBuildFile; fileRef = 832ECE231C88DDFA002DB79B /* imageSample.png */; };
@@ -147,12 +148,11 @@
 		83EE75C71C95DE7000A616D2 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75C61C95DE7000A616D2 /* TextView.swift */; };
 		83EE75C91C95DEE900A616D2 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75C81C95DEE900A616D2 /* TermViewController.swift */; };
 		83EE75CB1C95DEF400A616D2 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */; };
-		ABB9837E1933853CC0D8F01D /* Pods_PushNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD314850CBC806E2DBCCA5B /* Pods_PushNote.framework */; };
 		DA76ADE323F078F800D67869 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2FD314850CBC806E2DBCCA5B /* Pods_PushNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27D704127577F8ECBA652774 /* Pods-PushNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.release.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.release.xcconfig"; sourceTree = "<group>"; };
 		49075E0F1CAEF3C30034FD7B /* CustomCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		49075E111CAF03CD0034FD7B /* 1-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-1.png"; sourceTree = "<group>"; };
 		49075E131CAF03F40034FD7B /* 2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-1.png"; sourceTree = "<group>"; };
@@ -284,6 +284,7 @@
 		49FFE62C1CA8410900CDC5F6 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
 		49FFE62D1CA8410900CDC5F6 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
 		49FFE62F1CA8428200CDC5F6 /* PushNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PushNote.xcdatamodel; sourceTree = "<group>"; };
+		62F2EEB2883E0D6AB8141D89 /* Pods_PushNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8300312D1C8611FA00A738EB /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		830035481C8D8DCB0097A830 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		832ECE231C88DDFA002DB79B /* imageSample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageSample.png; sourceTree = "<group>"; };
@@ -317,10 +318,9 @@
 		83EE75C61C95DE7000A616D2 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		83EE75C81C95DEE900A616D2 /* TermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
 		83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
-		CAEA0C82B6B07F6E5701DEC8 /* Pods-PushNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.debug.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.debug.xcconfig"; sourceTree = "<group>"; };
+		A049E882613295B72F32A6BB /* Pods-PushNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.debug.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.debug.xcconfig"; sourceTree = "<group>"; };
 		DA76ADDF23EB52AB00D67869 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
-		DDEE849899A42FD34B687F14 /* Pods-PushNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.release.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,7 +353,7 @@
 				49B350891C9EC8140081026C /* MobileCoreServices.framework in Frameworks */,
 				49CCCD0C1C994F5E00C45340 /* Accounts.framework in Frameworks */,
 				49CCCCEB1C994CA800C45340 /* CoreFoundation.framework in Frameworks */,
-				ABB9837E1933853CC0D8F01D /* Pods_PushNote.framework in Frameworks */,
+				6D03374CC670B9272EE29BC8 /* Pods_PushNote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,8 +580,8 @@
 		7A944545EC9F2E7E172F911A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CAEA0C82B6B07F6E5701DEC8 /* Pods-PushNote.debug.xcconfig */,
-				DDEE849899A42FD34B687F14 /* Pods-PushNote.release.xcconfig */,
+				A049E882613295B72F32A6BB /* Pods-PushNote.debug.xcconfig */,
+				27D704127577F8ECBA652774 /* Pods-PushNote.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -794,7 +794,7 @@
 				49CCCCEE1C994CC000C45340 /* AudioToolbox.framework */,
 				49CCCCEC1C994CB400C45340 /* AVFoundation.framework */,
 				49CCCCEA1C994CA800C45340 /* CoreFoundation.framework */,
-				2FD314850CBC806E2DBCCA5B /* Pods_PushNote.framework */,
+				62F2EEB2883E0D6AB8141D89 /* Pods_PushNote.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -806,11 +806,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 838AB9141C7E3A74008EFD80 /* Build configuration list for PBXNativeTarget "PushNote" */;
 			buildPhases = (
-				26D7BEF766F276CC84AA1B8F /* [CP] Check Pods Manifest.lock */,
+				E504EA94BC513A42DF53D937 /* [CP] Check Pods Manifest.lock */,
 				838AB8FE1C7E3A74008EFD80 /* Sources */,
 				838AB8FF1C7E3A74008EFD80 /* Frameworks */,
 				838AB9001C7E3A74008EFD80 /* Resources */,
-				15113B57136BE21DE859F4CF /* [CP] Embed Pods Frameworks */,
+				7C67FDE36B2FB48006BE4563 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -916,7 +916,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		15113B57136BE21DE859F4CF /* [CP] Embed Pods Frameworks */ = {
+		7C67FDE36B2FB48006BE4563 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -942,7 +942,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PushNote/Pods-PushNote-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		26D7BEF766F276CC84AA1B8F /* [CP] Check Pods Manifest.lock */ = {
+		E504EA94BC513A42DF53D937 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1167,7 +1167,7 @@
 		};
 		838AB9151C7E3A74008EFD80 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CAEA0C82B6B07F6E5701DEC8 /* Pods-PushNote.debug.xcconfig */;
+			baseConfigurationReference = A049E882613295B72F32A6BB /* Pods-PushNote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1220,7 +1220,7 @@
 		};
 		838AB9161C7E3A74008EFD80 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDEE849899A42FD34B687F14 /* Pods-PushNote.release.xcconfig */;
+			baseConfigurationReference = 27D704127577F8ECBA652774 /* Pods-PushNote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -18,7 +18,7 @@ UITableViewDataSource{
         super.viewDidLoad()
 
         self.setTabbar()
-        self.navigationItem.title = "MORE"
+        self.navigationItem.title = "DASHBOARD"
         
         // Do any additional setup after loading the view.
     }
@@ -59,6 +59,8 @@ UITableViewDataSource{
         
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: "Cell")
@@ -91,6 +93,8 @@ UITableViewDataSource{
         
         
     }
+    
+    
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
@@ -301,4 +305,73 @@ UITableViewDataSource{
         }
         controller.dismiss(animated: true, completion: nil);
     }
+    
+    @IBAction func notification(_ sender: Any) {
+    }
+    
+    @IBAction func index(_ sender: Any) {
+    }
+    @IBAction func friends(_ sender: Any) {
+    }
+    @IBAction func profile(_ sender: Any) {
+    }
+    
+    @IBAction func deleteNumber(_ sender: Any) {
+        self.deleteNumberBtnPressed()
+    }
+    
+    @IBAction func blocked(_ sender: Any) {
+        
+        let unblockController = self.storyboard?.instantiateViewController(withIdentifier: "UnblockViewController") as? UnblockViewController
+        print("HERe")
+        self.navigationController?.pushViewController(unblockController!, animated: true)
+    }
+    
+    @IBAction func share(_ sender: Any) {
+        let shareContent: String = "Just got a Pushnote. Subscribe here https://itunes.apple.com/gb/app/push-note/id962393538?mt=8"
+        print(shareContent)
+        let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
+        // self.present(activityViewController, animated: true, completion: {})
+        if UIDevice.current.userInterfaceIdiom == .pad {
+               activityViewController.popoverPresentationController?.sourceView = self.view
+               //activityViewController.popoverPresentationController?.sourceRect = sender.frame
+        }
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func rate(_ sender: Any) {
+        
+        let urlStr: String = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=962393538&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
+        UIApplication.shared.openURL(URL(string: urlStr)!)
+    }
+    
+    @IBAction func feedback(_ sender: Any) {
+        
+        if (MFMailComposeViewController.canSendMail()) {
+                       let mailComposer = MFMailComposeViewController();
+                       mailComposer.mailComposeDelegate = self;
+                       mailComposer.setToRecipients(["feedback@ipushnote.com"]);
+                       mailComposer.setSubject("PushNote Feeback");
+                       //mailComposer.setMessageBody("", isHTML: false);
+                       self.present(mailComposer, animated: true, completion: nil);
+                   }
+    }
+    
+    @IBAction func weather(_ sender: Any) {
+        let weatherController = self.storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController
+                      
+                      self.navigationController?.pushViewController(weatherController!, animated: true)
+    }
+    
+    @IBAction func settings(_ sender: Any) {
+    }
+    @IBAction func logout(_ sender: Any) {
+        self.alertType = "Logout"
+        let alert  = UIAlertView(title: "", message: "Are you sure?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Logout")
+        alert.show();
+    }
+}
+
+extension MoreViewController{
+    
 }
