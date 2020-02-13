@@ -809,5 +809,20 @@ extension UIView {
             layer.shadowRadius = newValue
         }
     }
+    @IBInspectable
+    var circularView: Bool {
+        get{
+            return  self.circularView
+            }
+        set {
+            if newValue == true{
+                self.layer.cornerRadius = self.frame.height/2
+                self.layer.masksToBounds = true
+            } else{
+                self.layer.cornerRadius = 0
+                self.layer.masksToBounds = false
+            }
+        }
+    }
     
 }
