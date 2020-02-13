@@ -11,7 +11,7 @@ import Alamofire
 import CoreData
 import AVFoundation
 
-class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     var refreshControl:UIRefreshControl = UIRefreshControl()
     @IBOutlet weak var collectionViewData: UICollectionView!
     var arrNotifications: Array<NSDictionary>! = []
@@ -124,17 +124,34 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return self.arrNotifications.count
+        var separtorCell = self.arrNotifications.count/2
+        separtorCell += (self.arrNotifications.count % 2 == 1) ? 1 : 0
+        return self.arrNotifications.count + separtorCell
     }
     
     // make a cell for each cell index path
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeCollectionViewCell
+        var cellIdentifier = ""
+        let cellType = indexPath.row % 3
+        if cellType == 0{
+            cellIdentifier = "LeftCell"
+        } else if cellType == 1{
+            cellIdentifier = "CenterCell"
+             
+            return collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+            
+        } else{
+            cellIdentifier = "RightCell"
+        }
         
-        cell.lblDesc.text = self.arrNotifications[indexPath.row]["txt"] as? String
+        var arrayIndex = indexPath.row / 2
+        arrayIndex += (indexPath.row % 2 == 1 ) ? 1 : 0
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HomeCollectionViewCell
+        
+        cell.lblDesc.text = self.arrNotifications[arrayIndex]["txt"] as? String
         
         var height = cell.lblDesc.frame.size.height
         if(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS ){
@@ -157,13 +174,13 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         frame.size.height = height
         cell.lblDesc.frame = frame
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.lblTime.text = self.arrNotifications[indexPath.row]["timestamp"] as? String;
-        let txt: String = self.arrNotifications[indexPath.row]["title"] as! String
+        cell.lblTime.text = self.arrNotifications[arrayIndex]["timestamp"] as? String;
+        let txt: String = self.arrNotifications[arrayIndex]["title"] as! String
         
         cell.lblTitle.text = txt.replacingOccurrences(of: "\n", with: "")
         
         
-        if let t = self.arrNotifications[indexPath.row]["image"] as? String{
+        if let t = self.arrNotifications[arrayIndex]["image"] as? String{
             let defaultImg = UIImage(named: "pushIcn2")
             
             let imageUrl = URL(string: t)
@@ -171,13 +188,13 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             
         }
         
-        if(self.arrNotifications[indexPath.row]["status"] as! String == "0" ){
+        if(self.arrNotifications[arrayIndex]["status"] as! String == "0" ){
             cell.imgViewDot.isHighlighted = true
         }else{
             cell.imgViewDot.isHighlighted = false
         }
-        cell.selectUnSelectButton.tag = indexPath.row;
-        if (selectedNotifications.contains((Int((self.arrNotifications[indexPath.row]["id"] as? String)!)!))){
+        cell.selectUnSelectButton.tag = arrayIndex;
+        if (selectedNotifications.contains((Int((self.arrNotifications[arrayIndex]["id"] as? String)!)!))){
             cell.selectUnSelectButton.isSelected = true;
         }else{
             cell.selectUnSelectButton.isSelected = false;
@@ -197,19 +214,26 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         
+        if indexPath.row % 3 == 1{
+            return
+        }
+        var arrayIndex = indexPath.row / 2
+        arrayIndex += (indexPath.row % 2 == 1 ) ? 1 : 0
         
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeCollectionViewCell
+        let cellIdentifier = (indexPath.row % 3 == 0) ? "LeftCell" : "RightCell"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HomeCollectionViewCell
         
+       
         
-        let newArr = self.arrNotifications[indexPath.row] as NSDictionary
+        let newArr = self.arrNotifications[arrayIndex] as NSDictionary
         let newArr1 = newArr.mutableCopy() as! NSDictionary
         newArr1.setValue("0", forKey: "status")
-        self.arrNotifications[indexPath.row] = newArr1
+        self.arrNotifications[arrayIndex] = newArr1
         // print( self.arrNotifications[indexPath.row])
         collectionView.reloadData()
         //self.arrNotifications[indexPath.row].setValue("1", forKey: "status")
-        let dic: NSDictionary = self.arrNotifications[indexPath.row]
+        let dic: NSDictionary = self.arrNotifications[arrayIndex]
         self.notificationId = Int(dic["id"] as! String)!;
         if(self.topMenuBtn == "Edit" || self.topMenuBtn == "Done"){
             
@@ -319,42 +343,49 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        
-        let text = self.arrNotifications[indexPath.row]["txt"] as! String
-        
-        
-        
-        
-        if(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS){
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.row % 3 == 1{
+            return CGSize(width: 40, height: 140)
+        } else{
             
-            let height = self.requiredHeight(150.0, font: UIFont.systemFont(ofSize: 12.0), text:text )
-            return CGSize(width: 150.0 , height: 90.0+height)
+            let width = (self.view.frame.width / 2 ) - 30
+            return CGSize(width: width, height: 140)
+
         }
-        
-        if(DeviceType.IS_IPHONE_6P){
-            
-            let height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:text )
-            return CGSize(width: 198.0 , height: 90.0+height)
-        }
-        
-        if(DeviceType.IS_IPHONE_6){
-            let height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:text )
-            
-            return CGSize(width: 180.0 , height: 90.0+height)
-        }
-        else if DeviceType.IS_IPHONE_X{
-            let height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:text )
-            
-            return CGSize(width: 180.0 , height: 90.0+height)
-        }
-        else{
-            
-            
-            
-            let height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0*IPAD_SCALING_FACTOR), text:text )
-            return CGSize(width: 375.0 , height:90.0+height)
-        }
+//        let text = self.arrNotifications[indexPath.row]["txt"] as! String
+//
+//
+//
+//
+//        if(DeviceType.IS_IPHONE_5 || DeviceType.IS_IPHONE_4_OR_LESS){
+//
+//            let height = self.requiredHeight(150.0, font: UIFont.systemFont(ofSize: 12.0), text:text )
+//            return CGSize(width: 150.0 , height: 90.0+height)
+//        }
+//
+//        if(DeviceType.IS_IPHONE_6P){
+//
+//            let height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:text )
+//            return CGSize(width: 198.0 , height: 90.0+height)
+//        }
+//
+//        if(DeviceType.IS_IPHONE_6){
+//            let height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:text )
+//
+//            return CGSize(width: 180.0 , height: 90.0+height)
+//        }
+//        else if DeviceType.IS_IPHONE_X{
+//            let height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0), text:text )
+//
+//            return CGSize(width: 180.0 , height: 90.0+height)
+//        }
+//        else{
+//
+//
+//
+//            let height = self.requiredHeight(195.0-16.0, font: UIFont.systemFont(ofSize: 12.0*IPAD_SCALING_FACTOR), text:text )
+//            return CGSize(width: 375.0 , height:90.0+height)
+//        }
         
         
     }
@@ -732,3 +763,51 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     }
 }
 
+extension UIView {
+    
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    @IBInspectable
+    var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable
+    var borderColor: UIColor? {
+        get {
+            let color = UIColor.init(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+    
+    @IBInspectable
+    var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOffset = CGSize(width: 0, height: 2)
+            layer.shadowOpacity = 0.4
+            layer.shadowRadius = newValue
+        }
+    }
+    
+}
