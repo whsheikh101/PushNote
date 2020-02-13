@@ -25,7 +25,7 @@ class LoginViewController: BaseViewController {
         title = "Login"
         let defaults = UserDefaults.standard
         if defaults.object(forKey: "userData") != nil {
-            let tabController = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_TAB)
+            let tabController = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_DASHBOARD)
             UIApplication.shared.keyWindow?.rootViewController = tabController;
         }
     }
@@ -64,7 +64,7 @@ class LoginViewController: BaseViewController {
                             defaults.synchronize();
                             self?.textFieldUsername?.text = ""
                             self?.textFieldPassword?.text = ""
-                            let tabController = self?.storyboard?.instantiateViewController(withIdentifier: SEGUE_TAB); UIApplication.shared.keyWindow?.rootViewController = tabController
+                            let tabController = self?.storyboard?.instantiateViewController(withIdentifier: SEGUE_DASHBOARD); UIApplication.shared.keyWindow?.rootViewController = tabController
                             self?.present(tabController!, animated: true, completion: nil)
                         }
                         else {

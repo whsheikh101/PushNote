@@ -306,14 +306,23 @@ UITableViewDataSource{
         controller.dismiss(animated: true, completion: nil);
     }
     
+    private func pushController(identifier:String){
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: identifier){
+                   self.navigationController?.pushViewController(controller, animated:true)
+               }
+    }
     @IBAction func notification(_ sender: Any) {
+        self.pushController(identifier: "HomeViewController")
     }
     
     @IBAction func index(_ sender: Any) {
+        self.pushController(identifier: "IndexViewController")
     }
     @IBAction func friends(_ sender: Any) {
+        self.pushController(identifier: "FriendsViewController")
     }
     @IBAction func profile(_ sender: Any) {
+        self.pushController(identifier: "ProfileViewController")
     }
     
     @IBAction func deleteNumber(_ sender: Any) {

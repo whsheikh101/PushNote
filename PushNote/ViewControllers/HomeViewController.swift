@@ -80,7 +80,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         setNotificationCount();
         
         getNotifications()
-        self.tabBarController!.tabBar.isHidden = false
+//        self.tabBarController!.tabBar.isHidden = false
     }
     
     @objc func reloadNotifications(){

@@ -26,12 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = UserDefaults.standard;
         if (defaults.value(forKeyPath: "userData.user_id") as? String) != nil{
             let storyboard = UIStoryboard(name: "Main", bundle: nil);
-            let t = storyboard.instantiateViewController(withIdentifier: "TabSegue") as! UITabBarController;
-            print(t) ;
-        if let tbc : UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabSegue") as? UITabBarController{
-            self.window?.rootViewController = tbc
-            
-            }
+            let dashboardController = storyboard.instantiateViewController(withIdentifier: "Dashboard")
+            self.window?.rootViewController = dashboardController
+//        if let tbc : UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabSegue") as? UITabBarController{
+//            self.window?.rootViewController = tbc
+//
+//            }
         }
         if let launchOpts = launchOptions {
             let dic: NSDictionary = launchOpts[UIApplication.LaunchOptionsKey.remoteNotification] as! NSDictionary

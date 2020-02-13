@@ -34,4 +34,5 @@ let SEGUE_DETAILS = "DetailSegue"
 let SEGUE_NOTIFICATIONS = "NotificationsSegue"
 let SEGUE_PRIVACY = "PrivacyViewController"
 let SEGUE_TERMS = "TermViewController"
+let SEGUE_DASHBOARD = "Dashboard"
 
