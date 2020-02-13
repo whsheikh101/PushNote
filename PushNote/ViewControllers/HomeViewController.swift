@@ -263,7 +263,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                 mapController.isFromNotification = false
                 self.saveAnalytics("", objectID: dic.value(forKey: "objectId") as! String , merchantID: dic.value(forKey: "subAdminId") as! String,notificationType: dic["notification_type"] as! String)
                 self.navigationController?.pushViewController(mapController, animated: true)
-                self.tabBarController!.tabBar.isHidden = true
+//                self.tabBarController!.tabBar.isHidden = true
             }
             else if(dic["notification_type"] as! String == "Caption"){
                 let alert:UIAlertView = UIAlertView(title: "Caption", message: dic["url"] as? String, delegate: nil, cancelButtonTitle: "OK")
@@ -312,7 +312,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                         }
                         
                         self.navigationController?.pushViewController(webController, animated: true)
-                        self.tabBarController!.tabBar.isHidden = true
+//                        self.tabBarController!.tabBar.isHidden = true
                     }
                     alert.addAction(action)
                     alert.addAction(action1)
@@ -336,7 +336,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                 
                 
                 self.navigationController?.pushViewController(webController, animated: true)
-                self.tabBarController!.tabBar.isHidden = true
+//                self.tabBarController!.tabBar.isHidden = true
                 
             }
         }

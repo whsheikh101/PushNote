@@ -182,7 +182,7 @@ class WeatherViewController: BaseViewController,UITableViewDelegate,UITableViewD
         let weatherDetailViewController:WeatherDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "weatherDetailViewController") as! WeatherDetailViewController
         weatherDetailViewController.lat_long = weatherObject.weather_latlng
         weatherDetailViewController.location = weatherObject.weather_city
-         self.tabBarController!.tabBar.isHidden = true
+//         self.tabBarController!.tabBar.isHidden = true
         self.navigationController?.pushViewController(weatherDetailViewController, animated: true)
     }
     

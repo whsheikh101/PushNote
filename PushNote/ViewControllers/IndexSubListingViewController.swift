@@ -430,7 +430,7 @@ UICollectionViewDataSource,UISearchBarDelegate {
                             let detailController = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_DETAILS) as! WebViewController
                             
                             
-                            self.tabBarController!.tabBar.isHidden = true
+//                            self.tabBarController!.tabBar.isHidden = true
                             detailController.link = catDetail.link
                             detailController.subAdminId = catDetail.feedId
                             detailController.objectId = catDetail.id
@@ -475,7 +475,7 @@ UICollectionViewDataSource,UISearchBarDelegate {
                     detailController.subAdminId = catDetail.feedId
                     detailController.objectId = catDetail.id
                     if(!catDetail.link.isEmpty){
-                        self.tabBarController!.tabBar.isHidden = true
+//                        self.tabBarController!.tabBar.isHidden = true
                         detailController.titleWeb = catDetail.title
                         self.navigationController?.pushViewController(detailController, animated: true)
                     }
@@ -523,10 +523,10 @@ UICollectionViewDataSource,UISearchBarDelegate {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController!.tabBar.isHidden = true
+//        self.tabBarController!.tabBar.isHidden = true
     }
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController!.tabBar.isHidden = false
+//        self.tabBarController!.tabBar.isHidden = false
     }
     
 

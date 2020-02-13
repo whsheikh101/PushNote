@@ -35,7 +35,7 @@ class PushDetailsViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.tabBarController!.tabBar.isHidden = false
+//        self.tabBarController!.tabBar.isHidden = false
     }
 
     //MARK: IBActions

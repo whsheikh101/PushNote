@@ -560,12 +560,12 @@ UICollectionViewDelegate,UISearchBarDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController!.tabBar.isHidden = true
+//        self.tabBarController!.tabBar.isHidden = true
         print("HERe");
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController!.tabBar.isHidden = false
+//        self.tabBarController!.tabBar.isHidden = false
         print("HERe1");
         
     }

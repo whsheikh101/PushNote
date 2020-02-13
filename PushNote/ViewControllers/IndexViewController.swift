@@ -117,7 +117,7 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
         subListing.titleStr = self.arrCategory[indexPath.row]["categoryName"] as! String
         subListing.categoryId = Int(self.arrCategory[indexPath.row]["categoryID"] as! String)!
         self.navigationController?.pushViewController(subListing, animated: true)
-        self.tabBarController!.tabBar.isHidden = true
+//        self.tabBarController!.tabBar.isHidden = true
     }
     func getCategories() {
         

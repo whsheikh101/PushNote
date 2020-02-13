@@ -71,13 +71,13 @@ class MapViewController: BaseViewController,MKMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if(!isFromNotification){
-            self.tabBarController!.tabBar.isHidden = true
+//            self.tabBarController!.tabBar.isHidden = true
         }
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if(!isFromNotification){
-            self.tabBarController!.tabBar.isHidden = false
+//            self.tabBarController!.tabBar.isHidden = false
         }
        
         
