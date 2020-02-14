@@ -99,35 +99,35 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
         
         case 0:
             images = [
-                UIImage(named: "Mobile-04.png")!,
+                UIImage(named: "Mobile-4.png")!,
              
             ]
             
             break
         case 1:
             images = [
-                UIImage(named: "Mobile-06.png")!,
+                UIImage(named: "Mobile-6.png")!,
              
             ]
             
             break
         case 2:
             images = [
-                UIImage(named: "Mobile-07.png")!,
+                UIImage(named: "Mobile-7.png")!,
            
             ]
             
             break
         case 3:
             images = [
-                UIImage(named: "Mobile-08.png")!,
+                UIImage(named: "Mobile-8.png")!,
               
             ]
             
             break
         case 4:
             images = [
-                UIImage(named: "Mobile-09.png")!,
+                UIImage(named: "Mobile-9.png")!,
               
                
             ]
@@ -136,7 +136,7 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
         case 5:
             images = [
              
-                UIImage(named: "Mobile-09.png")!,
+                UIImage(named: "Mobile-9.png")!,
                 
             ]
             
@@ -144,14 +144,14 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
             
         case 6:
             images = [
-                UIImage(named: "Mobile-05.png")!,
+                UIImage(named: "Mobile-5.png")!,
                
             ]
             
             break
         case 7:
             images = [
-                UIImage(named: "Mobile-08.png")!,
+                UIImage(named: "Mobile-8.png")!,
                 
             ]
             
@@ -165,7 +165,7 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
             break
         default:
             images = [
-                UIImage(named: "Mobile-04.png")!,
+                UIImage(named: "Mobile-4.png")!,
                
             ]
             break
