@@ -46,6 +46,7 @@ UISearchBarDelegate{
     @IBOutlet weak var searchB: UISearchBar!
     @IBOutlet weak var viewPopup: UIView!
     @IBOutlet weak var txtViewMsg: UITextView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     @IBOutlet weak var locationBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -327,6 +328,12 @@ UISearchBarDelegate{
             
         })
         
+        let unselectedColor = UIColor.init(red: 0.0862745098, green: 0.168627451, blue: 0.3137254902, alpha: 1.0)
+        
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: unselectedColor]
+        segmentControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        segmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        
         refreshControl.tintColor = UIColor.gray
         refreshControl.addTarget(self, action: #selector(FriendsViewController.reloadContacts), for: UIControl.Event.valueChanged)
         self._tableView.addSubview(refreshControl)
@@ -350,9 +357,9 @@ UISearchBarDelegate{
     //UITableView integration
     
     
-    func numberOfSections(in tableView: UITableView) -> Int{
-        return 2
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int{
+//        return 2
+//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) ->Int {
         if self.arrFriendsData.count == 0 {
         
@@ -373,13 +380,13 @@ UISearchBarDelegate{
             }
         }
         
-        return (section == 0) ? self.arrFriendsData.count : self.arrInviteFriendsData.count
+        return (self.segmentControl.selectedSegmentIndex == 0) ? self.arrFriendsData.count : self.arrInviteFriendsData.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        let cell = (indexPath.section == 0) ? tableView.dequeueReusableCell(withIdentifier: "Cell1") as! CustomTableCell : tableView.dequeueReusableCell(withIdentifier: "Cell2") as! CustomTableCell
+        let cell = (self.segmentControl.selectedSegmentIndex == 0) ? tableView.dequeueReusableCell(withIdentifier: "Cell1") as! CustomTableCell : tableView.dequeueReusableCell(withIdentifier: "Cell2") as! CustomTableCell
         
         //let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell1", forIndexPath: indexPath) ;
         
@@ -421,7 +428,7 @@ UISearchBarDelegate{
         }
 */
         
-        if(indexPath.section == 0){
+        if(self.segmentControl.selectedSegmentIndex == 0){
             
             let lblName: UILabel = cell.contentView.viewWithTag(1001) as! UILabel
             let btnLock: UIButton = cell.contentView.viewWithTag(1003) as! UIButton
@@ -477,41 +484,41 @@ UISearchBarDelegate{
             }
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        // let arrayOfKeys = Array(locationDataDictionary.keys).sort{ $0 > $1 }
-        let  headerCell:UITableViewCell?
-        headerCell = tableView.dequeueReusableCell(withIdentifier: "HCell")
-        
-        let lblHeader = headerCell?.viewWithTag(100) as! Label
-        if(section == 0) {
-            lblHeader.text = "FRIENDS ON PUSH NOTE"
-        }
-        else {
-            lblHeader.text = "INVITE PUSH NOTE"
-        }
-        return headerCell
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        // let arrayOfKeys = Array(locationDataDictionary.keys).sort{ $0 > $1 }
+//        let  headerCell:UITableViewCell?
+//        headerCell = tableView.dequeueReusableCell(withIdentifier: "HCell")
+//
+//        let lblHeader = headerCell?.viewWithTag(100) as! Label
+//        if(section == 0) {
+//            lblHeader.text = "FRIENDS ON PUSH NOTE"
+//        }
+//        else {
+//            lblHeader.text = "INVITE PUSH NOTE"
+//        }
+//        return headerCell
+//    }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        if(DeviceType.IS_IPAD) {
-            
-            return 68.0
-        }
-        else{
-            
-            return 48.0
-        }
-        
-        
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//
+//        if(DeviceType.IS_IPAD) {
+//
+//            return 68.0
+//        }
+//        else{
+//
+//            return 48.0
+//        }
+//
+//
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if(DeviceType.IS_IPAD) {
             
-            if(indexPath.section == 0) {
+            if(self.segmentControl.selectedSegmentIndex == 0) {
                 
                 return 80.0;
             }
@@ -520,18 +527,18 @@ UISearchBarDelegate{
             }
         }
         
-        if(indexPath.section == 0) {
+        if(self.segmentControl.selectedSegmentIndex == 0) {
             
             return 100.0;
         }
         else{
-            return 41.0
+            return 100.0
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        if(indexPath.section == 0){
+        if(self.segmentControl.selectedSegmentIndex == 0){
             
            // let friendsPopup = FriendsPopup.instanceFromNib()
             //friendsPopup.animateView()
@@ -668,6 +675,7 @@ UISearchBarDelegate{
         self.arrContacts = arr.sorted(by: forwards)
         self.arrContactsData = self.arrContacts
         self._tableView.reloadData()
+     
     }
     */
     func forwards(_ c1: ContactData, c2: ContactData) -> Bool {
@@ -1210,17 +1218,11 @@ UISearchBarDelegate{
         return newString.length <= maxLength
     }
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+  
+    @IBAction func segmentValueChanged(_ sender: Any) {
+        self._tableView.reloadData()
+        
     }
-    */
-
+    
 }
+
