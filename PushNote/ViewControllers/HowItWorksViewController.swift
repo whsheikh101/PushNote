@@ -14,10 +14,11 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var lblDesc: UILabel!
     
-    let arrDesc: [String] = ["Notifications",
+    let arrDesc: [String] = [
+        "Dashboard",
+        "Notifications",
         "Open Pushnote Link",
         "Send Pushnote to friends",
-        "Share a Pushnote on Social Media",
         "Explore the Pushnote Index",
         "Subscribe Pushnote Index",
         "Friends on Pushnote",
@@ -98,35 +99,35 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
         
         case 0:
             images = [
-                UIImage(named: "1-1.png")!,
+                UIImage(named: "Mobile-04.png")!,
              
             ]
             
             break
         case 1:
             images = [
-                UIImage(named: "2-1.png")!,
+                UIImage(named: "Mobile-06.png")!,
              
             ]
             
             break
         case 2:
             images = [
-                UIImage(named: "3-1.png")!,
+                UIImage(named: "Mobile-07.png")!,
            
             ]
             
             break
         case 3:
             images = [
-                UIImage(named: "4-1.png")!,
+                UIImage(named: "Mobile-08.png")!,
               
             ]
             
             break
         case 4:
             images = [
-                UIImage(named: "5-1.png")!,
+                UIImage(named: "Mobile-09.png")!,
               
                
             ]
@@ -135,7 +136,7 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
         case 5:
             images = [
              
-                UIImage(named: "5-2.png")!,
+                UIImage(named: "Mobile-09.png")!,
                 
             ]
             
@@ -143,28 +144,28 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
             
         case 6:
             images = [
-                UIImage(named: "6-1.png")!,
+                UIImage(named: "Mobile-05.png")!,
                
             ]
             
             break
         case 7:
             images = [
-                UIImage(named: "7-1.png")!,
+                UIImage(named: "Mobile-08.png")!,
                 
             ]
             
             break
         case 8:
             images = [
-                UIImage(named: "8-1.png")!,
+                UIImage(named: "Mobile-10.png")!,
                 
             ]
             
             break
         default:
             images = [
-                UIImage(named: "1-1.png")!,
+                UIImage(named: "Mobile-04.png")!,
                
             ]
             break

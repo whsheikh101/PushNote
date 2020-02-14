@@ -20,7 +20,7 @@ class HowToUseViewController: BaseViewController {
         
         self.navigationItem.title = "ABOUT"
         
-        self.arrListImages = ["setting_about", "setting_work", "setting_privacy-policy", "setting_terms-condition"]
+        self.arrListImages = ["Mobile-04", "Mobile-05", "Mobile-06", "setting_terms-condition"]
         self.arrListNames = ["About", "How It Works", "Privacy Policy", "Terms & Conditions"]
         
     }
