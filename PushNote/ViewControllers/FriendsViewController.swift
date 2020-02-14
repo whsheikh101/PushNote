@@ -354,6 +354,24 @@ UISearchBarDelegate{
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) ->Int {
+        if self.arrFriendsData.count == 0 {
+        
+            let dict = NSMutableDictionary()
+            dict["userId"] = "dummyID"
+            dict["selected"] = false
+            dict["userName"] = "dummyUserName"
+            dict["contactName"] = "dummyContactName"
+            dict["userNumber"] = "03312275651"
+            dict["photo"] = ""
+            
+            self.arrFriendsData.append(dict)
+            self.arrFriendsData.append(dict)
+            
+            if arrInviteFriendsData.count == 0{
+                self.arrInviteFriendsData.append(dict)
+                self.arrInviteFriendsData.append(dict)
+            }
+        }
         
         return (section == 0) ? self.arrFriendsData.count : self.arrInviteFriendsData.count
         
@@ -413,8 +431,10 @@ UISearchBarDelegate{
             let friendData: NSDictionary = self.arrFriendsData[indexPath.row]
             lblName.text = ((friendData["userName"] as? String)!) + "\n" + ((friendData["contactName"] as? String)!)
             
+            cell.contactPhone.text = friendData["userNumber"] as? String
+            
             let imagePathUrl = URL(string: ((friendData["photo"] as? String)!) )
-            let defaultImg = UIImage(named: "iconImg")
+            let defaultImg = UIImage(named: "user icon")
             imageViewbox.sd_setImage(with: imagePathUrl, placeholderImage: defaultImg)
             //lblDesc.text = friendData.userNumber
             btnLock.isHidden = false
@@ -502,7 +522,7 @@ UISearchBarDelegate{
         
         if(indexPath.section == 0) {
             
-            return 56.0;
+            return 100.0;
         }
         else{
             return 41.0
@@ -749,12 +769,20 @@ UISearchBarDelegate{
                         
                         self.arrFriendsData = self.arrFriends
                         
-                        
-                        
+                        if self.arrFriendsData.count == 0 {
+
+                            let dict = NSMutableDictionary()
+                            dict["userId"] = "dummyID"
+                            dict["selected"] = false
+                            dict["userName"] = "dummyUserName"
+                            dict["contactName"] = "dummyContactName"
+                            dict["userNumber"] = "03312275651"
+                            dict["photo"] = ""
+                            self.arrFriendsData.append(dict)
+                        }
                         self.decideContactsToInvite()
                        // self._tableView.reloadData()
-                        
-                       
+                      
                     }
                     else {
                         self.alert(jsonResponse["msg"] as! String)
@@ -763,8 +791,6 @@ UISearchBarDelegate{
                 self.view.isUserInteractionEnabled = true
                 self.hideActivityIndicator()
                 self.refreshControl.endRefreshing()
-               // self.activityIndicator.stopAnimating()
-               
         }
     }
 
