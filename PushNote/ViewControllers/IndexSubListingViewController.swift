@@ -369,17 +369,21 @@ UICollectionViewDataSource,UISearchBarDelegate {
         let btnPlus: UIButton = cell!.contentView.viewWithTag(1003) as! UIButton
         
         btnPlus.isSelected = catDetail.isSubscribe
+        btnPlus.setTitle("Subscribe", for: UIControl.State())
+        btnPlus.setTitle("UnSubscribe", for: UIControl.State.selected)
+        btnPlus.layer.borderColor = UIColor.clear.cgColor
+        btnPlus.setTitleColor(.white, for: .normal)
+        btnPlus.setTitleColor(.white, for: .selected)
         if( btnPlus.isSelected == false){
             
-            btnPlus.layer.borderColor = UIColor(red: 17.0/255.0 , green: 29.0/255.0, blue: 185.0/255.0, alpha: 1.0).cgColor
-            btnPlus.setTitle("Subscribe", for: UIControl.State())
-            btnPlus.setTitle("UnSubscribe", for: UIControl.State.selected)
-            btnPlus.backgroundColor = UIColor
+            
+         
+            btnPlus.backgroundColor = UIColor.init(red: 0.8588235294, green: 0.2901960784, blue: 0.3450980392, alpha: 1.0)
             
         }else{
-            btnPlus.layer.borderColor = UIColor(red: 239.0/255.0 , green: 90.0/255.0, blue: 43.0/255.0, alpha: 1.0).cgColor
-            btnPlus.setTitle("Subscribe", for: UIControl.State())
-            btnPlus.setTitle("UnSubscribe", for: UIControl.State.selected)
+            btnPlus.layer.borderColor = UIColor.clear.cgColor
+           
+            btnPlus.backgroundColor = UIColor.init(red: 0.1098039216, green: 0.1882352941, blue: 0.3254901961, alpha: 1.0)
         }
         
         /*
@@ -800,8 +804,8 @@ UICollectionViewDataSource,UISearchBarDelegate {
                         //btn.selected = !btn.selected
                         let catDetail: NewsFeed = self.arrCategoryDetail[index] as! NewsFeed
                         catDetail.isSubscribe = false
-                        self.senderBtn.setTitle("Unsubscribed!", for: UIControl.State.selected)
-                        self.senderBtn.setTitle("Unsubscribed!", for: UIControl.State.normal)
+//                        self.senderBtn.setTitle("Unsubscribed!", for: UIControl.State.selected)
+//                        self.senderBtn.setTitle("Unsubscribed!", for: UIControl.State.normal)
                         Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.reloadTable), userInfo: nil, repeats: false)
                          self.senderBtn.perform("hideLoading", with: nil, afterDelay: 0.0);
                         
@@ -1019,8 +1023,8 @@ UICollectionViewDataSource,UISearchBarDelegate {
                
                 if let jsonResponse = response.result.value as? NSDictionary{
                    
-                    self.senderBtn.setTitle("Subscribed!", for: UIControl.State.normal)
-                    self.senderBtn.setTitle("Subscribed!", for: .selected)
+//                    self.senderBtn.setTitle("Subscribed!", for: UIControl.State.normal)
+//                    self.senderBtn.setTitle("Subscribed!", for: .selected)
                     self.senderBtn.perform(#selector(SLButton.hideLoading), with: nil, afterDelay: 0.0);
                     Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: "reloadTable", userInfo: nil, repeats: false)
                     
@@ -1038,8 +1042,8 @@ UICollectionViewDataSource,UISearchBarDelegate {
                         
                     }
                 }else{
-                    self.senderBtn.setTitle("Subscribed!", for: UIControl.State.normal)
-                    self.senderBtn.setTitle("Subscribed!", for: .selected)
+//                    self.senderBtn.setTitle("Subscribed!", for: UIControl.State.normal)
+//                    self.senderBtn.setTitle("Subscribed!", for: .selected)
                     self.senderBtn.perform("hideLoading", with: nil, afterDelay: 0.0);
                     Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: "reloadTable", userInfo: nil, repeats: false)
                 }

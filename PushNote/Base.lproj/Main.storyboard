@@ -474,7 +474,10 @@
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="5"/>
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
@@ -3544,6 +3547,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <color key="tintColor" red="0.10980392156862745" green="0.18823529411764706" blue="0.32550472021102905" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="O0d-vn-CyJ" firstAttribute="centerX" secondItem="FHu-ft-7s1" secondAttribute="centerX" id="1HW-3F-QoJ"/>
                                     <constraint firstItem="FHu-ft-7s1" firstAttribute="leading" secondItem="wBv-0a-GUP" secondAttribute="leadingMargin" id="8cr-uJ-sdy"/>
@@ -5910,7 +5914,7 @@ Afg
         <image name="notifaction icon" width="10.666666984558105" height="10.333333015441895"/>
         <image name="passwordIcn" width="32" height="32"/>
         <image name="pausebtn" width="48" height="60"/>
-        <image name="placeholder" width="148.66667175292969" height="149"/>
+        <image name="placeholder" width="37" height="37"/>
         <image name="playbtn" width="65" height="75"/>
         <image name="privacy police" width="26.333333969116211" height="29"/>
         <image name="profile" width="26" height="26"/>
