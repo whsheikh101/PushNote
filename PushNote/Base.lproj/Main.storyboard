@@ -1851,7 +1851,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="buW-BH-xe4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_bg" translatesAutoresizingMaskIntoConstraints="NO" id="buW-BH-xe4">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dFt-z0-4Td">
@@ -3858,7 +3858,7 @@
         <!--Reset Password View Controller-->
         <scene sceneID="UEH-je-w77">
             <objects>
-                <viewController storyboardIdentifier="ResetPasswordViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="currentContext" id="kTK-Xt-2Pp" customClass="ResetPasswordViewController" customModule="PushNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPasswordViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="kTK-Xt-2Pp" customClass="ResetPasswordViewController" customModule="PushNote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kxS-7z-SOI"/>
                         <viewControllerLayoutGuide type="bottom" id="GnB-n6-Y9h"/>
@@ -4021,11 +4021,6 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <state key="normal" backgroundImage="cancle"/>
                                                 <state key="highlighted" title="Save"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 </variation>
@@ -4064,11 +4059,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4fu-Ay-x7j" secondAttribute="bottom" constant="183.5" id="7Hd-xA-JqD"/>
                                     <constraint firstAttribute="trailing" secondItem="4fu-Ay-x7j" secondAttribute="trailing" constant="20" id="Dfm-hu-Dmg"/>
-                                    <constraint firstItem="4fu-Ay-x7j" firstAttribute="top" secondItem="wOb-I7-ukJ" secondAttribute="top" priority="250" constant="183.5" id="Ejl-go-S4a"/>
+                                    <constraint firstItem="4fu-Ay-x7j" firstAttribute="top" secondItem="wOb-I7-ukJ" secondAttribute="top" constant="183.5" id="Ejl-go-S4a"/>
                                     <constraint firstItem="4fu-Ay-x7j" firstAttribute="centerX" secondItem="wOb-I7-ukJ" secondAttribute="centerX" id="VB7-7z-aiv"/>
                                     <constraint firstItem="4fu-Ay-x7j" firstAttribute="centerY" secondItem="wOb-I7-ukJ" secondAttribute="centerY" id="Vaf-jf-sLH"/>
-                                    <constraint firstAttribute="bottom" secondItem="4fu-Ay-x7j" secondAttribute="bottom" priority="250" constant="183.5" id="dVw-fl-KiN"/>
                                     <constraint firstItem="4fu-Ay-x7j" firstAttribute="leading" secondItem="wOb-I7-ukJ" secondAttribute="leading" constant="20" id="ncS-iz-zhB"/>
                                 </constraints>
                             </scrollView>
@@ -5062,7 +5057,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="qEp-65-jeF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_bg" translatesAutoresizingMaskIntoConstraints="NO" id="qEp-65-jeF">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rdb-X8-VIp">
@@ -5584,7 +5579,6 @@
         <image name="addBtn" width="35" height="35"/>
         <image name="all" width="103" height="103"/>
         <image name="bar" width="679" height="19"/>
-        <image name="bg" width="375.33334350585938" height="812"/>
         <image name="blockBtn" width="43" height="44"/>
         <image name="cancle" width="30.333333969116211" height="31.666666030883789"/>
         <image name="checkBoxActive" width="21" height="21"/>
@@ -5645,6 +5639,7 @@ Afg
         <image name="selector" width="52" height="53"/>
         <image name="seprator" width="358" height="1.5"/>
         <image name="setting" width="30" height="30"/>
+        <image name="settings_bg" width="375.33334350585938" height="812.33331298828125"/>
         <image name="share" width="23.666666030883789" height="23.333333969116211"/>
         <image name="shareBtn" width="186" height="66.5"/>
         <image name="subtract" width="7.3333334922790527" height="7.3333334922790527"/>
