@@ -498,7 +498,7 @@ UICollectionViewDataSource,UISearchBarDelegate {
 
         }
         
-        return 72.0;
+        return 90.0;
 
     }
     
