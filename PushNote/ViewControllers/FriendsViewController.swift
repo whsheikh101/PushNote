@@ -26,11 +26,11 @@ extension String {
 }
 
 class FriendsViewController: BaseViewController,
-MFMessageComposeViewControllerDelegate,
-CLLocationManagerDelegate,
-UITextViewDelegate,
-UITableViewDelegate,
-UITableViewDataSource,
+    MFMessageComposeViewControllerDelegate,
+    CLLocationManagerDelegate,
+    UITextViewDelegate,
+    UITableViewDelegate,
+    UITableViewDataSource,
 UISearchBarDelegate{
     
     
@@ -62,243 +62,243 @@ UISearchBarDelegate{
     var arrFriends: Array<NSDictionary> = []
     var arrFriendsData: Array<NSDictionary> = []
     
-   
+    
     
     
     var arrContacts: Array<NSDictionary> = []
     var arrContactsData: Array<NSDictionary> = []
     var arrInviteFriendsData: Array<NSDictionary> = []
     var countryCodes = ["93",
-        "355",
-        "213",
-        "1684",
-        "376",
-        "244",
-        "1264",
-        "672",
-        "1268",
-        "54",
-        "374",
-        "297",
-        "61",
-        "43",
-        "994",
-        "1242",
-        "973",
-        "880",
-        "1246",
-        "375",
-        "32",
-        "501",
-        "229",
-        "1441",
-        "975",
-        "591",
-        "387",
-        "267",
-        "55",
-        "1284",
-        "673",
-        "359",
-        "226",
-        "95",
-        "257",
-        "855",
-        "237",
-        "238",
-        "1345",
-        "236",
-        "235",
-        "56",
-        "86",
-        "61",
-        "61",
-        "57",
-        "269",
-        "682",
-        "506",
-        "385",
-        "53",
-        "357",
-        "420",
-        "243",
-        "45",
-        "253",
-        "1767",
-        "1809",
-        "593",
-        "20",
-        "503",
-        "240",
-        "291",
-        "372",
-        "251",
-        "500",
-        "298",
-        "679",
-        "358",
-        "33",
-        "689",
-        "241",
-        "220",
-        "970",
-        "995",
-        "49",
-        "233",
-        "350",
-        "30",
-        "299",
-        "1473",
-        "1671",
-        "502",
-        "224",
-        "245",
-        "592",
-        "509",
-        "39",
-        "504",
-        "852",
-        "36",
-        "354",
-        "91",
-        "62",
-        "98",
-        "964",
-        "353",
-        "44",
-        "972",
-        "39",
-        "225",
-        "1876",
-        "81",
-        "962",
-        "7",
-        "254",
-        "686",
-        "381",
-        "965",
-        "996",
-        "856",
-        "371",
-        "961",
-        "266",
-        "231",
-        "218",
-        "423",
-        "370",
-        "352",
-        "853",
-        "389",
-        "261",
-        "265",
-        "60",
-        "960",
-        "223",
-        "356",
-        "692",
-        "222",
-        "230",
-        "262",
-        "52",
-        "691",
-        "373",
-        "377",
-        "976",
-        "382",
-        "1664",
-        "212",
-        "258",
-        "264",
-        "674",
-        "977",
-        "31",
-        "599",
-        "687",
-        "64",
-        "505",
-        "227",
-        "234",
-        "683",
-        "672",
-        "850",
-        "1670",
-        "47",
-        "968",
-        "92",
-        "680",
-        "507",
-        "675",
-        "595",
-        "51",
-        "63",
-        "870",
-        "48",
-        "351",
-        "1",
-        "974",
-        "242",
-        "40",
-        "7",
-        "250",
-        "590",
-        "290",
-        "1869",
-        "1758",
-        "1599",
-        "508",
-        "1784",
-        "685",
-        "378",
-        "239",
-        "966",
-        "221",
-        "381",
-        "248",
-        "232",
-        "65",
-        "421",
-        "386",
-        "677",
-        "252",
-        "27",
-        "82",
-        "34",
-        "94",
-        "249",
-        "597",
-        "268",
-        "46",
-        "41",
-        "963",
-        "886",
-        "992",
-        "255",
-        "66",
-        "670",
-        "228",
-        "690",
-        "676",
-        "1868",
-        "216",
-        "90",
-        "993",
-        "1649",
-        "688",
-        "256",
-        "380",
-        "971",
-        "44",
-        "598",
-        "1340",
-        "998",
-        "678",
-        "58",
-        "84",
-        "681",
-        "970",
-        "967",
-        "260",
-        "263"];
+                        "355",
+                        "213",
+                        "1684",
+                        "376",
+                        "244",
+                        "1264",
+                        "672",
+                        "1268",
+                        "54",
+                        "374",
+                        "297",
+                        "61",
+                        "43",
+                        "994",
+                        "1242",
+                        "973",
+                        "880",
+                        "1246",
+                        "375",
+                        "32",
+                        "501",
+                        "229",
+                        "1441",
+                        "975",
+                        "591",
+                        "387",
+                        "267",
+                        "55",
+                        "1284",
+                        "673",
+                        "359",
+                        "226",
+                        "95",
+                        "257",
+                        "855",
+                        "237",
+                        "238",
+                        "1345",
+                        "236",
+                        "235",
+                        "56",
+                        "86",
+                        "61",
+                        "61",
+                        "57",
+                        "269",
+                        "682",
+                        "506",
+                        "385",
+                        "53",
+                        "357",
+                        "420",
+                        "243",
+                        "45",
+                        "253",
+                        "1767",
+                        "1809",
+                        "593",
+                        "20",
+                        "503",
+                        "240",
+                        "291",
+                        "372",
+                        "251",
+                        "500",
+                        "298",
+                        "679",
+                        "358",
+                        "33",
+                        "689",
+                        "241",
+                        "220",
+                        "970",
+                        "995",
+                        "49",
+                        "233",
+                        "350",
+                        "30",
+                        "299",
+                        "1473",
+                        "1671",
+                        "502",
+                        "224",
+                        "245",
+                        "592",
+                        "509",
+                        "39",
+                        "504",
+                        "852",
+                        "36",
+                        "354",
+                        "91",
+                        "62",
+                        "98",
+                        "964",
+                        "353",
+                        "44",
+                        "972",
+                        "39",
+                        "225",
+                        "1876",
+                        "81",
+                        "962",
+                        "7",
+                        "254",
+                        "686",
+                        "381",
+                        "965",
+                        "996",
+                        "856",
+                        "371",
+                        "961",
+                        "266",
+                        "231",
+                        "218",
+                        "423",
+                        "370",
+                        "352",
+                        "853",
+                        "389",
+                        "261",
+                        "265",
+                        "60",
+                        "960",
+                        "223",
+                        "356",
+                        "692",
+                        "222",
+                        "230",
+                        "262",
+                        "52",
+                        "691",
+                        "373",
+                        "377",
+                        "976",
+                        "382",
+                        "1664",
+                        "212",
+                        "258",
+                        "264",
+                        "674",
+                        "977",
+                        "31",
+                        "599",
+                        "687",
+                        "64",
+                        "505",
+                        "227",
+                        "234",
+                        "683",
+                        "672",
+                        "850",
+                        "1670",
+                        "47",
+                        "968",
+                        "92",
+                        "680",
+                        "507",
+                        "675",
+                        "595",
+                        "51",
+                        "63",
+                        "870",
+                        "48",
+                        "351",
+                        "1",
+                        "974",
+                        "242",
+                        "40",
+                        "7",
+                        "250",
+                        "590",
+                        "290",
+                        "1869",
+                        "1758",
+                        "1599",
+                        "508",
+                        "1784",
+                        "685",
+                        "378",
+                        "239",
+                        "966",
+                        "221",
+                        "381",
+                        "248",
+                        "232",
+                        "65",
+                        "421",
+                        "386",
+                        "677",
+                        "252",
+                        "27",
+                        "82",
+                        "34",
+                        "94",
+                        "249",
+                        "597",
+                        "268",
+                        "46",
+                        "41",
+                        "963",
+                        "886",
+                        "992",
+                        "255",
+                        "66",
+                        "670",
+                        "228",
+                        "690",
+                        "676",
+                        "1868",
+                        "216",
+                        "90",
+                        "993",
+                        "1649",
+                        "688",
+                        "256",
+                        "380",
+                        "971",
+                        "44",
+                        "598",
+                        "1340",
+                        "998",
+                        "678",
+                        "58",
+                        "84",
+                        "681",
+                        "970",
+                        "967",
+                        "260",
+                        "263"];
     
     var addressBook: ABAddressBook?
     var isSelectAllFriends: Bool = false
@@ -316,13 +316,13 @@ UISearchBarDelegate{
         self.setTabbar()
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
-       // _tableView.editing = true
+        // _tableView.editing = true
         self.navigationItem.title = "FRIENDS"
         /*let qualityOfServiceClass = QOS_CLASS_BACKGROUND
-        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
-        dispatch_async(backgroundQueue, {
-            
-        })*/
+         let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+         dispatch_async(backgroundQueue, {
+         
+         })*/
         DispatchQueue.main.async(execute: {
             self.getContacts()
             
@@ -346,7 +346,7 @@ UISearchBarDelegate{
     func setTabbar() {
         
         self.tabBarItem = UITabBarItem(title: "Friends", image: UIImage(named: "friendsTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "friends-activeTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal))
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -357,12 +357,12 @@ UISearchBarDelegate{
     //UITableView integration
     
     
-//    func numberOfSections(in tableView: UITableView) -> Int{
-//        return 2
-//    }
+    //    func numberOfSections(in tableView: UITableView) -> Int{
+    //        return 2
+    //    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) ->Int {
         if self.arrFriendsData.count == 0 {
-        
+            
             let dict = NSMutableDictionary()
             dict["userId"] = "dummyID"
             dict["selected"] = false
@@ -373,11 +373,20 @@ UISearchBarDelegate{
             
             self.arrFriendsData.append(dict)
             self.arrFriendsData.append(dict)
+}
+        
+        if arrInviteFriendsData.count == 0{
             
-            if arrInviteFriendsData.count == 0{
-                self.arrInviteFriendsData.append(dict)
-                self.arrInviteFriendsData.append(dict)
-            }
+            let dict = NSMutableDictionary()
+            dict["userId"] = "dummyID"
+            dict["selected"] = false
+            dict["userName"] = "dummyUserName"
+            dict["contactName"] = "dummyContactName"
+            dict["contactPhone"] = "03312275651"
+            dict["photo"] = ""
+
+            self.arrInviteFriendsData.append(dict)
+            self.arrInviteFriendsData.append(dict)
         }
         
         return (self.segmentControl.selectedSegmentIndex == 0) ? self.arrFriendsData.count : self.arrInviteFriendsData.count
@@ -395,38 +404,38 @@ UISearchBarDelegate{
         
         //let lblName: UILabel = cell.contentView.viewWithTag(1001) as! UILabel
         /*
-        let lblDesc: UILabel = cell.contentView.viewWithTag(1002) as! UILabel
-        let btnLock: UIButton = cell.contentView.viewWithTag(1003) as! UIButton
-        let btnNoti: UIButton = cell.contentView.viewWithTag(1004) as! UIButton
-        
-        let btnCheckbox: UIButton = cell.contentView.viewWithTag(1005) as! UIButton
-        
-        
-        let btnShareLocation: UIButton = cell.contentView.viewWithTag(1007) as! UIButton
-        
-        if (btnInvite.selected) {
-            let contactData = self.arrContactsData[indexPath.row]
-            lblName.text = contactData.contactName
-            lblDesc.text = contactData.contactPhone
-            btnLock.hidden = true
-            btnNoti.hidden = true
-            btnCheckbox.selected = contactData.selected
-            btnCheckbox.hidden = false
-            imageViewbox.hidden = false
-            btnShareLocation.hidden = true
-        }
-        else {
-            let friendData: FriendData = self.arrFriendsData[indexPath.row]
-            lblName.text = friendData.userName + "\n" + friendData.contactName
-            lblDesc.text = friendData.userNumber
-            btnLock.hidden = false
-            btnNoti.hidden = false
-            btnCheckbox.selected = friendData.selected
-            btnCheckbox.hidden = true
-            imageViewbox.hidden = true
-            btnShareLocation.hidden = false
-        }
-*/
+         let lblDesc: UILabel = cell.contentView.viewWithTag(1002) as! UILabel
+         let btnLock: UIButton = cell.contentView.viewWithTag(1003) as! UIButton
+         let btnNoti: UIButton = cell.contentView.viewWithTag(1004) as! UIButton
+         
+         let btnCheckbox: UIButton = cell.contentView.viewWithTag(1005) as! UIButton
+         
+         
+         let btnShareLocation: UIButton = cell.contentView.viewWithTag(1007) as! UIButton
+         
+         if (btnInvite.selected) {
+         let contactData = self.arrContactsData[indexPath.row]
+         lblName.text = contactData.contactName
+         lblDesc.text = contactData.contactPhone
+         btnLock.hidden = true
+         btnNoti.hidden = true
+         btnCheckbox.selected = contactData.selected
+         btnCheckbox.hidden = false
+         imageViewbox.hidden = false
+         btnShareLocation.hidden = true
+         }
+         else {
+         let friendData: FriendData = self.arrFriendsData[indexPath.row]
+         lblName.text = friendData.userName + "\n" + friendData.contactName
+         lblDesc.text = friendData.userNumber
+         btnLock.hidden = false
+         btnNoti.hidden = false
+         btnCheckbox.selected = friendData.selected
+         btnCheckbox.hidden = true
+         imageViewbox.hidden = true
+         btnShareLocation.hidden = false
+         }
+         */
         
         if(self.segmentControl.selectedSegmentIndex == 0){
             
@@ -446,7 +455,7 @@ UISearchBarDelegate{
             //lblDesc.text = friendData.userNumber
             btnLock.isHidden = false
             btnNoti.isHidden = false
-        
+            
             // btnCheckbox.selected = friendData.selected
             // btnCheckbox.hidden = true
             //  imageViewbox.hidden = true
@@ -454,15 +463,15 @@ UISearchBarDelegate{
             
         }else{
             
-          
+            
             if let contactData = self.arrInviteFriendsData[indexPath.row] as? NSDictionary{
                 cell.contactName.text = contactData["contactName"] as? String
                 cell.contactPhone.text = contactData["contactPhone"] as? String
                 cell.inviteBtn.tag = indexPath.row
             }
             
-
-           
+            
+            
         }
         
         
@@ -477,42 +486,42 @@ UISearchBarDelegate{
                    commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath){
         if (editingStyle == UITableViewCell.EditingStyle.delete)
-            {
-                _tableView.beginUpdates()
-                _tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.middle)
-                _tableView.endUpdates()
-            }
+        {
+            _tableView.beginUpdates()
+            _tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.middle)
+            _tableView.endUpdates()
+        }
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        // let arrayOfKeys = Array(locationDataDictionary.keys).sort{ $0 > $1 }
-//        let  headerCell:UITableViewCell?
-//        headerCell = tableView.dequeueReusableCell(withIdentifier: "HCell")
-//
-//        let lblHeader = headerCell?.viewWithTag(100) as! Label
-//        if(section == 0) {
-//            lblHeader.text = "FRIENDS ON PUSH NOTE"
-//        }
-//        else {
-//            lblHeader.text = "INVITE PUSH NOTE"
-//        }
-//        return headerCell
-//    }
+    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //
+    //        // let arrayOfKeys = Array(locationDataDictionary.keys).sort{ $0 > $1 }
+    //        let  headerCell:UITableViewCell?
+    //        headerCell = tableView.dequeueReusableCell(withIdentifier: "HCell")
+    //
+    //        let lblHeader = headerCell?.viewWithTag(100) as! Label
+    //        if(section == 0) {
+    //            lblHeader.text = "FRIENDS ON PUSH NOTE"
+    //        }
+    //        else {
+    //            lblHeader.text = "INVITE PUSH NOTE"
+    //        }
+    //        return headerCell
+    //    }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//
-//        if(DeviceType.IS_IPAD) {
-//
-//            return 68.0
-//        }
-//        else{
-//
-//            return 48.0
-//        }
-//
-//
-//    }
+    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    //
+    //        if(DeviceType.IS_IPAD) {
+    //
+    //            return 68.0
+    //        }
+    //        else{
+    //
+    //            return 48.0
+    //        }
+    //
+    //
+    //    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -540,9 +549,9 @@ UISearchBarDelegate{
         
         if(self.segmentControl.selectedSegmentIndex == 0){
             
-           // let friendsPopup = FriendsPopup.instanceFromNib()
+            // let friendsPopup = FriendsPopup.instanceFromNib()
             //friendsPopup.animateView()
-           // self.view.addSubview(friendsPopup)
+            // self.view.addSubview(friendsPopup)
         }
         
     }
@@ -555,62 +564,62 @@ UISearchBarDelegate{
     var arr2 : NSMutableArray = NSMutableArray();
     func getContacts() {
         
-         var arr: Array<NSDictionary> = []
+        var arr: Array<NSDictionary> = []
         let store = CNContactStore()
-               store.requestAccess(for: .contacts, completionHandler: {
-                   granted, error in
-                  
-                   
-                   let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey] as [Any]
-                   let request = CNContactFetchRequest(keysToFetch: keysToFetch as! [CNKeyDescriptor])
-                   var cnContacts = [CNContact]()
-                   
-                   do {
-                       try store.enumerateContacts(with: request){
-                           (contact, cursor) -> Void in
-                           cnContacts.append(contact)
-                       }
-                   } catch let error {
-                       NSLog("Fetch contact error: \(error)")
-                   }
-                   
-                   NSLog(">>>> Contact list:")
-                    var i : Int = 0 ;
-                   for contact in cnContacts{
-                       let fullName = CNContactFormatter.string(from: contact, style: .fullName) ?? "No Name"
-                    var contactData : [String:String] = [:]
-                         
-                       for phoneNumber in contact.phoneNumbers{
-                        
-                           if let number = phoneNumber.value as? CNPhoneNumber,
-                               let label = phoneNumber.label {
-                                let number = number.stringValue.replacingOccurrences(of: "[\\(\\)\\ \\-]", with: "", options: NSString.CompareOptions.regularExpression, range: nil)
-                                let number1 =  number.condenseWhitespace()
-                                let number2 = self.removeCountryCode(number1)
-                                let trimmedString = number2.replacingOccurrences(of: " ", with: "")
-
-
-                            
-                            self.phoneNumbers.add(trimmedString)
-                            contactData["contactName"]     = fullName
-                            contactData["contactPhone"]    = trimmedString
-                            i = i + 1;
+        store.requestAccess(for: .contacts, completionHandler: {
+            granted, error in
+            
+            
+            let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey] as [Any]
+            let request = CNContactFetchRequest(keysToFetch: keysToFetch as! [CNKeyDescriptor])
+            var cnContacts = [CNContact]()
+            
+            do {
+                try store.enumerateContacts(with: request){
+                    (contact, cursor) -> Void in
+                    cnContacts.append(contact)
+                }
+            } catch let error {
+                NSLog("Fetch contact error: \(error)")
+            }
+            
+            NSLog(">>>> Contact list:")
+            var i : Int = 0 ;
+            for contact in cnContacts{
+                let fullName = CNContactFormatter.string(from: contact, style: .fullName) ?? "No Name"
+                var contactData : [String:String] = [:]
                 
-                           }
-                       }
-                    arr.append(contactData as NSDictionary)
-                   }
-                  
-               })
-          
+                for phoneNumber in contact.phoneNumbers{
+                    
+                    if let number = phoneNumber.value as? CNPhoneNumber,
+                        let label = phoneNumber.label {
+                        let number = number.stringValue.replacingOccurrences(of: "[\\(\\)\\ \\-]", with: "", options: NSString.CompareOptions.regularExpression, range: nil)
+                        let number1 =  number.condenseWhitespace()
+                        let number2 = self.removeCountryCode(number1)
+                        let trimmedString = number2.replacingOccurrences(of: " ", with: "")
+                        
+                        
+                        
+                        self.phoneNumbers.add(trimmedString)
+                        contactData["contactName"]     = fullName
+                        contactData["contactPhone"]    = trimmedString
+                        i = i + 1;
+                        
+                    }
+                }
+                arr.append(contactData as NSDictionary)
+            }
+            
+        })
         
-          //  self.arrContacts = arr.sorted(by: forwards)
-            self.arrContactsData = arr
-            self.getFriends()
+        
+        //  self.arrContacts = arr.sorted(by: forwards)
+        self.arrContactsData = arr
+        self.getFriends()
         
         
         
-      
+        
     }
     
     func showAlert() {
@@ -622,62 +631,62 @@ UISearchBarDelegate{
         self.arrContactsData = []
         self.arrFriends = []
         self.arrFriendsData = []
-       self.activityIndicator.stopAnimating()
+        self.activityIndicator.stopAnimating()
         //self.hideActivityIndicator()
     }
     /*
-    func getContactNames() {
-        var errorRef: Unmanaged<CFError>?
-        addressBook = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, &errorRef))
-        let contactList: NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
-        
-        var _: ABMultiValue
-        
-        var arr: Array<ContactData> = []
-        
-        for record  in contactList {
-            let contactPerson: ABRecord = record as ABRecord
-            
-            //var compositeName: Unmanaged<CFString> = ABRecordCopyCompositeName(contactPerson)
-            if let compositeName = ABRecordCopyCompositeName(contactPerson) {
-                
-                let contactName: String = compositeName.takeRetainedValue() as String
-                let unmanagedPhones = ABRecordCopyValue(contactPerson, kABPersonPhoneProperty)
-                let phoneObj: ABMultiValue = Unmanaged.fromOpaque(unmanagedPhones!.toOpaque()).takeUnretainedValue() as NSObject as ABMultiValue
-                let contactData = ContactData()
-                if ABMultiValueGetCount(phoneObj) != 0 {
-                    
-                    let index = 0 as CFIndex
-                    let unmanagedPhone = ABMultiValueCopyValueAtIndex(phoneObj, index)
-                    let phoneNumber:String = Unmanaged.fromOpaque(unmanagedPhone!.toOpaque()).takeUnretainedValue() as NSObject as! String
-                    
-                    let number = phoneNumber.replacingOccurrences(of: "[\\(\\)\\ \\-]", with: "", options: NSString.CompareOptions.regularExpression, range: nil)
-                    let number1 =  number.condenseWhitespace()
-                    let number2 = self.removeCountryCode(number1)
-                    let trimmedString = number2.replacingOccurrences(of: " ", with: "")
-
-
-                    
-                    self.phoneNumbers.add(trimmedString)
-                    contactData.contactName = contactName
-                    contactData.contactPhone = trimmedString
-                    
-                }
-                else {
-                    contactData.contactName = contactName
-                    //dic = NSDictionary(object: contactName, forKey: "contactName")
-                }
-                
-                arr.append(contactData)
-            }
-        }
-        
-        self.arrContacts = arr.sorted(by: forwards)
-        self.arrContactsData = self.arrContacts
-        self._tableView.reloadData()
+     func getContactNames() {
+     var errorRef: Unmanaged<CFError>?
+     addressBook = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, &errorRef))
+     let contactList: NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
      
-    }
-    */
+     var _: ABMultiValue
+     
+     var arr: Array<ContactData> = []
+     
+     for record  in contactList {
+     let contactPerson: ABRecord = record as ABRecord
+     
+     //var compositeName: Unmanaged<CFString> = ABRecordCopyCompositeName(contactPerson)
+     if let compositeName = ABRecordCopyCompositeName(contactPerson) {
+     
+     let contactName: String = compositeName.takeRetainedValue() as String
+     let unmanagedPhones = ABRecordCopyValue(contactPerson, kABPersonPhoneProperty)
+     let phoneObj: ABMultiValue = Unmanaged.fromOpaque(unmanagedPhones!.toOpaque()).takeUnretainedValue() as NSObject as ABMultiValue
+     let contactData = ContactData()
+     if ABMultiValueGetCount(phoneObj) != 0 {
+     
+     let index = 0 as CFIndex
+     let unmanagedPhone = ABMultiValueCopyValueAtIndex(phoneObj, index)
+     let phoneNumber:String = Unmanaged.fromOpaque(unmanagedPhone!.toOpaque()).takeUnretainedValue() as NSObject as! String
+     
+     let number = phoneNumber.replacingOccurrences(of: "[\\(\\)\\ \\-]", with: "", options: NSString.CompareOptions.regularExpression, range: nil)
+     let number1 =  number.condenseWhitespace()
+     let number2 = self.removeCountryCode(number1)
+     let trimmedString = number2.replacingOccurrences(of: " ", with: "")
+     
+     
+     
+     self.phoneNumbers.add(trimmedString)
+     contactData.contactName = contactName
+     contactData.contactPhone = trimmedString
+     
+     }
+     else {
+     contactData.contactName = contactName
+     //dic = NSDictionary(object: contactName, forKey: "contactName")
+     }
+     
+     arr.append(contactData)
+     }
+     }
+     
+     self.arrContacts = arr.sorted(by: forwards)
+     self.arrContactsData = self.arrContacts
+     self._tableView.reloadData()
+     
+     }
+     */
     func forwards(_ c1: ContactData, c2: ContactData) -> Bool {
         return c1.contactName < c2.contactName
     }
@@ -703,7 +712,7 @@ UISearchBarDelegate{
         let userId = defaults.value(forKeyPath: "userData.user_id") as! String
         self.view.isUserInteractionEnabled = false
         
-     
+        
         var pNumbers : NSString = ""
         do {
             let arrJson = try JSONSerialization.data(withJSONObject: self.phoneNumbers, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -721,19 +730,19 @@ UISearchBarDelegate{
         
         params["userID"]        = userId;
         params["phoneNumbers"] = pNumbers;
-
-     
-       Alamofire.request(baseUrl + "viewFriends", method: HTTPMethod.post, parameters: params)
+        
+        
+        Alamofire.request(baseUrl + "viewFriends", method: HTTPMethod.post, parameters: params)
             .responseJSON { response in
-                 self.activityIndicator.stopAnimating()
+                self.activityIndicator.stopAnimating()
                 self.arrFriends = []
                 self.arrInviteFriendsData = []
-              
+                
                 if let jsonResponse = response.result.value as? NSDictionary{
                     print(jsonResponse["status"]);
                     
                     if (jsonResponse["status"] as? String == "SUCCESS") {
-                      
+                        
                         let arr: NSArray = self.arrContactsData as NSArray
                         let arrContact = jsonResponse["data"] as! Array<NSDictionary>
                         print(arrContact)
@@ -741,7 +750,7 @@ UISearchBarDelegate{
                         for dic: NSDictionary in arrContact {
                             
                             if var phoneNumber: String = dic["phoneNumber"] as? String {
-                                 let pNumber = String(self.removeCountryCode(phoneNumber))
+                                let pNumber = String(self.removeCountryCode(phoneNumber))
                                 phoneNumber = pNumber
                                 if phoneNumber.count  > 1 {
                                     let start = phoneNumber.index(phoneNumber.startIndex, offsetBy: 1)
@@ -750,27 +759,27 @@ UISearchBarDelegate{
                                 }
                                 print(phoneNumber);
                                 
-                               // let predicate: NSPredicate = NSPredicate(format: "contactPhone contains[cd] %@", phoneNumber)
+                                // let predicate: NSPredicate = NSPredicate(format: "contactPhone contains[cd] %@", phoneNumber)
                                 
-    let predicate: NSPredicate =  NSPredicate(format: "contactPhone contains[cd] %@", phoneNumber)
+                                let predicate: NSPredicate =  NSPredicate(format: "contactPhone contains[cd] %@", phoneNumber)
                                 
                                 
                                 let arrResult = arr.filtered(using: predicate) as NSArray
                                 
-                               if arrResult.count > 0 {
-                                var friendData: [String:Any?] = [:]
+                                if arrResult.count > 0 {
+                                    var friendData: [String:Any?] = [:]
                                     
                                     friendData["userId"] = dic["user_id"] as? String
                                     friendData["userName"] = dic["username"] as? String
                                     friendData["selected"] = false
-                                  //  friendData.contactName = arrResult[]
+                                    //  friendData.contactName = arrResult[]
                                     if let arrRes = arrResult[0] as? NSDictionary{
                                         friendData["contactName"] = (arrRes["contactName"] as? String)!
                                         friendData["userNumber"] = (arrRes["contactPhone"] as? String)!
                                     }
-
+                                    
                                     friendData["photo"] = dic["photo"] as! String
-                                self.arrFriends.append(friendData as! NSDictionary)
+                                    self.arrFriends.append(friendData as! NSDictionary)
                                 }
                             }
                         }
@@ -778,7 +787,7 @@ UISearchBarDelegate{
                         self.arrFriendsData = self.arrFriends
                         
                         if self.arrFriendsData.count == 0 {
-
+                            
                             let dict = NSMutableDictionary()
                             dict["userId"] = "dummyID"
                             dict["selected"] = false
@@ -789,8 +798,8 @@ UISearchBarDelegate{
                             self.arrFriendsData.append(dict)
                         }
                         self.decideContactsToInvite()
-                       // self._tableView.reloadData()
-                      
+                        // self._tableView.reloadData()
+                        
                     }
                     else {
                         self.alert(jsonResponse["msg"] as! String)
@@ -801,7 +810,7 @@ UISearchBarDelegate{
                 self.refreshControl.endRefreshing()
         }
     }
-
+    
     func decideContactsToInvite(){
         let arr: NSArray = self.arrFriendsData as NSArray
         for friend in  self.arrContactsData{
@@ -810,15 +819,15 @@ UISearchBarDelegate{
                     phoneNumber = self.removeCountryCode(phoneNumber)
                     let predicate: NSPredicate = NSPredicate(format: "userNumber contains[cd] %@", phoneNumber)
                     let arrResult = arr.filtered(using: predicate) as NSArray
-                   
+                    
                     print(arrResult)
-                   
+                    
                     if arrResult.count > 0 {
-                       
+                        
                     }else{
                         
                         let contactData : NSDictionary = ["contactName" : friend["contactName"],"contactPhone" : friend["contactPhone"] , "selected":false]
-            
+                        
                         self.arrInviteFriendsData.append(contactData)
                         
                         
@@ -831,7 +840,7 @@ UISearchBarDelegate{
         self.arrFriendBackup = self.arrFriendsData as NSArray
         self._tableView.reloadData()
     }
-
+    
     
     func removeCountryCode(_ phoneNumber:String) -> String {
         var number:NSString = phoneNumber as NSString
@@ -847,7 +856,7 @@ UISearchBarDelegate{
     @IBAction func lockBtnPressed(_ sender: AnyObject, forEvent event: UIEvent) {
         
         
-       
+        
         if !self.isReachable() {
             return
         }
@@ -863,11 +872,11 @@ UISearchBarDelegate{
         let uId = self.arrFriendsData[indexPath.row]["userId"]
         var blockedBy = "0" ;
         if let uData = defaults.value(forKey: "userData") as? NSDictionary{
-             blockedBy = uData["user_id"] as! String
+            blockedBy = uData["user_id"] as! String
             return;
             
         }
-         //Current UserID
+        //Current UserID
         //self.activityIndicator.startAnimating()
         self.showActivityIndicator()
         let params : Parameters = ["uid": uId,"blockedBy":blockedBy]
@@ -884,7 +893,7 @@ UISearchBarDelegate{
                         self.arrFriendsData.remove(at: indexPath.row)
                         self.arrFriends.remove(at: indexPath.row)
                         self._tableView.reloadData()
-                       // self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Middle)
+                        // self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Middle)
                         self._tableView.reloadData()
                     }
                     else {
@@ -892,7 +901,7 @@ UISearchBarDelegate{
                     }
                 }
                 self.hideActivityIndicator()
-               //self.activityIndicator.stopAnimating()
+                //self.activityIndicator.stopAnimating()
         }
     }
     
@@ -920,7 +929,7 @@ UISearchBarDelegate{
             .responseJSON { response in
                 print(response.response)
                 self.txtViewMsg.text = ""
-               // self.userCaptionField.text = ""
+                // self.userCaptionField.text = ""
                 self.locationBtn.isSelected = false
                 
                 if let jsonResponse = response.result.value  as? NSDictionary{
@@ -933,11 +942,11 @@ UISearchBarDelegate{
                     }
                 }
                 self.view.isUserInteractionEnabled = true
-                 self.hideActivityIndicator()
+                self.hideActivityIndicator()
                 //self.activityIndicator.stopAnimating()
         }
     }
-  
+    
     @IBAction func pushBtnPressed(_ sender: AnyObject, forEvent event: UIEvent) {
         let touch: UITouch = (event.allTouches?.first)! as UITouch
         let point = touch.location(in: _tableView) as CGPoint
@@ -947,41 +956,41 @@ UISearchBarDelegate{
         return
         
     }
-      /*
-    @IBAction func selectBtnPressed(_ sender: AnyObject, forEvent event: UIEvent) {
-        let touch: UITouch = (event.allTouches?.first)! as UITouch
-        let point: CGPoint = touch.location(in: self._tableView)  as CGPoint
-        let indexPath: IndexPath = self._tableView.indexPathForRow(at: point) as IndexPath!
-        
-        let btn: UIButton = sender as! UIButton
-        
-        btn.isSelected = !btn.isSelected
-        self.arrInviteFriendsData[indexPath.row]["selected"] = btn.isSelected
-        selectedCount += btn.isSelected ? 1 : -1
-        self.btnDone.isEnabled = (selectedCount != 0)
-    }
-    @IBAction func selectAllBtnPressed(_ sender: AnyObject) {
-        
-        if (btnInvite.isSelected) {
-            self.isSelectAllInvited = !self.isSelectAllInvited
-            for cData   :  NSMutableDictionary in self.arrInviteFriendsData {
-                cData["selected"] = self.isSelectAllInvited
-            }
-            selectedCount = self.isSelectAllInvited ? self.arrContactsData.count : 0
-            self.btnDone.isEnabled = (selectedCount != 0)
-        }
-        else {
-            self.isSelectAllFriends = !isSelectAllFriends
-            for fData:NSMutableDictionary in self.arrFriendsData {
-                fData["selected"] = self.isSelectAllFriends
-            }
-        }
-        
-        self._tableView.reloadData()
- 
-
-    }
-  */
+    /*
+     @IBAction func selectBtnPressed(_ sender: AnyObject, forEvent event: UIEvent) {
+     let touch: UITouch = (event.allTouches?.first)! as UITouch
+     let point: CGPoint = touch.location(in: self._tableView)  as CGPoint
+     let indexPath: IndexPath = self._tableView.indexPathForRow(at: point) as IndexPath!
+     
+     let btn: UIButton = sender as! UIButton
+     
+     btn.isSelected = !btn.isSelected
+     self.arrInviteFriendsData[indexPath.row]["selected"] = btn.isSelected
+     selectedCount += btn.isSelected ? 1 : -1
+     self.btnDone.isEnabled = (selectedCount != 0)
+     }
+     @IBAction func selectAllBtnPressed(_ sender: AnyObject) {
+     
+     if (btnInvite.isSelected) {
+     self.isSelectAllInvited = !self.isSelectAllInvited
+     for cData   :  NSMutableDictionary in self.arrInviteFriendsData {
+     cData["selected"] = self.isSelectAllInvited
+     }
+     selectedCount = self.isSelectAllInvited ? self.arrContactsData.count : 0
+     self.btnDone.isEnabled = (selectedCount != 0)
+     }
+     else {
+     self.isSelectAllFriends = !isSelectAllFriends
+     for fData:NSMutableDictionary in self.arrFriendsData {
+     fData["selected"] = self.isSelectAllFriends
+     }
+     }
+     
+     self._tableView.reloadData()
+     
+     
+     }
+     */
     
     //MARK: CLLocation Delegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -998,9 +1007,9 @@ UISearchBarDelegate{
             //let lat_long = String(format: "%@,%@",String(stringInterpolationSegment: newLocation.coordinate.latitude),String(stringInterpolationSegment: newLocation.coordinate.longitude))
             
             let lat_long :  String =
-              String(describing:  newLocation.coordinate.latitude)
-            + ","
-            + String(describing: newLocation.coordinate.longitude)
+                String(describing:  newLocation.coordinate.latitude)
+                    + ","
+                    + String(describing: newLocation.coordinate.longitude)
             
             
             
@@ -1009,8 +1018,8 @@ UISearchBarDelegate{
             print("SelectedUserID:\(selectedUserId)")
             print("Lat long:\(lat_long)")
             
-          //  callLocationService(userId, selectedUserId: selectedUserId!, latlong: lat_long)
-       }
+            //  callLocationService(userId, selectedUserId: selectedUserId!, latlong: lat_long)
+        }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
@@ -1033,7 +1042,7 @@ UISearchBarDelegate{
                         
                     }
                     else {
-                       self.alert(jsonResponse["msg"] as! String)
+                        self.alert(jsonResponse["msg"] as! String)
                     }
                 }
                 self.view.isUserInteractionEnabled = true
@@ -1072,15 +1081,15 @@ UISearchBarDelegate{
         
         
         //self.viewPopup.transform = CGAffineTransformMakeScale(0.01, 0.01);
-         self.scrollView.isHidden = false
+        self.scrollView.isHidden = false
         self.viewPopup.transform = CGAffineTransform(a: self.viewPopup.transform.a/2.0, b: 0, c: 0, d: 1, tx: self.viewPopup.frame.size.width, ty: 0);
         UIView.animate(withDuration: 0.4, delay: 0.0, options: UIView.AnimationOptions(), animations: { () -> Void in
             
             self.viewPopup.transform = CGAffineTransform.identity;
             
-            }, completion: { (finished: Bool) -> Void in
-                
-                // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
+        }, completion: { (finished: Bool) -> Void in
+            
+            // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
         })
         
         self.txtViewMsg.becomeFirstResponder()
@@ -1095,11 +1104,11 @@ UISearchBarDelegate{
             // self.viewPopup.transform = CGAffineTransformMakeScale(0.01, 0.01);
             self.viewPopup.transform = CGAffineTransform(a: self.viewPopup.transform.a/2.0, b: 0, c: 0, d: 1, tx: self.viewPopup.frame.size.width, ty: 0);
             
-            }, completion: { (finished: Bool) -> Void in
-                self.scrollView.isHidden = true
-                // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
+        }, completion: { (finished: Bool) -> Void in
+            self.scrollView.isHidden = true
+            // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
         })
-           self.txtViewMsg.resignFirstResponder()
+        self.txtViewMsg.resignFirstResponder()
         
     }
     
@@ -1169,29 +1178,29 @@ UISearchBarDelegate{
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       
-            if(searchText != ""){
-                let arrTempSearch:NSMutableArray = []
-                for friendData:NSDictionary in (self.arrFriendBackup as NSArray as! [NSDictionary]){
-                    let options = NSString.CompareOptions.caseInsensitive
-                    let found = (friendData["userName"] as? String)?.range(of: searchText, options: options)
-                    if ((found) != nil) {
-                        print(friendData["userName"])
-                        arrTempSearch.add(friendData)
-                    }
+        
+        if(searchText != ""){
+            let arrTempSearch:NSMutableArray = []
+            for friendData:NSDictionary in (self.arrFriendBackup as NSArray as! [NSDictionary]){
+                let options = NSString.CompareOptions.caseInsensitive
+                let found = (friendData["userName"] as? String)?.range(of: searchText, options: options)
+                if ((found) != nil) {
+                    print(friendData["userName"])
+                    arrTempSearch.add(friendData)
                 }
-                
-                self.arrFriendsData = arrTempSearch.copy() as! NSArray as! Array<NSDictionary>
-               //print(arrTempSearch)
             }
-            else{
-                self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
-            }
-      
-            //let range  : NSRange = NSMakeRange(0, 1)
-          //  let selectedIndices =  NSMutableIndexSet(integersIn: range.toRange() ?? 0..<0)
-            self._tableView.reloadData()
             
+            self.arrFriendsData = arrTempSearch.copy() as! NSArray as! Array<NSDictionary>
+            //print(arrTempSearch)
+        }
+        else{
+            self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
+        }
+        
+        //let range  : NSRange = NSMakeRange(0, 1)
+        //  let selectedIndices =  NSMutableIndexSet(integersIn: range.toRange() ?? 0..<0)
+        self._tableView.reloadData()
+        
         
     }
     func textViewdidBeginEditing(_ textView: UITextView) -> Bool {
@@ -1213,12 +1222,12 @@ UISearchBarDelegate{
         let maxLength = 80
         let currentString: NSString = textView.text as NSString
         let newString: NSString =
-        currentString.replacingCharacters(in: range, with: text) as NSString
+            currentString.replacingCharacters(in: range, with: text) as NSString
         print(newString.length)
         return newString.length <= maxLength
     }
     
-  
+    
     @IBAction func segmentValueChanged(_ sender: Any) {
         self._tableView.reloadData()
         

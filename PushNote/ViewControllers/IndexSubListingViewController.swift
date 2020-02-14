@@ -374,6 +374,7 @@ UICollectionViewDataSource,UISearchBarDelegate {
             btnPlus.layer.borderColor = UIColor(red: 17.0/255.0 , green: 29.0/255.0, blue: 185.0/255.0, alpha: 1.0).cgColor
             btnPlus.setTitle("Subscribe", for: UIControl.State())
             btnPlus.setTitle("UnSubscribe", for: UIControl.State.selected)
+            btnPlus.backgroundColor = UIColor
             
         }else{
             btnPlus.layer.borderColor = UIColor(red: 239.0/255.0 , green: 90.0/255.0, blue: 43.0/255.0, alpha: 1.0).cgColor

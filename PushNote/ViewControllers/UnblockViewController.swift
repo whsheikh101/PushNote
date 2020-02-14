@@ -18,7 +18,7 @@ class UnblockViewController: BaseViewController,UITableViewDelegate,UITableViewD
         
         let defaults = UserDefaults.standard;
         let userId = defaults.value(forKeyPath: "userData.user_id") as! String
-        self.title = "Blocked Contacts"
+        self.title = "Blocked"
         if !self.isReachable() {
             return
         }
