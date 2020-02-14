@@ -148,6 +148,7 @@
 		83EE75C71C95DE7000A616D2 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75C61C95DE7000A616D2 /* TextView.swift */; };
 		83EE75C91C95DEE900A616D2 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75C81C95DEE900A616D2 /* TermViewController.swift */; };
 		83EE75CB1C95DEF400A616D2 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */; };
+		D50BF62423F6935A0094B8E9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50BF62323F68ADA0094B8E9 /* SettingViewController.swift */; };
 		DA76ADE323F078F800D67869 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -319,6 +320,7 @@
 		83EE75C81C95DEE900A616D2 /* TermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
 		83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		A049E882613295B72F32A6BB /* Pods-PushNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.debug.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.debug.xcconfig"; sourceTree = "<group>"; };
+		D50BF62323F68ADA0094B8E9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DA76ADDF23EB52AB00D67869 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -681,6 +683,7 @@
 		838AB9191C7E4765008EFD80 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D50BF62223F68A790094B8E9 /* Settings */,
 				83B6F3BD1C80BD80000E2657 /* LoginAndSignup */,
 				49FFE5A51CA7F14200CDC5F6 /* ResetPasswordViewController.swift */,
 				49B254BB1CB4641C00FFB9E4 /* MapViewController.swift */,
@@ -758,6 +761,14 @@
 				49CE21801D2665CF0073E3CC /* MP3Player.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D50BF62223F68A790094B8E9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D50BF62323F68ADA0094B8E9 /* SettingViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		DA76ADE123F078D900D67869 /* Extensions */ = {
@@ -1006,6 +1017,7 @@
 				83EE75C91C95DEE900A616D2 /* TermViewController.swift in Sources */,
 				49CCCCE01C9937DD00C45340 /* Reachability.swift in Sources */,
 				49FFE5B31CA814FF00CDC5F6 /* AutoCompleteTextField.swift in Sources */,
+				D50BF62423F6935A0094B8E9 /* SettingViewController.swift in Sources */,
 				490F4ADD1CA726F10095BA88 /* CustomTableCell.swift in Sources */,
 				49075E101CAEF3C30034FD7B /* CustomCollectionCell.swift in Sources */,
 				49CCCCE51C994C6100C45340 /* MKMapViewExtension.swift in Sources */,

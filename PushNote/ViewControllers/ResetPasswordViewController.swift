@@ -19,8 +19,8 @@ class ResetPasswordViewController: BaseViewController, UIAlertViewDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.addBackBtn()
-        self.title = "RESET PASSWORD"
+//        self.addBackBtn()
+        
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44));
         let itemDone = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(ResetPasswordViewController.doneBtnPressed(_:)));
         toolbar.setItems([itemDone], animated: true);
@@ -45,7 +45,9 @@ class ResetPasswordViewController: BaseViewController, UIAlertViewDelegate {
    
     
  
-    
+    @IBAction func close(_ sender:Any){
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func saveBtnPressed(_ sender: AnyObject) {
         
         doneBtnPressed(self)

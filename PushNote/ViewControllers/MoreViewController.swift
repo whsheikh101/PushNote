@@ -9,181 +9,20 @@
 import UIKit
 import Alamofire
 import MessageUI
-class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailComposeViewControllerDelegate,
-UITableViewDelegate,
-UITableViewDataSource{
+class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailComposeViewControllerDelegate {
+   
     var alertType : String = "Logout"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.setTabbar()
+        
         self.navigationItem.title = "DASHBOARD"
         
         // Do any additional setup after loading the view.
     }
-
-    func setTabbar() {
-       
-        self.tabBarItem = UITabBarItem(title: "More", image: UIImage(named: "moreTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "more-activeTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal));
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    //UITableView integration
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) ->Int {
-        
-        if(section == 0){
-            return 2
-        }
-        else if(section == 1){
-            return 4
-        }
-        else if(section == 2){
-            return 4
-        }
-        else if(section == 3){
-            return 1
-        }
-        
-        return 0;
-        
-    }
     
     
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        if(indexPath.section == 3){
-            cell = tableView.dequeueReusableCell(withIdentifier: "LogoutCell")
-        }else {
-            let identifier:String = "Cell\(indexPath.section)\(indexPath.row)"
-            cell = (tableView.dequeueReusableCell(withIdentifier: identifier) as! UITableViewCell)
-        }
-        cell?.backgroundColor = UIColor(red: 236.0/255.0, green: 236.0/255.0, blue: 236.0/255.0, alpha: 1.0)
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        // let arrayOfKeys = Array(locationDataDictionary.keys).sort{ $0 > $1 }
-        let  headerCell:UITableViewCell?
-        headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell")
-
-        
-        return headerCell
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        if(section == 3){
-            return 15.0
-        }
-        return 5.0
-        
-        
-    }
-    
-    
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
-        if(indexPath.section == 2){
-             print(indexPath.row)
-            switch(indexPath.row){
-               
-            case 0:
-                let aboutController = self.storyboard?.instantiateViewController(withIdentifier: "AboutTextViewController") as? AboutTextViewController
-                aboutController!.myTitle = "About"
-                self.navigationController?.pushViewController(aboutController!, animated: true)
-                break
-            case 1:
-                let howToViewController = self.storyboard?.instantiateViewController(withIdentifier: "HowItWorksViewController") as? HowItWorksViewController
-              
-                self.navigationController?.pushViewController(howToViewController!, animated: true)
-                break
-            case 2:
-                let aboutController = self.storyboard?.instantiateViewController(withIdentifier: "AboutTextViewController") as? AboutTextViewController
-                aboutController!.myTitle = "Privacy Policy"
-                self.navigationController?.pushViewController(aboutController!, animated: true)
-                break
-            case 3:
-                let aboutController = self.storyboard?.instantiateViewController(withIdentifier: "AboutTextViewController") as? AboutTextViewController
-                aboutController!.myTitle = "Terms"
-                self.navigationController?.pushViewController(aboutController!, animated: true)
-                break
-            default:
-                break
-            }
-        }else  if(indexPath.section == 0){
-            switch(indexPath.row){
-                 case 0:
-                    self.deleteNumberBtnPressed()
-                 break
-            case 1:
-                let unblockController = self.storyboard?.instantiateViewController(withIdentifier: "UnblockViewController") as? UnblockViewController
-                print("HERe")
-                self.navigationController?.pushViewController(unblockController!, animated: true)
-                break
-            default:
-                break
-            }
-        }else  if(indexPath.section == 1){
-             switch(indexPath.row){
-                case 0:
-                    print("Share")
-                    let shareContent: String = "Just got a Pushnote. Subscribe here https://itunes.apple.com/gb/app/push-note/id962393538?mt=8"
-                    print(shareContent)
-                    let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
-                    // self.present(activityViewController, animated: true, completion: {})
-                    if UIDevice.current.userInterfaceIdiom == .pad {
-                           activityViewController.popoverPresentationController?.sourceView = self.view
-                           //activityViewController.popoverPresentationController?.sourceRect = sender.frame
-                    }
-                    self.present(activityViewController, animated: true, completion: nil)
-                break
-            case 1:
-            //var appStoreId = "962393538"
-            //var urlStr: String = "itms-apps://itunes.apple.com/app/id\(appStoreId)"
-            let urlStr: String = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=962393538&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
-            UIApplication.shared.openURL(URL(string: urlStr)!)
-            
-            break
-            case 2:
-            if (MFMailComposeViewController.canSendMail()) {
-                let mailComposer = MFMailComposeViewController();
-                mailComposer.mailComposeDelegate = self;
-                mailComposer.setToRecipients(["feedback@ipushnote.com"]);
-                mailComposer.setSubject("PushNote Feeback");
-                //mailComposer.setMessageBody("", isHTML: false);
-                self.present(mailComposer, animated: true, completion: nil);
-            }
-            
-            break
-             case 3 :
-                let weatherController = self.storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController
-                
-                self.navigationController?.pushViewController(weatherController!, animated: true)
-                break
-             default:
-                break
-            }
-        }
-        
-        
-        
-    }
-   func deleteNumberBtnPressed() {
+    func deleteNumberBtnPressed() {
         self.alertType = "DeletePhone"
         let defaults = UserDefaults.standard;
         let userNum = defaults.value(forKeyPath: "userData.phoneNumber") as! String
@@ -209,7 +48,7 @@ UITableViewDataSource{
         let defaults = UserDefaults.standard;
         let userId = defaults.value(forKeyPath: "userData.user_id") as! String
         let arrParam : Parameters = ["userId" : userId]
-       
+        
         Alamofire.request(baseUrl + "deletePhone", parameters: arrParam)
             .responseJSON { response in
                 
@@ -220,7 +59,7 @@ UITableViewDataSource{
                         defaults.set(jsonResponse.value(forKey: "data"), forKey: "userData");
                         defaults.synchronize();
                         self.alert("Number Deleted Successfully")
-                       // self.navigationController?.popViewControllerAnimated(true)
+                        // self.navigationController?.popViewControllerAnimated(true)
                     }
                     else {
                         self.alert(jsonResponse["msg"] as! String)
@@ -231,8 +70,8 @@ UITableViewDataSource{
         }
     }
     
-
-
+    
+    
     
     func openPrivacy() {
         
@@ -270,7 +109,7 @@ UITableViewDataSource{
             
             self.showActivityIndicator()
             let param : Parameters = ["userId" : userId]
-             Alamofire.request(baseUrl + "logout", parameters: param)
+            Alamofire.request(baseUrl + "logout", parameters: param)
                 .responseJSON { response in
                     
                     if let jsonResponse = response.result.value  as? NSDictionary{
@@ -308,8 +147,8 @@ UITableViewDataSource{
     
     private func pushController(identifier:String){
         if let controller = self.storyboard?.instantiateViewController(withIdentifier: identifier){
-                   self.navigationController?.pushViewController(controller, animated:true)
-               }
+            self.navigationController?.pushViewController(controller, animated:true)
+        }
     }
     @IBAction func notification(_ sender: Any) {
         self.pushController(identifier: "HomeViewController")
@@ -340,10 +179,8 @@ UITableViewDataSource{
         let shareContent: String = "Just got a Pushnote. Subscribe here https://itunes.apple.com/gb/app/push-note/id962393538?mt=8"
         print(shareContent)
         let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
-        // self.present(activityViewController, animated: true, completion: {})
         if UIDevice.current.userInterfaceIdiom == .pad {
-               activityViewController.popoverPresentationController?.sourceView = self.view
-               //activityViewController.popoverPresentationController?.sourceRect = sender.frame
+            activityViewController.popoverPresentationController?.sourceView = self.view
         }
         self.present(activityViewController, animated: true, completion: nil)
     }
@@ -352,27 +189,30 @@ UITableViewDataSource{
         
         let urlStr: String = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=962393538&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
         UIApplication.shared.openURL(URL(string: urlStr)!)
+        
     }
     
     @IBAction func feedback(_ sender: Any) {
         
         if (MFMailComposeViewController.canSendMail()) {
-                       let mailComposer = MFMailComposeViewController();
-                       mailComposer.mailComposeDelegate = self;
-                       mailComposer.setToRecipients(["feedback@ipushnote.com"]);
-                       mailComposer.setSubject("PushNote Feeback");
-                       //mailComposer.setMessageBody("", isHTML: false);
-                       self.present(mailComposer, animated: true, completion: nil);
-                   }
+            
+            let mailComposer = MFMailComposeViewController();
+            mailComposer.mailComposeDelegate = self;
+            mailComposer.setToRecipients(["feedback@ipushnote.com"]);
+            mailComposer.setSubject("PushNote Feeback");
+            //mailComposer.setMessageBody("", isHTML: false);
+            self.present(mailComposer, animated: true, completion: nil);
+        }
     }
     
     @IBAction func weather(_ sender: Any) {
+        
         let weatherController = self.storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController
-                      
-                      self.navigationController?.pushViewController(weatherController!, animated: true)
+        self.navigationController?.pushViewController(weatherController!, animated: true)
     }
     
     @IBAction func settings(_ sender: Any) {
+        self.pushController(identifier: "SettingViewController")
     }
     @IBAction func logout(_ sender: Any) {
         self.alertType = "Logout"
