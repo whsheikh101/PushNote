@@ -24,8 +24,6 @@ class SignupViewController: BaseViewController {
     @IBOutlet weak var textFieldConfirmPasscode: TextField?
     @IBOutlet weak var textFieldCountry: TextField?
     @IBOutlet weak var textFieldPhone: TextField?
-    @IBOutlet weak var textFieldPhoneNumber: UITextField?
-    @IBOutlet weak var labelCountryCode: UILabel?
     @IBOutlet weak var pickerView: UIPickerView?
     
     override func viewDidLoad() {

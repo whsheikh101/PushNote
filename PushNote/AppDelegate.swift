@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //            }
         }
-        if let launchOpts = launchOptions {
+        if let launchOpts = launchOptions { 
             let dic: NSDictionary = launchOpts[UIApplication.LaunchOptionsKey.remoteNotification] as! NSDictionary
             dicNotification = dic
         }
