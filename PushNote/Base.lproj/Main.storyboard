@@ -76,14 +76,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="LoginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="duy-bu-7ph">
-                                        <rect key="frame" x="64" y="146.5" width="247" height="30"/>
+                                        <rect key="frame" x="64" y="182" width="247" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IQ6-1l-3kt"/>
                                             <constraint firstAttribute="width" constant="247.33000000000001" id="tzv-LU-tl5"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hev-vb-pbD" userLabel="Stack View - Login Fields">
-                                        <rect key="frame" x="27.5" y="221.5" width="320" height="161"/>
+                                        <rect key="frame" x="27.5" y="257" width="320" height="161"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nv-bA-tLe" userLabel="View - UserName &amp; Password">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
@@ -133,7 +133,7 @@
                                                         <rect key="frame" x="0.0" y="61" width="320" height="60"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginLockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="F2u-Hv-bks">
-                                                                <rect key="frame" x="12.999999999999998" y="20" width="20" height="20"/>
+                                                                <rect key="frame" x="13" y="20" width="20" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="LzO-oF-KuK"/>
                                                                     <constraint firstAttribute="width" constant="20" id="hzm-Y0-NFO"/>
@@ -205,10 +205,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lBd-Aa-4iS" userLabel="Stack View - Buttons">
-                                        <rect key="frame" x="15.5" y="422.5" width="344" height="117"/>
+                                        <rect key="frame" x="15.5" y="458" width="344" height="224"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wc4-Jj-AWj" userLabel="Button - Login">
-                                                <rect key="frame" x="0.0" y="0.0" width="344" height="53.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="344" height="107"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="Login"/>
                                                 <connections>
@@ -216,7 +216,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zD-zL-WCL">
-                                                <rect key="frame" x="0.0" y="63.5" width="344" height="53.5"/>
+                                                <rect key="frame" x="0.0" y="117" width="344" height="107"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="SignUp"/>
                                                 <connections>
@@ -326,7 +326,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all" translatesAutoresizingMaskIntoConstraints="NO" id="Hfo-IQ-buQ">
-                                                    <rect key="frame" x="1" y="2" width="148.00000000000003" height="103.00000000000003"/>
+                                                    <rect key="frame" x="1" y="2" width="148" height="103"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Lbk-fQ-wvG" customClass="Label" customModule="PushNote" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="104" width="150" height="23"/>
@@ -440,7 +440,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51W-uf-bvm">
-                                                    <rect key="frame" x="99" y="16" width="129" height="20"/>
+                                                    <rect key="frame" x="99" y="16" width="110" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="Hnk-9f-sc5"/>
                                                         <constraint firstAttribute="width" constant="200" id="dY7-xx-cJu"/>
@@ -456,7 +456,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfE-cH-Ka8">
-                                                    <rect key="frame" x="99" y="36" width="129" height="26.5"/>
+                                                    <rect key="frame" x="99" y="36" width="110" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -488,7 +488,7 @@
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" tag="1004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockIcn" translatesAutoresizingMaskIntoConstraints="NO" id="fWs-2S-XBP">
-                                                    <rect key="frame" x="233" y="38" width="19.5" height="24.500000000000007"/>
+                                                    <rect key="frame" x="214" y="25.5" width="38.5" height="49"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="fWs-2S-XBP" secondAttribute="height" multiplier="19:24" id="ByH-xa-HpR"/>
                                                         <constraint firstAttribute="width" secondItem="fWs-2S-XBP" secondAttribute="height" multiplier="19:24" id="YD0-Bw-qf2"/>
@@ -2349,7 +2349,7 @@
                                                         <rect key="frame" x="0.0" y="24" width="105" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete no" translatesAutoresizingMaskIntoConstraints="NO" id="rqL-7r-Tb0">
-                                                                <rect key="frame" x="40.5" y="0.0" width="24" height="24.000000000000007"/>
+                                                                <rect key="frame" x="40.5" y="0.0" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="24" id="JFy-oJ-AoH"/>
                                                                     <constraint firstAttribute="height" constant="24" id="qfn-vn-74Z"/>
@@ -3780,7 +3780,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uib-fG-EpK">
-                                                <rect key="frame" x="209" y="40" width="38.5" height="40.5"/>
+                                                <rect key="frame" x="171.5" y="40" width="76" height="79.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uib-fG-EpK" secondAttribute="height" multiplier="22:23" id="pZe-Ub-Pwp"/>
                                                 </constraints>
@@ -5413,7 +5413,7 @@
                                                         <rect key="frame" x="0.0" y="26.5" width="105" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reset password" translatesAutoresizingMaskIntoConstraints="NO" id="4Zz-bo-oAY">
-                                                                <rect key="frame" x="40.5" y="0.0" width="24" height="24.000000000000007"/>
+                                                                <rect key="frame" x="40.5" y="0.0" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="24" id="Ex4-eH-RCU"/>
                                                                     <constraint firstAttribute="height" constant="24" id="UJM-M1-Jd8"/>
@@ -5518,7 +5518,7 @@
                                                         <rect key="frame" x="0.0" y="26.5" width="105" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about push" translatesAutoresizingMaskIntoConstraints="NO" id="D2R-0o-NTg">
-                                                                <rect key="frame" x="40.5" y="0.0" width="24" height="24.000000000000007"/>
+                                                                <rect key="frame" x="40.5" y="0.0" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="24" id="fqz-Ro-bvU"/>
                                                                     <constraint firstAttribute="width" constant="24" id="tSm-LH-2IM"/>

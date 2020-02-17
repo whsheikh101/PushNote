@@ -13,7 +13,7 @@ class SettingViewController: BaseViewController{
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        self.navigationItem.title = "Settings"
+        self.navigationItem.title = "Settings".uppercased()
     }
     
     func openPrivacy() {

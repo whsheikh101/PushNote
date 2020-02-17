@@ -27,7 +27,7 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "How It Works"
+        self.title = "How It Works".uppercased()
          self.addBackBtn()
         let size: CGSize = self.view.frame.size
         
