@@ -143,7 +143,7 @@ class NotificationsViewController: BaseViewController,CLLocationManagerDelegate 
     
     func moveToHome() {
         
-        let tabController = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_TAB);UIApplication.shared.keyWindow?.rootViewController = tabController
+        let tabController = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_DASHBOARD);UIApplication.shared.keyWindow?.rootViewController = tabController
         self.present(tabController!, animated: true, completion: nil)
     }
     func registerPushNotification() {

@@ -46,6 +46,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.12156862745098039" green="0.15294117647058825" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c8D-Cx-rse">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="jHW-pJ-hH6" kind="relationship" relationship="rootViewController" id="9jc-TG-ZCh"/>
                     </connections>
@@ -1857,7 +1860,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QbN-Qi-EY0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1215686275" green="0.1529411765" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.85687762499999998" green="0.28998824950000002" blue="0.345087111" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Rko-oU-SD4" kind="relationship" relationship="rootViewController" id="PhJ-ci-fHH"/>
@@ -1867,10 +1876,10 @@
             </objects>
             <point key="canvasLocation" x="2796" y="2920"/>
         </scene>
-        <!--Profile-->
+        <!--PROFILE-->
         <scene sceneID="xVn-Jq-0uH">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="Rko-oU-SD4" customClass="ProfileViewController" customModule="PushNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" title="PROFILE" id="Rko-oU-SD4" customClass="ProfileViewController" customModule="PushNote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GnM-Sf-V79"/>
                         <viewControllerLayoutGuide type="bottom" id="Jm6-Uh-FQF"/>
@@ -2069,6 +2078,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profileTab" id="feE-7N-vjp"/>
                     <navigationItem key="navigationItem" id="dRv-hA-QiB">
+                        <barButtonItem key="backBarButtonItem" title=" " id="OUb-Yn-UnJ"/>
                         <barButtonItem key="rightBarButtonItem" image="Edit" id="zu8-Wg-hzT">
                             <color key="tintColor" red="0.17816025020000001" green="0.23289945719999999" blue="0.35687655210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -2763,7 +2773,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MORE" image="moreTab" selectedImage="more-activeTab" id="xPN-G4-hNF"/>
-                    <navigationItem key="navigationItem" title="Dashboard" id="8di-dc-Zdq"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="8di-dc-Zdq">
+                        <barButtonItem key="backBarButtonItem" title=" " id="55T-JV-Xip"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Cp-9F-KqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3174,6 +3186,9 @@
                                                     <constraint firstAttribute="width" constant="100" id="1Xr-zc-dhR"/>
                                                     <constraint firstAttribute="height" constant="100" id="qbw-wK-Xq2"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circularView" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oz6-iB-b1G">
                                                 <rect key="frame" x="205.5" y="40" width="32" height="32"/>
@@ -3391,7 +3406,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq5-yI-K1Q">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq5-yI-K1Q">
                                                         <rect key="frame" x="20" y="16" width="18" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="18" id="1CK-xx-8RQ"/>
@@ -3495,7 +3510,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtT-Rm-JJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niT-4m-HHs">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.35294117650000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.85687762499999998" green="0.28998824950000002" blue="0.345087111" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="216" id="sKz-F0-im6"/>
@@ -3521,7 +3536,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBv-0a-GUP">
-                                <rect key="frame" x="0.0" y="44" width="375" height="529"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="518"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get you favorite content,updates and messages from your lockscreen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHu-ft-7s1">
                                         <rect key="frame" x="8" y="56" width="359" height="56"/>
@@ -3533,7 +3548,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mobile" translatesAutoresizingMaskIntoConstraints="NO" id="O0d-vn-CyJ">
-                                        <rect key="frame" x="59" y="109" width="257" height="380"/>
+                                        <rect key="frame" x="6.5" y="109" width="362" height="535.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="O0d-vn-CyJ" secondAttribute="height" multiplier="257:380" id="NVW-mQ-TKM"/>
                                         </constraints>
@@ -3545,28 +3560,22 @@
                                     <constraint firstItem="FHu-ft-7s1" firstAttribute="leading" secondItem="wBv-0a-GUP" secondAttribute="leadingMargin" id="8cr-uJ-sdy"/>
                                     <constraint firstAttribute="trailing" secondItem="FHu-ft-7s1" secondAttribute="trailing" constant="8" id="AVk-XO-Fsm"/>
                                     <constraint firstItem="O0d-vn-CyJ" firstAttribute="top" secondItem="wBv-0a-GUP" secondAttribute="top" constant="109" id="HL3-h5-OOg"/>
-                                    <constraint firstItem="FHu-ft-7s1" firstAttribute="trailing" secondItem="wBv-0a-GUP" secondAttribute="trailingMargin" id="Rnf-wp-fxZ"/>
                                     <constraint firstAttribute="bottom" secondItem="O0d-vn-CyJ" secondAttribute="bottom" constant="20" id="Sta-3C-zoU"/>
                                     <constraint firstItem="FHu-ft-7s1" firstAttribute="top" secondItem="wBv-0a-GUP" secondAttribute="top" constant="56" id="Vki-EA-yvm"/>
                                     <constraint firstItem="O0d-vn-CyJ" firstAttribute="centerX" secondItem="wBv-0a-GUP" secondAttribute="centerX" id="nOO-oj-A4B"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Rnf-wp-fxZ"/>
-                                    </mask>
-                                </variation>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMm-9V-01s">
-                                <rect key="frame" x="128" y="44" width="119" height="51"/>
+                                <rect key="frame" x="136" y="44" width="103" height="45.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckBoxInActive" translatesAutoresizingMaskIntoConstraints="NO" id="uwg-Hy-faQ">
-                                        <rect key="frame" x="19" y="15" width="21" height="21"/>
+                                        <rect key="frame" x="19" y="15" width="15.5" height="15.5"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckBoxInActive" translatesAutoresizingMaskIntoConstraints="NO" id="vcC-Jz-kZu">
-                                        <rect key="frame" x="49" y="15" width="21" height="21"/>
+                                        <rect key="frame" x="43.5" y="15" width="16" height="15.5"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckBoxInActive" translatesAutoresizingMaskIntoConstraints="NO" id="et4-Iq-ORg">
-                                        <rect key="frame" x="80" y="15" width="21" height="21"/>
+                                        <rect key="frame" x="69.5" y="15" width="15.5" height="15.5"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3582,7 +3591,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgs-Lx-opg">
-                                <rect key="frame" x="41" y="575" width="293.5" height="48"/>
+                                <rect key="frame" x="24" y="564" width="327" height="53.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qgs-Lx-opg" secondAttribute="height" multiplier="293:48" id="mNO-o7-ynG"/>
                                 </constraints>
@@ -3592,13 +3601,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPi-h0-ZjF">
-                                <rect key="frame" x="41" y="624" width="293.5" height="48"/>
+                                <rect key="frame" x="24" y="618.5" width="327" height="53.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="DQi-s3-qDg"/>
                                     <constraint firstAttribute="width" secondItem="TPi-h0-ZjF" secondAttribute="height" multiplier="293:48" id="qTk-Fd-FAd"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Not Now">
-                                    <color key="titleColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.15091198682785034" green="0.20921584963798523" blue="0.3372688889503479" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3764,13 +3774,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="xlV-CD-TFe">
-                                                <rect key="frame" x="131.5" y="54.5" width="112.5" height="91"/>
+                                                <rect key="frame" x="127.5" y="40" width="120" height="120"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="circularView" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uib-fG-EpK">
-                                                <rect key="frame" x="205.5" y="54.5" width="38.5" height="40.5"/>
+                                                <rect key="frame" x="209" y="40" width="38.5" height="40.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uib-fG-EpK" secondAttribute="height" multiplier="22:23" id="pZe-Ub-Pwp"/>
                                                 </constraints>
@@ -3786,8 +3796,8 @@
                                             <constraint firstItem="xlV-CD-TFe" firstAttribute="centerY" secondItem="Jx3-sA-pjx" secondAttribute="centerY" id="Wxn-rm-blM"/>
                                             <constraint firstItem="uib-fG-EpK" firstAttribute="trailing" secondItem="xlV-CD-TFe" secondAttribute="trailing" id="bH7-cM-xod"/>
                                             <constraint firstItem="xlV-CD-TFe" firstAttribute="centerX" secondItem="Jx3-sA-pjx" secondAttribute="centerX" id="csF-2o-Gme"/>
-                                            <constraint firstItem="xlV-CD-TFe" firstAttribute="width" secondItem="Jx3-sA-pjx" secondAttribute="width" multiplier="0.3" id="fmt-O4-Glv"/>
-                                            <constraint firstItem="xlV-CD-TFe" firstAttribute="height" secondItem="Jx3-sA-pjx" secondAttribute="height" multiplier="0.455" id="rHQ-IY-H1O"/>
+                                            <constraint firstItem="xlV-CD-TFe" firstAttribute="width" secondItem="Jx3-sA-pjx" secondAttribute="height" multiplier="0.6" id="fmt-O4-Glv"/>
+                                            <constraint firstItem="xlV-CD-TFe" firstAttribute="height" secondItem="Jx3-sA-pjx" secondAttribute="height" multiplier="0.6" id="rHQ-IY-H1O"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibs-Qc-PNr">
@@ -4193,7 +4203,7 @@
                                                 <rect key="frame" x="20" y="111" width="295" height="47"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Passcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zct-au-eAw" customClass="TextField">
-                                                        <rect key="frame" x="23" y="5" width="272" height="37"/>
+                                                        <rect key="frame" x="38" y="5" width="257" height="37"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="37" id="qXU-pN-ZLE">
@@ -4210,7 +4220,7 @@
                                                         </connections>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="current password" translatesAutoresizingMaskIntoConstraints="NO" id="9r2-VI-Kbc">
-                                                        <rect key="frame" x="0.0" y="14.5" width="15" height="18"/>
+                                                        <rect key="frame" x="0.0" y="5.5" width="30" height="36"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4230,7 +4240,7 @@
                                                 <rect key="frame" x="20" y="168" width="295" height="47"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Passcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uot-Xo-myT" customClass="TextField">
-                                                        <rect key="frame" x="23" y="5" width="271" height="37"/>
+                                                        <rect key="frame" x="38" y="5" width="256" height="37"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="37" id="NDt-kC-2fJ">
@@ -4247,7 +4257,7 @@
                                                         </connections>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirm password" translatesAutoresizingMaskIntoConstraints="NO" id="9U0-Sh-YK7">
-                                                        <rect key="frame" x="0.0" y="14.5" width="15" height="18"/>
+                                                        <rect key="frame" x="0.0" y="5.5" width="30" height="36"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5325,7 +5335,7 @@
             </objects>
             <point key="canvasLocation" x="1390" y="4228"/>
         </scene>
-        <!--Settings-->
+        <!--SETTINGS-->
         <scene sceneID="IRz-xz-DHS">
             <objects>
                 <viewController storyboardIdentifier="SettingViewController" automaticallyAdjustsScrollViewInsets="NO" id="3YW-My-KRt" customClass="SettingViewController" customModule="PushNote" sceneMemberID="viewController">
@@ -5821,7 +5831,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MORE" image="moreTab" selectedImage="more-activeTab" id="sb6-pJ-fw4"/>
-                    <navigationItem key="navigationItem" title="Settings" id="aMU-sG-O9t"/>
+                    <navigationItem key="navigationItem" title="SETTINGS" id="aMU-sG-O9t">
+                        <barButtonItem key="backBarButtonItem" title=" " id="rSg-ek-Mgi"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2W-FN-Gor" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5859,7 +5871,7 @@
         <image name="blocked" width="33.333332061767578" height="33"/>
         <image name="blocked-7" width="31.333333969116211" height="39.666667938232422"/>
         <image name="cancle" width="30.333333969116211" height="31.666666030883789"/>
-        <image name="checkBoxActive" width="21" height="21"/>
+        <image name="checkBoxActive" width="15.666666984558105" height="15.666666984558105"/>
         <image name="checkbox" width="13.666666984558105" height="13.666666984558105"/>
         <image name="confirm password" width="15" height="18"/>
         <image name="crossBtn" width="27.333333969116211" height="30"/>
@@ -5900,13 +5912,13 @@ Afg
         <image name="location-selected" width="23" height="30.5"/>
         <image name="locationBtn" width="23" height="30.5"/>
         <image name="lockIcn" width="19" height="24.5"/>
-        <image name="mobile" width="257" height="380"/>
+        <image name="mobile" width="247.33332824707031" height="535.33331298828125"/>
         <image name="more-activeTab" width="20.5" height="6.5"/>
         <image name="moreTab" width="20.5" height="6.5"/>
         <image name="notifaction icon" width="10.666666984558105" height="10.333333015441895"/>
         <image name="passwordIcn" width="32" height="32"/>
         <image name="pausebtn" width="48" height="60"/>
-        <image name="placeholder" width="148.66667175292969" height="149"/>
+        <image name="placeholder" width="37" height="37"/>
         <image name="playbtn" width="65" height="75"/>
         <image name="privacy police" width="26.333333969116211" height="29"/>
         <image name="profile" width="26" height="26"/>
@@ -7247,9 +7259,10 @@ xYbKhs6G0IbShtSG3YbihuiG8IbyhvSG9ob4hv2HBZhxmHOYeJiGmIqYkZiWmKOYppizmLiYwJjDmMiY
 </mutableData>
         </image>
         <image name="term&amp;conditions " width="28" height="27.666666030883789"/>
-        <image name="turn-on-notification" width="293.5" height="48"/>
-        <image name="uncheckBoxInActive" width="21" height="21"/>
+        <image name="turn-on-notification" width="320" height="53.333332061767578"/>
+        <image name="uncheckBoxInActive" width="15.666666984558105" height="15.666666984558105"/>
         <image name="user icon " width="65" height="65"/>
         <image name="user-nameIcn" width="32" height="32"/>
     </resources>
+    <color key="tintColor" red="0.15091198680000001" green="0.2092158496" blue="0.33726888900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
