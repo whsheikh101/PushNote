@@ -27,6 +27,9 @@ class ForgotPasswordController: BaseViewController {
    
     
    
+    @IBAction func closeButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func forgotPasscodeBtnPressed(_ sender: AnyObject, forEvent event: UIEvent) {
         
        

@@ -32,7 +32,8 @@ class LoginViewController: BaseViewController {
     
     @IBAction func recoverPasswordBtnPressed(_ sender: AnyObject) {
         let forgotPassword = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordController") as! ForgotPasswordController
-        navigationController?.pushViewController(forgotPassword, animated: true)
+       
+        self.present(forgotPassword, animated: true, completion: nil) 
     }
     
     @IBAction func actionLogin(_ sender: AnyObject) {
