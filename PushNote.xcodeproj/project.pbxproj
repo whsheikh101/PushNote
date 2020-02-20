@@ -149,6 +149,7 @@
 		83EE75C91C95DEE900A616D2 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75C81C95DEE900A616D2 /* TermViewController.swift */; };
 		83EE75CB1C95DEF400A616D2 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */; };
 		D50BF62423F6935A0094B8E9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50BF62323F68ADA0094B8E9 /* SettingViewController.swift */; };
+		D5289E6B23FE9CC6001C3EF0 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5289E6A23FE9CC6001C3EF0 /* Storyboard.storyboard */; };
 		DA76ADE323F078F800D67869 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -321,6 +322,7 @@
 		83EE75CA1C95DEF400A616D2 /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		A049E882613295B72F32A6BB /* Pods-PushNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNote.debug.xcconfig"; path = "Target Support Files/Pods-PushNote/Pods-PushNote.debug.xcconfig"; sourceTree = "<group>"; };
 		D50BF62323F68ADA0094B8E9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D5289E6A23FE9CC6001C3EF0 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		DA76ADDF23EB52AB00D67869 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -676,6 +678,7 @@
 				838AB90E1C7E3A74008EFD80 /* LaunchScreen.storyboard */,
 				83B6F3C31C80E2F8000E2657 /* PushNote-Bridging-Header.h */,
 				DA76ADDF23EB52AB00D67869 /* Info.plist */,
+				D5289E6A23FE9CC6001C3EF0 /* Storyboard.storyboard */,
 			);
 			path = PushNote;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				838AB9101C7E3A74008EFD80 /* LaunchScreen.storyboard in Resources */,
 				49FFE5B71CA8345000CDC5F6 /* iphone_weatherBG.jpg in Resources */,
 				4977C73C1CA2B588009F0D6C /* love-it.caf in Resources */,
+				D5289E6B23FE9CC6001C3EF0 /* Storyboard.storyboard in Resources */,
 				49075E121CAF03CD0034FD7B /* 1-1.png in Resources */,
 				49075E1E1CAF04B90034FD7B /* 6-1.png in Resources */,
 				49FA66D51CA052DD003C868D /* terms.html in Resources */,

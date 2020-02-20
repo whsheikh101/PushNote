@@ -346,7 +346,7 @@ UISearchBarDelegate {
     override func viewDidLoad() {
     
         super.viewDidLoad()
-        self.addBackBtn2()
+//        self.addBackBtn2()
         userCaption.delegate = self
         userCaption.autocorrectionType = UITextAutocorrectionType.no
         searchB.autocorrectionType = UITextAutocorrectionType.no
@@ -703,7 +703,7 @@ UISearchBarDelegate {
       
         cell.friendSelected.tag = indexPath.row
         let imagePathUrl = URL(string: (friendData["photo"] as? String)! )
-        let defaultImg = UIImage(named: "iconImg")
+        let defaultImg = UIImage(named: "indexUserIcon")
         cell.friendPic.sd_setImage(with: imagePathUrl, placeholderImage: defaultImg)
         
         if(friendData["selected"] as? Bool == true){
@@ -715,6 +715,19 @@ UISearchBarDelegate {
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.arrFriendsData.count == 0 {
+                    
+                    let dict = NSMutableDictionary()
+                    dict["userId"] = "dummyID"
+                    dict["selected"] = false
+                    dict["userName"] = "dummyUserName"
+                    dict["contactName"] = "dummyContactName"
+                    dict["userNumber"] = "03312275651"
+                    dict["photo"] = ""
+                    
+                    self.arrFriendsData.append(dict)
+                    self.arrFriendsData.append(dict)
+        }
         return self.arrFriendsData.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
