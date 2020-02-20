@@ -557,11 +557,12 @@ class SignupViewController: BaseViewController {
         if isProfileImageAttached {
             
             let imgView = imageViewUserProfile
+            parameters["profile_image"] = imgView?.image!.jpegData(compressionQuality: 4.0)?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters) as AnyObject?
+            imgView?.image!.jpegData(compressionQuality: 4.0)?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters) as AnyObject
+            
             let qualityOfServiceClass = DispatchQoS.QoSClass.background
             let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
             backgroundQueue.async { [weak self] in
-                parameters["profile_image"] = imgView?.image!.jpegData(compressionQuality: 4.0)?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters) as AnyObject?
-                imgView?.image!.jpegData(compressionQuality: 4.0)?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters) as AnyObject
                 self?.signupWithParam(parameters)
             }
         } else {

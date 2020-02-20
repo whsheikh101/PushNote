@@ -35,77 +35,57 @@ class NotificationsViewController: BaseViewController,CLLocationManagerDelegate 
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         super.viewDidAppear(animated)
-        
-       // self.scrollViewImages.contentSize = CGSize(width: self.view.frame.size.width * 3, height: self.scrollViewImages.frame.size.height)
         
         self.addRemainingImagesOnScroll()
     }
     
     func addRemainingImagesOnScroll() {
         
-        let imageView = UIImageView(frame: CGRect(x: self.scrollViewImages.frame.size.width+59, y: self.imgViewMobile.frame.origin.y, width:self.imgViewMobile.frame.size.width , height: imgViewMobile.frame.size.height))
-        
-        imageView.image = UIImage(named: "mobile-2")
+        let imageView = UIImageView(frame: CGRect(x: self.scrollViewImages.frame.size.width + 15.0, y: self.imgViewMobile.frame.origin.y, width:self.imgViewMobile.frame.size.width, height: imgViewMobile.frame.size.height))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "Mobile-15")
         self.scrollViewImages.addSubview(imageView)
         
-        let imageView2 = UIImageView(frame: CGRect(x: (self.scrollViewImages.frame.size.width*2)+59, y: self.imgViewMobile.frame.origin.y, width:self.imgViewMobile.frame.size.width , height: imgViewMobile.frame.size.height))
-        
+        let imageView2 = UIImageView(frame: CGRect(x: (self.scrollViewImages.frame.size.width*2) + 15.0, y: self.imgViewMobile.frame.origin.y, width:self.imgViewMobile.frame.size.width, height: imgViewMobile.frame.size.height))
+        imageView2.contentMode = .scaleAspectFit
         imageView2.image = UIImage(named: "mobile-3")
         self.scrollViewImages.addSubview(imageView2)
         
         let lbl1 = UILabel(frame: CGRect(x: self.scrollViewImages.frame.size.width+8, y: self.lblText.frame.origin.y, width:self.lblText.frame.size.width , height: lblText.frame.size.height))
-        
         lbl1.backgroundColor = UIColor.clear
         lbl1.textColor = UIColor.darkGray
         lbl1.textAlignment = NSTextAlignment.center
         lbl1.text = "Easy share things will all your contacts through a simple push."
         lbl1.numberOfLines = 2
-        
         self.scrollViewImages.addSubview(lbl1)
         
         let lbl2 = UILabel(frame: CGRect(x: (self.scrollViewImages.frame.size.width*2)+8, y: self.lblText.frame.origin.y, width:self.lblText.frame.size.width , height: lblText.frame.size.height))
-        
         lbl2.backgroundColor = UIColor.clear
         lbl2.textColor = UIColor.darkGray
         lbl2.textAlignment = NSTextAlignment.center
         lbl2.text = "Drop a pin, check the weather and much more based on your location."
         lbl2.numberOfLines = 2
-        
         self.scrollViewImages.addSubview(lbl2)
-
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
+ 
     @IBAction func actionNotNow(_ sender: AnyObject) {
         
         if(sender.tag == 0) {
             
             btnAgree.tag = 1
             btnNotNow.tag = 1
-            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width  , y: self.scrollViewImages.frame.origin.y), animated: true)
+            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width, y: 0), animated: true)
             btnAgree.setImage(UIImage(named: "sync-your-contact"), for: UIControl.State())
             self.imgBullet2.image = UIImage(named: "checkBoxActive")
-        }
-        
-        else if(sender.tag == 1) {
+        } else if(sender.tag == 1) {
             
             btnAgree.tag = 2
             btnNotNow.tag = 2
-            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width*2 , y: self.scrollViewImages.frame.origin.y), animated: true)
+            self.scrollViewImages.setContentOffset(CGPoint(x: (self.scrollViewImages.frame.size.width*2), y: 0), animated: true)
             btnAgree.setImage(UIImage(named: "use-your-location"), for: UIControl.State())
             self.imgBullet3.image = UIImage(named: "checkBoxActive")
-
-        }
-        else if(sender.tag == 2){
-            
+        } else if(sender.tag == 2) {
             self.moveToHome()
         }
     }
@@ -117,20 +97,11 @@ class NotificationsViewController: BaseViewController,CLLocationManagerDelegate 
             
             btnNotNow.tag = 1
             btnAgree.tag = 1
-            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width , y: self.scrollViewImages.frame.origin.y), animated: true)
-            btnAgree.setImage(UIImage(named: "sync-your-contact"), for: UIControl.State())
+            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width, y: 0), animated: true)
+            btnAgree.setImage(UIImage(named: "sync-your-contact"), for: .normal)
             self.imgBullet2.image = UIImage(named: "checkBoxActive")
-        }
-        
-        else if(sender.tag == 1) {
-            getContactsPermission();
-            /*
-            btnNotNow.tag = 2
-            btnAgree.tag = 2
-            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width*2, y: self.scrollViewImages.frame.origin.y), animated: true)
-            btnAgree.setImage(UIImage(named: "use-your-location"), forState: UIControlState.Normal)
-            self.imgBullet3.image = UIImage(named: "checkBoxActive")
-*/
+        } else if(sender.tag == 1) {
+            getContactsPermission()
         }
         
         else if(sender.tag == 2){
@@ -169,17 +140,19 @@ class NotificationsViewController: BaseViewController,CLLocationManagerDelegate 
             addressBook = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, &errorRef))
             ABAddressBookRequestAccessWithCompletion(addressBook, { success, error in
                 if success {
-                    self.btnNotNow.tag = 2
-                    self.btnAgree.tag = 2
-                    self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width*2 , y: self.scrollViewImages.frame.origin.y), animated: true)
-                    self.btnAgree.setImage(UIImage(named: "use-your-location"), for: UIControl.State())
-                    self.imgBullet3.image = UIImage(named: "checkBoxActive")
+                    DispatchQueue.main.async { [weak self] in
+                        self?.btnNotNow.tag = 2
+                        self?.btnAgree.tag = 2
+                        self?.scrollViewImages.setContentOffset(CGPoint(x: (self?.scrollViewImages.frame.size.width ?? 0.0) * 2 , y: 0), animated: true)
+                        self?.btnAgree.setImage(UIImage(named: "use-your-location"), for: UIControl.State())
+                        self?.imgBullet3.image = UIImage(named: "checkBoxActive")
+                    }
                 }
                 else {
                     print("Denied")
                     self.btnNotNow.tag = 2
                     self.btnAgree.tag = 2
-                    self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width*2 , y: self.scrollViewImages.frame.origin.y), animated: true)
+                    self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width*2 , y: 0), animated: true)
                     self.btnAgree.setImage(UIImage(named: "use-your-location"), for: UIControl.State())
                     self.imgBullet3.image = UIImage(named: "checkBoxActive")
                 }
@@ -189,7 +162,7 @@ class NotificationsViewController: BaseViewController,CLLocationManagerDelegate 
              print("HERE")
             self.btnNotNow.tag = 2
             self.btnAgree.tag = 2
-            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width*2 , y: self.scrollViewImages.frame.origin.y), animated: true)
+            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width*2 , y: 0), animated: true)
             self.btnAgree.setImage(UIImage(named: "use-your-location"), for: UIControl.State())
             self.imgBullet3.image = UIImage(named: "checkBoxActive")
         }
@@ -197,7 +170,7 @@ class NotificationsViewController: BaseViewController,CLLocationManagerDelegate 
              print("Authorized")
             self.btnNotNow.tag = 2
             self.btnAgree.tag = 2
-            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width*2, y: self.scrollViewImages.frame.origin.y), animated: true)
+            self.scrollViewImages.setContentOffset(CGPoint(x: self.scrollViewImages.frame.size.width*2, y: 0), animated: true)
             self.btnAgree.setImage(UIImage(named: "use-your-location"), for: UIControl.State())
             self.imgBullet3.image = UIImage(named: "checkBoxActive")
         }
@@ -216,15 +189,4 @@ class NotificationsViewController: BaseViewController,CLLocationManagerDelegate 
         self.hideActivityIndicator()
         self.moveToHome()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
