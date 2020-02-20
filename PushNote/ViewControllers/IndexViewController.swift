@@ -20,10 +20,11 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
     var arrTempSearch : NSArray = []
     @IBOutlet weak var searchB: UISearchBar!
     var arrayCat:Array<String> = ["All","Technology","Sports","Business","Celeb","CrowdFunding","Finance","Life Style","Music"]
+    @IBOutlet weak var categoryView:CategoryTableView!
     //var lblPushCount: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.categoryView.controller = self
         self.setTabbar()
         self.navigationItem.title = "INDEX"
         collectionViewIndex.backgroundColor = UIColor.clear
@@ -113,10 +114,13 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         
-        let subListing = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_INDEX_SUB_LISTING) as! IndexSubListingViewController
-        subListing.titleStr = self.arrCategory[indexPath.row]["categoryName"] as! String
-        subListing.categoryId = Int(self.arrCategory[indexPath.row]["categoryID"] as! String)!
-        self.navigationController?.pushViewController(subListing, animated: true)
+//        let subListing = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_INDEX_SUB_LISTING) as! IndexSubListingViewController
+//        subListing.titleStr = self.arrCategory[indexPath.row]["categoryName"] as! String
+//        subListing.categoryId = Int(self.arrCategory[indexPath.row]["categoryID"] as! String)!
+//        self.navigationController?.pushViewController(subListing, animated: true)
+         
+        self.categoryView.categoryId = Int(self.arrCategory[indexPath.row]["categoryID"] as! String)!
+        self.categoryView.getNewsListforIndex()
 //        self.tabBarController!.tabBar.isHidden = true
     }
     func getCategories() {
