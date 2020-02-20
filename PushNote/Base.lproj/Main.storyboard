@@ -357,12 +357,12 @@
                                 <rect key="frame" x="0.0" y="234" width="375" height="433"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cPL-UF-MUx">
-                                        <rect key="frame" x="20" y="0.0" width="335" height="433"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="433"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="separatorColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Search" id="tzE-xN-vOn">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.043137254899999998" green="0.65490196079999996" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="tintColor" red="0.043137254899999998" green="0.65490196079999996" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -377,10 +377,10 @@
                                         </searchBar>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="AeJ-Az-phk">
-                                                <rect key="frame" x="0.0" y="84" width="335" height="100"/>
+                                                <rect key="frame" x="0.0" y="84" width="375" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" tableViewCell="AeJ-Az-phk" id="Q1Z-sY-eJd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" tag="1005" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indexUserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zq8-jb-o2n">
@@ -394,7 +394,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIz-5n-Icm">
-                                                            <rect key="frame" x="90" y="25" width="98" height="20"/>
+                                                            <rect key="frame" x="90" y="25" width="138" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="200" id="Oda-h3-Tta"/>
                                                                 <constraint firstAttribute="height" constant="23" id="uDd-2e-Exe"/>
@@ -410,13 +410,13 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFE-SM-cWU">
-                                                            <rect key="frame" x="90" y="45" width="98" height="26.5"/>
+                                                            <rect key="frame" x="90" y="45" width="138" height="13.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sO-af-YVI" customClass="SLButton">
-                                                            <rect key="frame" x="219.5" y="35" width="100.5" height="30"/>
+                                                            <rect key="frame" x="259.5" y="35" width="100.5" height="30"/>
                                                             <color key="backgroundColor" red="0.086274509799999996" green="0.16862745100000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="4sO-af-YVI" secondAttribute="height" multiplier="93:46" constant="39.803571428571423" id="66l-us-I5c"/>
@@ -442,7 +442,7 @@
                                                             </connections>
                                                         </button>
                                                         <imageView userInteractionEnabled="NO" tag="1004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockIcn" translatesAutoresizingMaskIntoConstraints="NO" id="wxz-fu-TAk">
-                                                            <rect key="frame" x="193" y="38" width="19.5" height="24.500000000000007"/>
+                                                            <rect key="frame" x="233" y="38" width="19.5" height="24.500000000000007"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="wxz-fu-TAk" secondAttribute="height" multiplier="19:24" id="CUe-nl-YDI"/>
                                                                 <constraint firstAttribute="width" constant="19" id="Ie6-y4-Rk6"/>
@@ -491,8 +491,8 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="cPL-UF-MUx" firstAttribute="leading" secondItem="Tjg-LI-UFq" secondAttribute="leading" constant="20" id="TIQ-Wf-zgR"/>
-                                    <constraint firstAttribute="trailing" secondItem="cPL-UF-MUx" secondAttribute="trailing" constant="20" id="Z5p-UQ-6vc"/>
+                                    <constraint firstItem="cPL-UF-MUx" firstAttribute="leading" secondItem="Tjg-LI-UFq" secondAttribute="leading" id="TIQ-Wf-zgR"/>
+                                    <constraint firstAttribute="trailing" secondItem="cPL-UF-MUx" secondAttribute="trailing" id="Z5p-UQ-6vc"/>
                                     <constraint firstAttribute="bottom" secondItem="cPL-UF-MUx" secondAttribute="bottom" id="eya-OT-SWz"/>
                                     <constraint firstItem="cPL-UF-MUx" firstAttribute="top" secondItem="Tjg-LI-UFq" secondAttribute="top" id="ocQ-XH-Hn4"/>
                                 </constraints>
