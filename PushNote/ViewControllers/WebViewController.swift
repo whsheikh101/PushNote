@@ -714,20 +714,23 @@ UISearchBarDelegate {
         
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func loadDummyData(){
         if self.arrFriendsData.count == 0 {
-                    
-                    let dict = NSMutableDictionary()
-                    dict["userId"] = "dummyID"
-                    dict["selected"] = false
-                    dict["userName"] = "dummyUserName"
-                    dict["contactName"] = "dummyContactName"
-                    dict["userNumber"] = "03312275651"
-                    dict["photo"] = ""
-                    
-                    self.arrFriendsData.append(dict)
-                    self.arrFriendsData.append(dict)
-        }
+                          
+                          let dict = NSMutableDictionary()
+                          dict["userId"] = "dummyID"
+                          dict["selected"] = false
+                          dict["userName"] = "dummyUserName"
+                          dict["contactName"] = "dummyContactName"
+                          dict["userNumber"] = "03312275651"
+                          dict["photo"] = ""
+                          
+                          self.arrFriendsData.append(dict)
+                          self.arrFriendsData.append(dict)
+              }
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+      
         return self.arrFriendsData.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

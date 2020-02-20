@@ -360,34 +360,37 @@ UISearchBarDelegate{
     //    func numberOfSections(in tableView: UITableView) -> Int{
     //        return 2
     //    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) ->Int {
-        if self.arrFriendsData.count == 0 {
-            
-            let dict = NSMutableDictionary()
-            dict["userId"] = "dummyID"
-            dict["selected"] = false
-            dict["userName"] = "dummyUserName"
-            dict["contactName"] = "dummyContactName"
-            dict["userNumber"] = "03312275651"
-            dict["photo"] = ""
-            
-            self.arrFriendsData.append(dict)
-            self.arrFriendsData.append(dict)
-}
-        
-        if arrInviteFriendsData.count == 0{
-            
-            let dict = NSMutableDictionary()
-            dict["userId"] = "dummyID"
-            dict["selected"] = false
-            dict["userName"] = "dummyUserName"
-            dict["contactName"] = "dummyContactName"
-            dict["contactPhone"] = "03312275651"
-            dict["photo"] = ""
-
-            self.arrInviteFriendsData.append(dict)
-            self.arrInviteFriendsData.append(dict)
+    func loadDummyData(){
+         if self.arrFriendsData.count == 0 {
+                    
+                    let dict = NSMutableDictionary()
+                    dict["userId"] = "dummyID"
+                    dict["selected"] = false
+                    dict["userName"] = "dummyUserName"
+                    dict["contactName"] = "dummyContactName"
+                    dict["userNumber"] = "03312275651"
+                    dict["photo"] = ""
+                    
+                    self.arrFriendsData.append(dict)
+                    self.arrFriendsData.append(dict)
         }
+                
+                if arrInviteFriendsData.count == 0{
+                    
+                    let dict = NSMutableDictionary()
+                    dict["userId"] = "dummyID"
+                    dict["selected"] = false
+                    dict["userName"] = "dummyUserName"
+                    dict["contactName"] = "dummyContactName"
+                    dict["contactPhone"] = "03312275651"
+                    dict["photo"] = ""
+
+                    self.arrInviteFriendsData.append(dict)
+                    self.arrInviteFriendsData.append(dict)
+                }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) ->Int {
+       
         
         return (self.segmentControl.selectedSegmentIndex == 0) ? self.arrFriendsData.count : self.arrInviteFriendsData.count
         
