@@ -19,10 +19,7 @@ class ProfileViewController: BaseViewController{
         super.viewDidLoad()
         
         self.setTabbar()
-       self.navigationItem.title = "PROFILE"
-       
-        
-        // Do any additional setup after loading the view.
+       self.navigationItem.title = "Profile"
     }
     override func viewDidAppear(_ animated: Bool) {
        super.viewDidAppear(true)

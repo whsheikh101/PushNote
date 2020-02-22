@@ -2044,7 +2044,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7A-jK-3qj">
                                 <rect key="frame" x="20" y="44" width="335" height="233.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="imageSample.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sxi-FK-rAw">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Sxi-FK-rAw">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="233.5"/>
                                     </imageView>
                                 </subviews>
@@ -6017,7 +6017,6 @@
         <image name="friendsTab" width="22.5" height="17"/>
         <image name="how to use" width="25.333333969116211" height="30.333333969116211"/>
         <image name="icon" width="31.333333969116211" height="33.666667938232422"/>
-        <image name="imageSample.png" width="207" height="206"/>
         <image name="imageView:iYf-KP-fj9:image" width="88" height="91">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T

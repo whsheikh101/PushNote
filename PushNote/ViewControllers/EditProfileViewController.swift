@@ -17,10 +17,7 @@ UIPickerViewDataSource,UIActionSheetDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
-    
-    
-    
+ 
     @IBOutlet weak var userImage: UIImageView!
     var isImageBrowse: Bool = false
     
@@ -34,11 +31,11 @@ UIPickerViewDataSource,UIActionSheetDelegate{
     var arrCountryCodes: Array<NSString>!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "EDIT PROFILE"
+        
+        self.title = "Edit Profile"
         pickerView.backgroundColor = UIColor.orange
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
-        // UIColor(red: 255/239, green: 255/90, blue: 255/43, alpha: 1.0)
         
         arrCountryNames = ["Afghanistan",
             "Albania",
@@ -517,12 +514,6 @@ UIPickerViewDataSource,UIActionSheetDelegate{
         let userData = defaults.value(forKeyPath: "userData") as! NSObject
         self.setProfileData(userData)
         self.addBackBtn()
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func browseImageBtnPressed(_ sender: AnyObject, forEvent event: UIEvent) {
@@ -547,26 +538,8 @@ UIPickerViewDataSource,UIActionSheetDelegate{
         }))
         
         self.present(alert, animated: true, completion: nil)
-
-        
-        
-        
-       
-        /*
-        
-        let settingsActionSheet: UIAlertController = UIAlertController(title:"Picture taken Options", message:nil, preferredStyle:UIAlertController.Style.actionSheet)
-        settingsActionSheet.addAction(UIAlertAction(title:"Import from Gallery", style:UIAlertAction.Style.default, handler:{ action in
-            self.chooseFromLibrary()
-        }))
-        settingsActionSheet.addAction(UIAlertAction(title:"Take Picture", style:UIAlertAction.Style.default, handler:{ action in
-            self.takeAPhoto()
-        }))
-        settingsActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertAction.Style.cancel, handler:nil))
-        present(settingsActionSheet, animated:true, completion:nil)
- */
-        
-        
     }
+    
     func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
               switch buttonIndex{
               case 0:
@@ -648,7 +621,6 @@ UIPickerViewDataSource,UIActionSheetDelegate{
                 let qualityOfServiceClass = DispatchQoS.QoSClass.background
                 let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
                 backgroundQueue.async(execute: {
-                   // param["profile_image"] =  UIImage.jpegData((imgView?.image)!).base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters) as AnyObject?
                     param["profile_image"] = imgView?.image!.jpegData(compressionQuality: 4.0)?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters) as AnyObject
                         
                     
@@ -731,20 +703,6 @@ UIPickerViewDataSource,UIActionSheetDelegate{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.textFieldCountry.text = (self.arrCountryNames[row] as String)
-        
-        //lblCountryCode.text = "+" + (self.arrCountryCodes[row] as String)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }
 
