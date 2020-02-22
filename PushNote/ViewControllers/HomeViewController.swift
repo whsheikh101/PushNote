@@ -15,7 +15,6 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     var refreshControl:UIRefreshControl = UIRefreshControl()
     @IBOutlet weak var collectionViewData: UICollectionView!
     var arrNotifications: Array<NSDictionary>! = []
-    // var arrNotifications: NSMutableArray! = []
     var isRefreshing            : Bool = false
     var notificationId          : Int = 0 ;
     var topMenuBtn              : String = ""
@@ -63,9 +62,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         super.viewDidAppear(animated)
         
         let btnRight: UIButton! = UIButton(type: UIButton.ButtonType.custom)
-        btnRight.setTitle("Edit", for: UIControl.State())
-        btnRight.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
-        btnRight.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
+        btnRight.setImage(UIImage(imageLiteralResourceName: "edit"), for: .normal)
         btnRight.addTarget(self, action: #selector(HomeViewController.btnEditAction(_:)), for: UIControl.Event.touchUpInside)
         
         let barBtnRight: UIBarButtonItem = UIBarButtonItem(customView: btnRight)
@@ -86,17 +83,12 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     @objc func reloadNotifications(){
         
         let btnRight: UIButton! = UIButton(type: UIButton.ButtonType.custom)
-        //let imgRight: UIImage! = UIImage(named: "notifiedit.png")
-        // btnRight.setImage(imgRight, forState: UIControlState.Normal)
-        btnRight.setTitle("Edit", for: UIControl.State())
-        btnRight.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
-        btnRight.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
+        btnRight.setImage(UIImage(imageLiteralResourceName: "edit"), for: .normal)
         btnRight.addTarget(self, action: #selector(HomeViewController.btnEditAction(_:)), for: UIControl.Event.touchUpInside)
         let barBtnRight: UIBarButtonItem = UIBarButtonItem(customView: btnRight)
         self.navigationItem.rightBarButtonItem = barBtnRight
         self.isRefreshing = true
         self.page = 1;
-        //self.arrNotifications = []
         self.topMenuBtn = ""
         selectedNotifications = []
         
@@ -105,7 +97,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     }
     func addLogo() {
         
-        self.navigationItem.titleView = UIImageView(image: UIImage(named:"push-noteLogo"));
+        self.navigationItem.titleView = UIImageView(image: UIImage(named:"push-noteLogo"))
     }
     func setTabbar() {
         
@@ -584,6 +576,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             let btnRight: UIButton! = UIButton(type: UIButton.ButtonType.custom)
             btnRight.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
             btnRight.setTitle("Select All", for: UIControl.State())
+            btnRight.setTitleColor(.black, for: .normal)
             btnRight.frame = CGRect(x: 0, y: 0, width: 80, height: 30)
             btnRight.addTarget(self, action: #selector(HomeViewController.selectAllNotification(_:)), for: UIControl.Event.touchUpInside)
             
@@ -594,11 +587,13 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             let btnleft: UIButton! = UIButton(type: UIButton.ButtonType.custom)
             btnleft.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
             btnleft.setTitle("Delete", for: UIControl.State())
+            btnleft.setTitleColor(.black, for: .normal)
             btnleft.frame = CGRect(x: 0, y: 0, width: 50, height: 25)
             btnleft.addTarget(self, action: #selector(HomeViewController.btnDoneAction(_:)), for: UIControl.Event.touchUpInside)
             let btnleft1: UIButton! = UIButton(type: UIButton.ButtonType.custom)
             btnleft1.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
             btnleft1.setTitle("Cancel", for: UIControl.State())
+            btnleft1.setTitleColor(.black, for: .normal)
             btnleft1.frame = CGRect(x: 0, y: 0, width: 50, height: 25)
             btnleft1.addTarget(self, action: #selector(HomeViewController.btnCancelAction(_:)), for: UIControl.Event.touchUpInside)
             let barBtnleft: UIBarButtonItem = UIBarButtonItem(customView: btnleft)
@@ -613,6 +608,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             let btnRight: UIButton! = UIButton(type: UIButton.ButtonType.custom)
             btnRight.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
             btnRight.setTitle("Unselect All", for: UIControl.State())
+            btnRight.setTitleColor(.black, for: .normal)
             btnRight.frame = CGRect(x: 0, y: 0, width: 80, height: 30)
             btnRight.addTarget(self, action: #selector(HomeViewController.unSelectAllNotification(_:)), for: UIControl.Event.touchUpInside)
             
@@ -622,11 +618,13 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             let btnleft: UIButton! = UIButton(type: UIButton.ButtonType.custom)
             btnleft.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
             btnleft.setTitle("Delete", for: UIControl.State())
+            btnleft.setTitleColor(.black, for: .normal)
             btnleft.frame = CGRect(x: 0, y: 0, width: 50, height: 25)
             btnleft.addTarget(self, action: #selector(HomeViewController.btnDoneAction(_:)), for: UIControl.Event.touchUpInside)
             let btnleft1: UIButton! = UIButton(type: UIButton.ButtonType.custom)
             btnleft1.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
             btnleft1.setTitle("Cancel", for: UIControl.State())
+            btnleft1.setTitleColor(.black, for: .normal)
             btnleft1.frame = CGRect(x: 0, y: 0, width: 50, height: 25)
             btnleft1.addTarget(self, action: #selector(HomeViewController.btnCancelAction(_:)), for: UIControl.Event.touchUpInside)
             let barBtnleft: UIBarButtonItem = UIBarButtonItem(customView: btnleft)
@@ -661,11 +659,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     
     @objc func btnCancelAction(_ sender:AnyObject){
         selectedNotifications = []; self.topMenuBtn = ""; let btnRight: UIButton! = UIButton(type: UIButton.ButtonType.custom)
-        //let imgRight: UIImage! = UIImage(named: "notifiedit.png")
-        // btnRight.setImage(imgRight, forState: UIControlState.Normal)
-        btnRight.setTitle("Edit", for: UIControl.State())
-        btnRight.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
-        btnRight.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
+        btnRight.setImage(UIImage(imageLiteralResourceName: "edit"), for: .normal)
         btnRight.addTarget(self, action: #selector(HomeViewController.btnEditAction(_:)), for: UIControl.Event.touchUpInside)
         
         
