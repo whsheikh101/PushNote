@@ -82,20 +82,12 @@ UISearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.setTabbar()
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
-        // _tableView.editing = true
-        self.navigationItem.title = "FRIENDS"
-        /*let qualityOfServiceClass = QOS_CLASS_BACKGROUND
-         let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
-         dispatch_async(backgroundQueue, {
-         
-         })*/
+        self.navigationItem.title = "Friends"
         DispatchQueue.main.async(execute: {
             self.getContacts()
-            
         })
         
         let unselectedColor = UIColor.init(red: 0.0862745098, green: 0.168627451, blue: 0.3137254902, alpha: 1.0)
@@ -119,17 +111,6 @@ UISearchBarDelegate{
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //UITableView integration
-    
-    
-    //    func numberOfSections(in tableView: UITableView) -> Int{
-    //        return 2
-    //    }
     func loadDummyData(){
          if self.arrFriendsData.count == 0 {
                     
@@ -169,46 +150,6 @@ UISearchBarDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell = (self.segmentControl.selectedSegmentIndex == 0) ? tableView.dequeueReusableCell(withIdentifier: "Cell1") as! CustomTableCell : tableView.dequeueReusableCell(withIdentifier: "Cell2") as! CustomTableCell
-        
-        //let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell1", forIndexPath: indexPath) ;
-        
-        //let imageViewBg: UIImageView = cell.contentView.viewWithTag(1000) as! UIImageView
-        //imageViewBg.image = UIImage(named: "bg-find-friend-" + String(indexPath.row%4+1));
-        
-        //let lblName: UILabel = cell.contentView.viewWithTag(1001) as! UILabel
-        /*
-         let lblDesc: UILabel = cell.contentView.viewWithTag(1002) as! UILabel
-         let btnLock: UIButton = cell.contentView.viewWithTag(1003) as! UIButton
-         let btnNoti: UIButton = cell.contentView.viewWithTag(1004) as! UIButton
-         
-         let btnCheckbox: UIButton = cell.contentView.viewWithTag(1005) as! UIButton
-         
-         
-         let btnShareLocation: UIButton = cell.contentView.viewWithTag(1007) as! UIButton
-         
-         if (btnInvite.selected) {
-         let contactData = self.arrContactsData[indexPath.row]
-         lblName.text = contactData.contactName
-         lblDesc.text = contactData.contactPhone
-         btnLock.hidden = true
-         btnNoti.hidden = true
-         btnCheckbox.selected = contactData.selected
-         btnCheckbox.hidden = false
-         imageViewbox.hidden = false
-         btnShareLocation.hidden = true
-         }
-         else {
-         let friendData: FriendData = self.arrFriendsData[indexPath.row]
-         lblName.text = friendData.userName + "\n" + friendData.contactName
-         lblDesc.text = friendData.userNumber
-         btnLock.hidden = false
-         btnNoti.hidden = false
-         btnCheckbox.selected = friendData.selected
-         btnCheckbox.hidden = true
-         imageViewbox.hidden = true
-         btnShareLocation.hidden = false
-         }
-         */
         
         if(self.segmentControl.selectedSegmentIndex == 0){
             
@@ -265,36 +206,6 @@ UISearchBarDelegate{
             _tableView.endUpdates()
         }
     }
-    
-    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //
-    //        // let arrayOfKeys = Array(locationDataDictionary.keys).sort{ $0 > $1 }
-    //        let  headerCell:UITableViewCell?
-    //        headerCell = tableView.dequeueReusableCell(withIdentifier: "HCell")
-    //
-    //        let lblHeader = headerCell?.viewWithTag(100) as! Label
-    //        if(section == 0) {
-    //            lblHeader.text = "FRIENDS ON PUSH NOTE"
-    //        }
-    //        else {
-    //            lblHeader.text = "INVITE PUSH NOTE"
-    //        }
-    //        return headerCell
-    //    }
-    
-    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    //
-    //        if(DeviceType.IS_IPAD) {
-    //
-    //            return 68.0
-    //        }
-    //        else{
-    //
-    //            return 48.0
-    //        }
-    //
-    //
-    //    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -384,15 +295,8 @@ UISearchBarDelegate{
             }
             
         })
-        
-        
-        //  self.arrContacts = arr.sorted(by: forwards)
         self.arrContactsData = arr
         self.getFriends()
-        
-        
-        
-        
     }
     
     func showAlert() {
@@ -407,59 +311,7 @@ UISearchBarDelegate{
         self.activityIndicator.stopAnimating()
         //self.hideActivityIndicator()
     }
-    /*
-     func getContactNames() {
-     var errorRef: Unmanaged<CFError>?
-     addressBook = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, &errorRef))
-     let contactList: NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
-     
-     var _: ABMultiValue
-     
-     var arr: Array<ContactData> = []
-     
-     for record  in contactList {
-     let contactPerson: ABRecord = record as ABRecord
-     
-     //var compositeName: Unmanaged<CFString> = ABRecordCopyCompositeName(contactPerson)
-     if let compositeName = ABRecordCopyCompositeName(contactPerson) {
-     
-     let contactName: String = compositeName.takeRetainedValue() as String
-     let unmanagedPhones = ABRecordCopyValue(contactPerson, kABPersonPhoneProperty)
-     let phoneObj: ABMultiValue = Unmanaged.fromOpaque(unmanagedPhones!.toOpaque()).takeUnretainedValue() as NSObject as ABMultiValue
-     let contactData = ContactData()
-     if ABMultiValueGetCount(phoneObj) != 0 {
-     
-     let index = 0 as CFIndex
-     let unmanagedPhone = ABMultiValueCopyValueAtIndex(phoneObj, index)
-     let phoneNumber:String = Unmanaged.fromOpaque(unmanagedPhone!.toOpaque()).takeUnretainedValue() as NSObject as! String
-     
-     let number = phoneNumber.replacingOccurrences(of: "[\\(\\)\\ \\-]", with: "", options: NSString.CompareOptions.regularExpression, range: nil)
-     let number1 =  number.condenseWhitespace()
-     let number2 = self.removeCountryCode(number1)
-     let trimmedString = number2.replacingOccurrences(of: " ", with: "")
-     
-     
-     
-     self.phoneNumbers.add(trimmedString)
-     contactData.contactName = contactName
-     contactData.contactPhone = trimmedString
-     
-     }
-     else {
-     contactData.contactName = contactName
-     //dic = NSDictionary(object: contactName, forKey: "contactName")
-     }
-     
-     arr.append(contactData)
-     }
-     }
-     
-     self.arrContacts = arr.sorted(by: forwards)
-     self.arrContactsData = self.arrContacts
-     self._tableView.reloadData()
-     
-     }
-     */
+    
     func forwards(_ c1: ContactData, c2: ContactData) -> Bool {
         return c1.contactName < c2.contactName
     }
@@ -767,8 +619,6 @@ UISearchBarDelegate{
             //Share Service
             let defaults = UserDefaults.standard;
             let userId = defaults.value(forKeyPath: "userData.user_id") as! String
-            //let lat_long = String(format: "%@,%@",String(stringInterpolationSegment: newLocation.coordinate.latitude),String(stringInterpolationSegment: newLocation.coordinate.longitude))
-            
             let lat_long :  String =
                 String(describing:  newLocation.coordinate.latitude)
                     + ","
