@@ -404,7 +404,7 @@ extension CategoryTableView:UITableViewDelegate,UITableViewDataSource{
             if (catDetail.companyLogo != ""){
                 let imgUrl = catDetail.companyLogo
                 let imgPathUrl = URL(string: imgUrl)
-                let defaultImg = UIImage(named: "iconImg")
+                let defaultImg = UIImage(imageLiteralResourceName: "indexUserIcon")
                  catImg.sd_setImage(with: imgPathUrl, placeholderImage: defaultImg)
             
             }
@@ -427,17 +427,6 @@ extension CategoryTableView:UITableViewDelegate,UITableViewDataSource{
                
                 btnPlus.backgroundColor = UIColor.init(red: 0.1098039216, green: 0.1882352941, blue: 0.3254901961, alpha: 1.0)
             }
-            
-            /*
-            if(catDetail.isSubscribe == true){
-                btnPlus.selected = true
-            }else{
-                 btnPlus.selected = false
-            }
-            */
-            
-        
-            
             return cell!
         }
         

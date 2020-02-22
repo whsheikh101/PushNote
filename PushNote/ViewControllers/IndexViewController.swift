@@ -9,50 +9,46 @@
 import UIKit
 import Alamofire
 class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+    
     var refreshControl:UIRefreshControl = UIRefreshControl()
     var isRefreshing : Bool = false
-    @IBOutlet weak var collectionViewIndex: UICollectionView!
     var arrCategory: Array<NSDictionary> = []
     var arrCategoryDetail: NSArray = []
-    
-    
     var arrCategoryBackup : NSArray = []
     var arrTempSearch : NSArray = []
-    @IBOutlet weak var searchB: UISearchBar!
     var arrayCat:Array<String> = ["All","Technology","Sports","Business","Celeb","CrowdFunding","Finance","Life Style","Music"]
+    
+    @IBOutlet weak var collectionViewIndex: UICollectionView!
+    @IBOutlet weak var searchB: UISearchBar!
     @IBOutlet weak var categoryView:CategoryTableView!
-    //var lblPushCount: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.categoryView.controller = self
         self.setTabbar()
-        self.navigationItem.title = "INDEX"
+        self.navigationItem.title = "Index"
         collectionViewIndex.backgroundColor = UIColor.clear
         refreshControl.tintColor = UIColor.gray
         refreshControl.addTarget(self, action: #selector(IndexViewController.reloadIndex), for: UIControl.Event.valueChanged)
         collectionViewIndex.addSubview(refreshControl)
-        
-        // Do any additional setup after loading the view.
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if( arrCategory.count == 0){
             self.getCategories()
         }
     }
+    
     @objc func reloadIndex(){
         self.isRefreshing = true
         self.getCategories()
     }
+    
     func setTabbar() {
         
         self.tabBarItem = UITabBarItem(title: "Index", image: UIImage(named: "indexTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "index-activeTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal))
     
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - UICollectionViewDataSource protocol
@@ -75,7 +71,7 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
         
         if let imgUrlPath = self.arrCategory[indexPath.row]["categoryImage"] as? String {
             if let imgUrl = URL(string: imgUrlPath){
-                 let defaultImg = UIImage(named: "pushIcn2")
+                 let defaultImg = UIImage(named: "pushIcn2") // indexUserIcon
                 imgView.sd_setImage(with: imgUrl, placeholderImage: defaultImg)
             }
         }
@@ -112,16 +108,8 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
     // MARK: - UICollectionViewDelegate protocol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        
-//        let subListing = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_INDEX_SUB_LISTING) as! IndexSubListingViewController
-//        subListing.titleStr = self.arrCategory[indexPath.row]["categoryName"] as! String
-//        subListing.categoryId = Int(self.arrCategory[indexPath.row]["categoryID"] as! String)!
-//        self.navigationController?.pushViewController(subListing, animated: true)
-         
         self.categoryView.categoryId = Int(self.arrCategory[indexPath.row]["categoryID"] as! String)!
         self.categoryView.getNewsListforIndex()
-//        self.tabBarController!.tabBar.isHidden = true
     }
     func getCategories() {
         
