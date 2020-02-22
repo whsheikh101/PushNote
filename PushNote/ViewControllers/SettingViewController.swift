@@ -38,7 +38,7 @@ class SettingViewController: BaseViewController{
     @IBAction func mySubscription(_ sender: Any) {
        
         let subListing = self.storyboard?.instantiateViewController(withIdentifier: "IndexSubListingSegue") as! IndexSubListingViewController
-        subListing.titleStr = "MY SUBSCRIPTIONS"
+        subListing.titleStr = "My Subscriptions"
         subListing.type = "My Subscriptions"
         self.navigationController?.pushViewController(subListing, animated: true)
     }

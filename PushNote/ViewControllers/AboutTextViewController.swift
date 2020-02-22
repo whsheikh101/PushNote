@@ -16,7 +16,7 @@ class AboutTextViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addBackBtn()
-        self.navigationItem.title = self.myTitle.uppercased()
+        self.navigationItem.title = myTitle 
         
         var path: String
 
