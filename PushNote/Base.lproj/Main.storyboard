@@ -2271,7 +2271,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_bg" translatesAutoresizingMaskIntoConstraints="NO" id="buW-BH-xe4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings_bg" translatesAutoresizingMaskIntoConstraints="NO" id="buW-BH-xe4">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dFt-z0-4Td">
@@ -2911,7 +2911,7 @@
                             <constraint firstItem="dFt-z0-4Td" firstAttribute="leading" secondItem="Uws-hY-XLW" secondAttribute="leading" constant="20" id="bxf-8g-5tR"/>
                             <constraint firstAttribute="trailing" secondItem="buW-BH-xe4" secondAttribute="trailing" id="pkz-a1-Wjk"/>
                             <constraint firstItem="buW-BH-xe4" firstAttribute="leading" secondItem="Uws-hY-XLW" secondAttribute="leading" id="seh-Em-nb5"/>
-                            <constraint firstItem="uJi-g7-t9c" firstAttribute="top" secondItem="buW-BH-xe4" secondAttribute="bottom" id="tZt-WV-VtW"/>
+                            <constraint firstAttribute="bottom" secondItem="buW-BH-xe4" secondAttribute="bottom" id="tZt-WV-VtW"/>
                             <constraint firstAttribute="trailing" secondItem="dFt-z0-4Td" secondAttribute="trailing" constant="20" id="vEC-SX-sRG"/>
                         </constraints>
                     </view>
@@ -3925,7 +3925,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uib-fG-EpK">
-                                                <rect key="frame" x="209" y="40" width="38.5" height="40.5"/>
+                                                <rect key="frame" x="226.5" y="40" width="21" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uib-fG-EpK" secondAttribute="height" multiplier="22:23" id="pZe-Ub-Pwp"/>
                                                 </constraints>
@@ -5985,7 +5985,7 @@
         <image name="Subscription" width="29.333333969116211" height="33.333332061767578"/>
         <image name="TextField" width="320.33334350585938" height="120.33333587646484"/>
         <image name="about push" width="27" height="28.333333969116211"/>
-        <image name="add" width="38.333332061767578" height="38"/>
+        <image name="add" width="7.3333334922790527" height="7.3333334922790527"/>
         <image name="all" width="103" height="103"/>
         <image name="bar" width="679" height="19"/>
         <image name="blocked" width="33.333332061767578" height="33"/>
