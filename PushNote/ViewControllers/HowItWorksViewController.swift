@@ -17,11 +17,11 @@ class HowItWorksViewController: BaseViewController, UICollectionViewDelegate, UI
     let arrDesc: [String] = [
         "Dashboard",
         "Notifications",
-        "Open Pushnote Link",
-        "Send Pushnote to friends",
-        "Explore the Pushnote Index",
-        "Subscribe Pushnote Index",
-        "Friends on Pushnote",
+        "Open PushWosh Link",
+        "Send PushWosh to friends",
+        "Explore the PushWosh Index",
+        "Subscribe PushWosh Index",
+        "Friends on PushWosh",
         "Push this to your friends",
         "Profile"]
     

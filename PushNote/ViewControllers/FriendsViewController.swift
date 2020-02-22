@@ -301,7 +301,7 @@ UISearchBarDelegate{
     
     func showAlert() {
         
-        let alert :UIAlertView = UIAlertView(title: "Access denied", message: "Please goto the Settings > PushNote > Enable Contacts", delegate: nil, cancelButtonTitle: "OK")
+        let alert :UIAlertView = UIAlertView(title: "Access denied", message: "Please goto the Settings > PushWosh > Enable Contacts", delegate: nil, cancelButtonTitle: "OK")
         alert.show();
         
         self.arrContacts = []
@@ -539,7 +539,7 @@ UISearchBarDelegate{
         
         self.view.isUserInteractionEnabled = false
         self.showActivityIndicator()
-        let params : Parameters = ["senderName": senderName, "userId" : userId!, "link": "","userCaption" : self.txtViewMsg.text!,"senderId" : senderId,"title" : "Pushnote" ]
+        let params : Parameters = ["senderName": senderName, "userId" : userId!, "link": "","userCaption" : self.txtViewMsg.text!,"senderId" : senderId,"title" : "PushWosh" ]
         Alamofire.request(baseUrl + "sendPush", parameters:params)
             .responseJSON { response in
                 print(response.response)
@@ -683,7 +683,7 @@ UISearchBarDelegate{
                 
                 let userName = UserDefaults.standard.value(forKeyPath: "userData.username") as! String
                 //self.textToShare = "Hey! Checkout this cool app called 'Pushnote'. Enjoy!!"
-                let textToShare = "I am inviting you to Pushnote (https://itunes.apple.com/gb/app/push-note/id962393538?mt=8) Push me back! @\(userName)"
+                let textToShare = "I am inviting you to PushWosh (https://itunes.apple.com/gb/app/push-note/id962393538?mt=8) Push me back! @\(userName)"
                 compose.body = textToShare
                 self.present(compose, animated: true, completion: nil)
             }

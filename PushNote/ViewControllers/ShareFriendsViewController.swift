@@ -101,7 +101,7 @@ class ShareFriendsViewController: BaseViewController {
     
     func showAlert() {
         
-        let alert :UIAlertView = UIAlertView(title: "Access denied", message: "Please goto the Settings > PushNote > Enable Contacts", delegate: nil, cancelButtonTitle: "OK")
+        let alert :UIAlertView = UIAlertView(title: "Access denied", message: "Please goto the Settings > PushWosh > Enable Contacts", delegate: nil, cancelButtonTitle: "OK")
         alert.show();
         
         self.arrContacts = []

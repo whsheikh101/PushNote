@@ -22,7 +22,7 @@ let servicesPath = "http://pushwosh.com/pushwoshapp/services/"
 
 let worldWeatherOnlineKey = "7167f4a731f3f4ea5ff59a9f884d4"
 let WWOnlineBaseURL = "https://api.worldweatheronline.com/free/v2/weather.ashx?"
-let appName = "PushNote"
+let appName = "PushWosh"
 
 class BaseViewController: UIViewController {
     

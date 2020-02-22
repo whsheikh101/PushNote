@@ -108,17 +108,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         alert.show()
                     } else if(userInfo["type"] as! String == "local" &&  userInfo["url"] as?
                         String == ""){
-                        let alert:UIAlertView = UIAlertView(title: "Pushnote", message: userInfo["message"] as? String, delegate: nil, cancelButtonTitle: "OK")
+                        let alert:UIAlertView = UIAlertView(title: "PushWosh", message: userInfo["message"] as? String, delegate: nil, cancelButtonTitle: "OK")
                         alert.show()
                     }else if(userInfo["type"] as! String == "welcome"){
-                            let alert:UIAlertView = UIAlertView(title: "Welcome to Pushnote", message: "To get started, go to the INDEX section and get yourself subscribed to a feed.", delegate: nil, cancelButtonTitle: "OK")
+                            let alert:UIAlertView = UIAlertView(title: "Welcome to PushWosh", message: "To get started, go to the INDEX section and get yourself subscribed to a feed.", delegate: nil, cancelButtonTitle: "OK")
                             alert.show()
                     }
                     else{
                         if(userInfo["type"] as! String == "local" && userInfo["message"] as? String != "" ){
                             
                             self.uInfo = userInfo as AnyObject?
-                            let alertView = UIAlertView(title: "Pushnote",
+                            let alertView = UIAlertView(title: "PushWosh",
                                 message:(userInfo["message"] as? String)!, delegate: nil, cancelButtonTitle: nil,
                                 otherButtonTitles: "Cancel", "Go To Link")
                             
@@ -168,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                     
                     if(userInfo["type"] as! String == "welcome"){
-                        let alert:UIAlertView = UIAlertView(title: "Welcome to Pushnote", message: "Please tap the box to get started!", delegate: nil, cancelButtonTitle: "OK")
+                        let alert:UIAlertView = UIAlertView(title: "Welcome to PushWosh", message: "Please tap the box to get started!", delegate: nil, cancelButtonTitle: "OK")
                         alert.show()
                     }
                     
@@ -251,7 +251,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = Bundle.main.url(forResource: "PushNote", withExtension: "momd")!
+        let modelURL = Bundle.main.url(forResource: "PushWosh", withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
@@ -259,7 +259,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.appendingPathComponent("PushNote.sqlite")
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("PushWosh.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         

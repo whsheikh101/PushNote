@@ -261,7 +261,7 @@ UISearchBarDelegate {
         
         self.newBtn = sender as! UIButton
         
-        let shareContent:String = "Just got a Pushnote from \(link!). Subscribe here https://itunes.apple.com/gb/app/push-note/id962393538?mt=8"
+        let shareContent:String = "Just got a PushWosh from \(link!). Subscribe here https://itunes.apple.com/gb/app/push-note/id962393538?mt=8"
         let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {
             (activity, success, items, error) in

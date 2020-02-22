@@ -174,7 +174,7 @@ class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailCompose
     }
     
     @IBAction func share(_ sender: Any) {
-        let shareContent: String = "Just got a Pushnote. Subscribe here https://itunes.apple.com/gb/app/push-note/id962393538?mt=8"
+        let shareContent: String = "Just got a PushWosh. Subscribe here https://itunes.apple.com/gb/app/push-note/id962393538?mt=8"
         print(shareContent)
         let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -197,7 +197,7 @@ class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailCompose
             let mailComposer = MFMailComposeViewController();
             mailComposer.mailComposeDelegate = self;
             mailComposer.setToRecipients(["feedback@ipushnote.com"]);
-            mailComposer.setSubject("PushNote Feeback");
+            mailComposer.setSubject("PushWosh Feeback");
             //mailComposer.setMessageBody("", isHTML: false);
             self.present(mailComposer, animated: true, completion: nil);
         }

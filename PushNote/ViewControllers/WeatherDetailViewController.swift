@@ -213,7 +213,7 @@ UICollectionViewDelegate,UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func btnChangeUnitAction(_ sender: AnyObject) {
-        let shareSheet:UIActionSheet = UIActionSheet(title: "PushNote", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle:nil, otherButtonTitles: "ºC to ºF","ºF to ºC") as UIActionSheet
+        let shareSheet:UIActionSheet = UIActionSheet(title: "PushWosh", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle:nil, otherButtonTitles: "ºC to ºF","ºF to ºC") as UIActionSheet
         shareSheet.show(in: self.view)
     }
     @IBAction func btnBackAction(_ sender: AnyObject) {

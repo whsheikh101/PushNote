@@ -282,7 +282,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
                     
                     //self.saveAnalytics("", objectID: dic.value(forKey: "objectId") as! String , merchantID: dic.value(forKey: "subAdminId") as! String,notificationType: dic["notification_type"] as! String)
                     
-                    let alert = UIAlertController(title: "Pushnote", message:dic["message"] as? String, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "PushWosh", message:dic["message"] as? String, preferredStyle: .alert)
                     let action = UIAlertAction(title: "Cancel", style: .default) { _ in
                         
                     }
