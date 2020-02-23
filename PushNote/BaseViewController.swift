@@ -71,8 +71,8 @@ class BaseViewController: UIViewController {
     
     func addBackBtn() {
         
-        let barbutton = UIBarButtonItem(image: UIImage(named: "backBtn"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(BaseViewController.actionBackNav))
-        navigationItem.leftBarButtonItem = barbutton
+//        let barbutton = UIBarButtonItem(image: UIImage(named: "editprofile_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(BaseViewController.actionBackNav))
+//        navigationItem.leftBarButtonItem = barbutton
     }
     
     @objc func actionBackNav() {

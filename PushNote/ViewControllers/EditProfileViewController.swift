@@ -17,7 +17,7 @@ UIPickerViewDataSource,UIActionSheetDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
- 
+    @IBOutlet weak var backgroundImageView:UIView!
     @IBOutlet weak var userImage: UIImageView!
     var isImageBrowse: Bool = false
     
@@ -32,7 +32,7 @@ UIPickerViewDataSource,UIActionSheetDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Edit Profile"
+        self.title = "EDIT PROFILE"
         pickerView.backgroundColor = UIColor.orange
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
@@ -513,7 +513,10 @@ UIPickerViewDataSource,UIActionSheetDelegate{
         let defaults = UserDefaults.standard;
         let userData = defaults.value(forKeyPath: "userData") as! NSObject
         self.setProfileData(userData)
-        self.addBackBtn()
+        
+    }
+    @IBAction func backButton(_ sender:Any){
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func browseImageBtnPressed(_ sender: AnyObject, forEvent event: UIEvent) {

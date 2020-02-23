@@ -50,7 +50,11 @@ class SettingViewController: BaseViewController{
         }
     }
     @IBAction func editProfile(_ sender: Any) {
-        self.pushController(identifier: "EditProfileViewController")
+        
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController{
+            self.present(controller, animated: true, completion: nil)
+        }
+        
     }
     @IBAction func aboutPush(_ sender: Any) {
        

@@ -12,8 +12,8 @@ import AddressBookUI
 import Contacts
 import SVProgressHUD
 
-class CategoryTableView: UIView,PayPalPaymentDelegate {
-   
+class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
+    @IBOutlet weak var searchB: UISearchBar!
     var refreshControl  :   UIRefreshControl = UIRefreshControl()
     var isRefreshing    :   Bool = false
     @IBOutlet weak var _tableView: UITableView!
@@ -318,7 +318,109 @@ class CategoryTableView: UIView,PayPalPaymentDelegate {
                // self.subscribeCategoryAtIndex(self.selectedIndexPath!.row)
             })
         }
-
+    @IBAction func subscribeBtnPressed(_ sender: AnyObject, forEvent event: UIEvent) {
+        
+        let btn: UIButton = sender as! UIButton
+        self.newBtn = btn;
+        let touch: UITouch = (event.allTouches?.first)! as UITouch
+        let point: CGPoint = touch.location(in: _tableView) as CGPoint
+        let indexPath: IndexPath = _tableView.indexPathForRow(at: point) as IndexPath!
+        
+        self.isOpenWebController = false
+        if !self.controller.isReachable() {
+            return
+        }
+        
+        let catDetail: NewsFeed = self.arrCategoryDetail[indexPath.row] as! NewsFeed
+        self.link       = catDetail.link
+        self.subAdminId = catDetail.feedId
+        self.objectId   = catDetail.id
+        self.titleWeb   =  catDetail.title
+        
+        
+        if (!catDetail.isSubscribe) {
+            
+            if(catDetail.in_approp){
+                let alertView = UIAlertView(title: "This Feed may contain inappropriate content. Are you sure you want to continue?",
+                    message: "", delegate: nil, cancelButtonTitle: nil,
+                    otherButtonTitles: "YES", "NO")
+                
+                AlertViewWithCallback().show(alertView) { alertView, buttonIndex in
+                    switch buttonIndex{
+                    case 0:
+                        print("YES")
+                        if catDetail.feedType == "Paid" && catDetail.isSubscribe == false{
+                            self.selectedIndexPath = indexPath
+                            self.InitializedPayPalControllerWithItem(categoryDeatil: catDetail)
+                        }
+                        else{
+                            self.selectedIndexPath = indexPath
+                            if catDetail.privacyType == "Private" {
+                                self.selectedIndexPath = indexPath
+                                self.isSubscribe = true
+                                let alert :UIAlertView = UIAlertView(title: "", message: "Please enter the Password", delegate: self, cancelButtonTitle: "OK")
+                                alert.alertViewStyle = UIAlertViewStyle.secureTextInput
+                                alert.textField(at: 0)?.keyboardType = UIKeyboardType.numberPad
+                                alert.textField(at: 0)?.becomeFirstResponder()
+                                alert.tag = indexPath.row
+                                alert.show();
+                            }
+                            else {
+                                self.actionSubscribe(sender as! SLButton)
+                                self.subscribeCategoryAtIndex(indexPath.row)
+                            }
+                        }
+                    case 1:
+                        print("NO")
+                    default:
+                        print("Something went wrong!")
+                    }
+                }
+            }
+            else{
+                if catDetail.feedType == "Paid" && catDetail.isSubscribe == false{
+                    selectedIndexPath = indexPath
+                    self.InitializedPayPalControllerWithItem(categoryDeatil: catDetail)
+                }
+                else{
+                    self.selectedIndexPath = indexPath
+                    if catDetail.privacyType == "Private" {
+                        self.isSubscribe = true
+                        let alert :UIAlertView = UIAlertView(title: "", message: "Please enter the Password", delegate: self, cancelButtonTitle: "OK")
+                        alert.alertViewStyle = UIAlertViewStyle.secureTextInput
+                        alert.textField(at: 0)?.keyboardType = UIKeyboardType.numberPad
+                        alert.textField(at: 0)?.becomeFirstResponder()
+                        alert.tag = indexPath.row
+                        alert.show();
+                    }
+                    else {
+                        actionSubscribe(sender as! SLButton)
+                        subscribeCategoryAtIndex(indexPath.row)
+                    }
+                }
+            }
+        }
+        else {
+            if catDetail.privacyType == "Private" {
+                
+                self.isSubscribe = false
+                let alert :UIAlertView = UIAlertView(title: "Are you sure", message: "Want to unsubscribe private feed?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+                alert.tag = indexPath.row
+                alert.show();
+                
+            }
+            else {
+                self.actionSubscribe(sender as! SLButton)
+                unsubscribeCategoryAtIndex(indexPath.row)
+            }
+        }
+    }
+    func actionSubscribe(_ sender:SLButton) {
+           
+           sender.showLoading()
+           senderBtn = sender;
+          
+       }
         func subscribeCategoryAtIndex(_ index: Int) {
             
            // self.showActivityIndicator()
@@ -696,4 +798,31 @@ extension CategoryTableView:UIAlertViewDelegate{
                   //self.hideActivityIndicator()
           }
       }
+}
+// MARK: - Search Delgate
+extension CategoryTableView{
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        // searchActive = false;
+        searchBar.showsCancelButton = false
+        // self.createDictionaryOfArray(locData as [AnyObject])
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchB.showsCancelButton = false
+        searchBar.text = ""
+//        self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // self.createDictionaryOfArray(locData as [AnyObject])
+        searchBar.resignFirstResponder()
+        
+    }
 }
