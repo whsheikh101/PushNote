@@ -71,7 +71,7 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
         
         if let imgUrlPath = self.arrCategory[indexPath.row]["categoryImage"] as? String {
             if let imgUrl = URL(string: imgUrlPath){
-                 let defaultImg = UIImage(named: "push icon") // indexUserIcon
+                 let defaultImg = UIImage(named: "PushWoshLogoIcon") // indexUserIcon
                 imgView.sd_setImage(with: imgUrl, placeholderImage: defaultImg)
             }
         }

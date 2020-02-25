@@ -97,7 +97,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     }
     func addLogo() {
         
-        self.navigationItem.titleView = UIImageView(image: UIImage(named:"push-noteLogo"))
+        self.navigationItem.titleView = UIImageView(image: UIImage(named:"PushWoshLogo"))
     }
     func setTabbar() {
         
@@ -173,13 +173,13 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         
         
         if let t = self.arrNotifications[arrayIndex]["image"] as? String{
-            let defaultImg = UIImage(named: "pushIcn2")
+            let defaultImg = UIImage(named: "PushWoshLogoIcon")
             
             let imageUrl = URL(string: t)
             cell.imgViewC.sd_setImage(with: imageUrl, placeholderImage: defaultImg)
             
         }
-        
+ 
         if(self.arrNotifications[arrayIndex]["status"] as! String == "0" ){
             cell.imgViewDot.isHighlighted = true
         }else{
