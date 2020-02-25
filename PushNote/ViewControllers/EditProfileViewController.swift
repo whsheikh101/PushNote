@@ -32,7 +32,7 @@ UIPickerViewDataSource,UIActionSheetDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "EDIT PROFILE"
+        self.title = "Edit Profile"
         pickerView.backgroundColor = UIColor.orange
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
