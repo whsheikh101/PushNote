@@ -150,6 +150,7 @@
 		D50BF62423F6935A0094B8E9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50BF62323F68ADA0094B8E9 /* SettingViewController.swift */; };
 		D5289E6D23FEC8D9001C3EF0 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5289E6C23FEC8D9001C3EF0 /* AppUtility.swift */; };
 		D5289E7023FED0D2001C3EF0 /* CategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5289E6F23FED0D1001C3EF0 /* CategoryTableView.swift */; };
+		D5C81ED92405C33900D0FEF4 /* DeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C81ED82405C33900D0FEF4 /* DeleteViewController.swift */; };
 		DA76ADE323F078F800D67869 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */; };
 		DA7FC44524011B0C0054F28C /* PushWosh.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = DA7FC44424011B0C0054F28C /* PushWosh.xcdatamodel */; };
 /* End PBXBuildFile section */
@@ -324,6 +325,7 @@
 		D50BF62323F68ADA0094B8E9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D5289E6C23FEC8D9001C3EF0 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		D5289E6F23FED0D1001C3EF0 /* CategoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableView.swift; sourceTree = "<group>"; };
+		D5C81ED82405C33900D0FEF4 /* DeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteViewController.swift; sourceTree = "<group>"; };
 		DA76ADDF23EB52AB00D67869 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA76ADE223F078F800D67869 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		DA7FC44424011B0C0054F28C /* PushWosh.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PushWosh.xcdatamodel; sourceTree = "<group>"; };
@@ -688,6 +690,7 @@
 		838AB9191C7E4765008EFD80 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D5C81ED72405C30200D0FEF4 /* Delete Controller */,
 				D50BF62223F68A790094B8E9 /* Settings */,
 				83B6F3BD1C80BD80000E2657 /* LoginAndSignup */,
 				49FFE5A51CA7F14200CDC5F6 /* ResetPasswordViewController.swift */,
@@ -783,6 +786,14 @@
 				D5289E6F23FED0D1001C3EF0 /* CategoryTableView.swift */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		D5C81ED72405C30200D0FEF4 /* Delete Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D5C81ED82405C33900D0FEF4 /* DeleteViewController.swift */,
+			);
+			name = "Delete Controller";
 			sourceTree = "<group>";
 		};
 		DA76ADE123F078D900D67869 /* Extensions */ = {
@@ -1027,6 +1038,7 @@
 				49EBAFB01C9DC4F200060C11 /* NewsFeed.swift in Sources */,
 				83AA64F31C90C26D00541CDB /* FriendsPopup.swift in Sources */,
 				8300312E1C8611FA00A738EB /* HomeCollectionViewCell.swift in Sources */,
+				D5C81ED92405C33900D0FEF4 /* DeleteViewController.swift in Sources */,
 				83AC4FE81C8CD2B400F326B1 /* PushView.swift in Sources */,
 				497F42EF1C9C5FF600A3F434 /* UIImage+GIF.m in Sources */,
 				83EE75C91C95DEE900A616D2 /* TermViewController.swift in Sources */,

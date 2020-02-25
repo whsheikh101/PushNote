@@ -31,8 +31,20 @@ class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailCompose
         }
         else {
             //UIAlertView(title: "", message: "", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK", nil)
-            let alert :UIAlertView = UIAlertView(title: "Are you sure", message: "Want to delete your Number?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
-            alert.show();
+//            let alert :UIAlertView = UIAlertView(title: "Are you sure", message: "Want to delete your Number?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+//            alert.show();
+            
+            if let controller = self.storyboard?.instantiateViewController(withIdentifier: "DeleteViewController") as? DeleteViewController{
+                
+                
+                controller.yesButtonPressed = {[unowned self] in
+                    self.deletePhone()
+                }
+                controller.cancelButtonPressed = {
+                    controller.dismiss(animated: true, completion: nil)
+                }
+                self.present(controller, animated: true, completion: nil)
+            }
         }
         
     }
