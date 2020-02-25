@@ -97,7 +97,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     }
     func addLogo() {
         
-        self.navigationItem.titleView = UIImageView(image: UIImage(named:"push-noteLogo"))
+        self.navigationItem.titleView = UIImageView(image: UIImage(named:"PushWoshLogo"))
     }
     func setTabbar() {
         
