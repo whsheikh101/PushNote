@@ -87,7 +87,7 @@ class ResetPasswordViewController: BaseViewController, UIAlertViewDelegate {
                     arrParam["passcode"] = textFieldNewPasscode.text
                   
                     Alamofire.request(baseUrl + "editAccount", parameters: arrParam)
-                        .responseJSON { response in
+                        .responseJSON { [weak self] response in
                             
                             if let jsonResponse = response.result.value as? NSDictionary {
                                 if (jsonResponse["status"] as! String == "SUCCESS") {
@@ -96,15 +96,15 @@ class ResetPasswordViewController: BaseViewController, UIAlertViewDelegate {
                                     defaults.set(jsonResponse.value(forKey: "data"), forKey: "userData");
                                     defaults.synchronize();
                                     
-                                    self.navigationController?.popViewController(animated: true)
+                                    self?.dismiss(animated: true, completion: nil)
                                 }
                                 else {
                                     let alert :UIAlertView = UIAlertView(title: "", message: jsonResponse["msg"] as? String, delegate: nil, cancelButtonTitle: "OK")
                                     alert.show();
                                 }
                             }
-                            self.view.isUserInteractionEnabled = true
-                            self.hideActivityIndicator()
+                            self?.view.isUserInteractionEnabled = true
+                            self?.hideActivityIndicator()
                     }
                 }
             }

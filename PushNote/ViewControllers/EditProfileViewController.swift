@@ -20,6 +20,7 @@ UIPickerViewDataSource,UIActionSheetDelegate{
     @IBOutlet weak var backgroundImageView:UIView!
     @IBOutlet weak var userImage: UIImageView!
     var isImageBrowse: Bool = false
+    var didUpdateData:(()->Void)?
     
     @IBOutlet weak var textFieldUsername: TextField!
     @IBOutlet weak var textFieldCountry : TextField!
@@ -515,7 +516,11 @@ UIPickerViewDataSource,UIActionSheetDelegate{
         self.setProfileData(userData)
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
     @IBAction func backButton(_ sender:Any){
+        self.didUpdateData?()
         self.dismiss(animated: true, completion: nil)
     }
     

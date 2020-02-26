@@ -18,19 +18,36 @@ class ProfileViewController: BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setTabbar()
-       self.navigationItem.title = "Profile"
+        
+       self.navigationItem.title = "PROFILE"
     }
     override func viewDidAppear(_ animated: Bool) {
-       super.viewDidAppear(true)
+        super.viewDidAppear(true)
+        self.setTabbar()
+        self.fetchUserData()
+    }
+    
+    
+    func fetchUserData(){
         let defaults = UserDefaults.standard;
         let userData = defaults.value(forKeyPath: "userData") as! NSObject
         self.setProfileData(userData)
         print(userData)
+        
     }
     func setTabbar() {
         
-        self.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profileTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "profile-activeTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal))
+        self.tabBarItem = UITabBarItem(title: "PROFILE", image: UIImage(named: "profileTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "profile-activeTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal))
+        
+        if let navigationItem = self.navigationItem.rightBarButtonItems{
+            for item in navigationItem{
+                item.target = self
+                item.action = #selector(menuButtonTapped(sender:))
+                
+            }
+            
+            
+        }
 
     }
     
@@ -75,9 +92,24 @@ class ProfileViewController: BaseViewController{
         self.navigationController?.pushViewController(resetPasswordView, animated: true)
         
     }
+    @objc func menuButtonTapped(sender: UIBarButtonItem) {
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController{
+            self.present(controller, animated: true, completion: nil)
+            controller.didUpdateData = { [weak self] in
+                self?.fetchUserData()
+            }
+        }
+
+    }
+    override func willMove(toParent parent: UIViewController?) {
+        if parent == nil{
+            
+        }
+    }
     @IBAction func editProfileBtnPressed(_ sender: AnyObject) {
         let editProfileView = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
         self.navigationController?.pushViewController(editProfileView, animated: true)
+        
     }
 
     /*
