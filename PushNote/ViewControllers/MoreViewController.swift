@@ -208,7 +208,7 @@ class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailCompose
             
             let mailComposer = MFMailComposeViewController();
             mailComposer.mailComposeDelegate = self;
-            mailComposer.setToRecipients(["feedback@ipushnote.com"]);
+            mailComposer.setToRecipients(["info@pushwosh.com"]);
             mailComposer.setSubject("PushWosh Feeback");
             //mailComposer.setMessageBody("", isHTML: false);
             self.present(mailComposer, animated: true, completion: nil);

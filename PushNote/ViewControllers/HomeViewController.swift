@@ -23,6 +23,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     var page = 0
     var loadMore : Int = 0
     var senderId : Int = 0 ;
+    var selectAll:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -138,9 +139,12 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             cellIdentifier = "RightCell"
         }
         
-        var arrayIndex = indexPath.row / 2
-        arrayIndex += (indexPath.row % 2 == 1 ) ? 1 : 0
-        
+        var arrayIndex = indexPath.row
+        let adjustIndex = (indexPath.row + 1) / 3
+        if (adjustIndex > 0 ){
+            arrayIndex -= adjustIndex
+        }
+        print(indexPath.row,arrayIndex)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HomeCollectionViewCell
         
         cell.lblDesc.text = self.arrNotifications[arrayIndex]["txt"] as? String
@@ -209,8 +213,12 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         if indexPath.row % 3 == 1{
             return
         }
-        var arrayIndex = indexPath.row / 2
-        arrayIndex += (indexPath.row % 2 == 1 ) ? 1 : 0
+        var arrayIndex = indexPath.row
+        let adjustIndex = (indexPath.row + 1) / 3
+        if adjustIndex > 0{
+            arrayIndex -= adjustIndex
+        }
+        print(indexPath.row,arrayIndex)
         
         
         let cellIdentifier = (indexPath.row % 3 == 0) ? "LeftCell" : "RightCell"
@@ -337,11 +345,15 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row % 3 == 1{
-            return CGSize(width: 40, height: 140)
+           
+            
+            return CGSize(width: 25, height: 150)
         } else{
             
-            let width = (self.view.frame.width / 2 ) - 30
-            return CGSize(width: width, height: 140)
+            let width = (self.view.frame.width / 2 ) - 32.5
+           
+            
+            return CGSize(width: width, height: 150)
 
         }
 //        let text = self.arrNotifications[indexPath.row]["txt"] as! String
