@@ -344,17 +344,12 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.row % 3 == 1{
-           
-            
-            return CGSize(width: 25, height: 150)
-        } else{
-            
-            let width = (self.view.frame.width / 2 ) - 32.5
-           
-            
-            return CGSize(width: width, height: 150)
-
+        
+        if indexPath.row % 3 == 1 {
+            return CGSize(width: 36, height: 120)
+        } else {
+            let width = (collectionView.bounds.width / 2 ) - 36
+            return CGSize(width: width, height: 120)
         }
 //        let text = self.arrNotifications[indexPath.row]["txt"] as! String
 //
