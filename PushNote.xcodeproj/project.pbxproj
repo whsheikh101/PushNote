@@ -1215,7 +1215,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Abdallah Zeidane (629J658Q4Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abdallah Zeidane (629J658Q4Z)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = MKBAP8WNMA;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1268,7 +1268,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Abdallah Zeidane (629J658Q4Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abdallah Zeidane (629J658Q4Z)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = MKBAP8WNMA;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
