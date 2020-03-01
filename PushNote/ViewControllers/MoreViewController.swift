@@ -129,10 +129,11 @@ class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailCompose
                             
                             defaults.removeObject(forKey: "userData")
                             defaults.synchronize()
-                            let loginController = self.storyboard!.instantiateViewController(withIdentifier: SEGUE_LOGIN); UIApplication.shared.keyWindow?.rootViewController = loginController;
+                            
                             self.dismiss(animated: true, completion: { () -> Void in
                                 
-                            });
+                               let loginController = self.storyboard!.instantiateViewController(withIdentifier: SEGUE_LOGIN); UIApplication.shared.keyWindow?.rootViewController = loginController;
+                            })
                         }
                         else {
                             let alert :UIAlertView = UIAlertView(title: "", message: jsonResponse["msg"] as? String, delegate: nil, cancelButtonTitle: "OK")

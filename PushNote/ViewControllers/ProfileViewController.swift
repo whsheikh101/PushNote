@@ -19,7 +19,7 @@ class ProfileViewController: BaseViewController{
         super.viewDidLoad()
         
         
-       self.navigationItem.title = "PROFILE"
+       self.navigationItem.title = "Profile"
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
