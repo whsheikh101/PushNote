@@ -127,7 +127,7 @@ class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailCompose
                         if (jsonResponse["status"] as! String == "SUCCESS") {
                             
                             defaults.removeObject(forKey: "userData")
-                            defaults.synchronize();
+                            defaults.synchronize()
                             let loginController = self.storyboard!.instantiateViewController(withIdentifier: SEGUE_LOGIN); UIApplication.shared.keyWindow?.rootViewController = loginController;
                             self.dismiss(animated: true, completion: { () -> Void in
                                 

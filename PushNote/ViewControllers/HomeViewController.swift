@@ -507,7 +507,8 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         
         
     }
-    func deleteNotifications(_ notificationId:String, type:String, indexPaths:NSArray){
+    func deleteNotifications(_ notificationId:String, type:String, indexPaths:NSArray) {
+        
         let defaults = UserDefaults.standard;
         let userId = defaults.value(forKeyPath: "userData.user_id") as! String
         
@@ -518,62 +519,43 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         self.showActivityIndicator()
         let params : Parameters = ["userId" : userId, "type": "all", "notificationId": notificationId];
         Alamofire.request(baseUrl + "deleteNotification", parameters:params)
-            .responseJSON { response in
+            .responseJSON { [weak self] response in
                 
                 
-                self.hideActivityIndicator()
-                self.setNotificationCount()
+                self?.hideActivityIndicator()
+                self?.setNotificationCount()
+                
                 if let jsonResponse = response.result.value as? NSDictionary {
-                    
                     if (jsonResponse["status"] as! String == "SUCCESS") {
                         
-                        self.selectedNotifications = []
-                        if(type == "All"){
-                            self.arrNotifications.removeAll(keepingCapacity: true)
-                        }else{
-                            for indexPath in indexPaths{
-                                self.arrNotifications.remove(at: indexPath as! Int)
+                        self?.selectedNotifications = []
+                        if type == "All" {
+                            self?.arrNotifications.removeAll(keepingCapacity: true)
+                        } else {
+                            for indexPath in indexPaths {
+                                self?.arrNotifications.remove(at: indexPath as! Int)
                             }
                         }
-                        
-                    }
-                    else {
-                        self.alert(jsonResponse["msg"] as! String)
+                    } else {
+                        self?.alert(jsonResponse["msg"] as! String)
                     }
                     
-                    self.topMenuBtn = "Edit"
-                    self.collectionViewData.reloadData()
+                    // update
+                    self?.selectedNotifications = []
+                    self?.topMenuBtn = ""
+                    
+                    let btnRight: UIButton! = UIButton(type: UIButton.ButtonType.custom)
+                    btnRight.setImage(UIImage(imageLiteralResourceName: "edit"), for: .normal)
+                    btnRight.addTarget(self, action: #selector(HomeViewController.btnEditAction(_:)), for: UIControl.Event.touchUpInside)
+                    let barBtnRight: UIBarButtonItem = UIBarButtonItem(customView: btnRight)
+                    
+                    self?.navigationItem.rightBarButtonItem = barBtnRight
+                    self?.navigationItem.leftBarButtonItems = nil
+                    self?.reloadNotifications()
                 }
         }
     }
-    func deleteNotification(_ notificationId: String, type: String, index: Int) {
-        
-        let defaults = UserDefaults.standard;
-        let userId = defaults.value(forKeyPath: "userData.user_id") as! String
-        let params : Parameters = ["userId" : userId, "type": type, "notificationId": notificationId];
-        Alamofire.request(baseUrl + "deleteNotification", parameters:params)
-            .responseJSON { response in
-                
-                if let jsonResponse = response.result.value as? NSDictionary {
-                    if (jsonResponse["status"] as! String == "SUCCESS") {
-                        
-                        if type == "single" {
-                            self.arrNotifications.remove(at: index)
-                            
-                        }
-                        else {
-                            //self.arrNotifications.removeAllObjects()
-                            self.arrNotifications.removeAll(keepingCapacity: false)
-                            self.collectionViewData.reloadData()
-                        }
-                    }
-                    else {
-                        self.alert(jsonResponse["msg"] as! String)
-                    }
-                    
-                }
-        }
-    }
+    
     func updateCollectionView() {
         
         if(self.topMenuBtn == "Edit"){
@@ -683,9 +665,9 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
     @objc func btnDoneAction(_ sender:AnyObject){
         
         let selectedRows:NSArray? = selectedNotifications
-        if(selectedRows!.count == 0){
+        if selectedRows!.count == 0 {
             self.alert("Please Mark a notification to delete!")
-        }else{
+        } else {
             let indexArr : NSMutableArray = []
             var t = 0
             let totalNotif = self.arrNotifications.count
@@ -701,6 +683,7 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
             self.deleteNotifications(selectedIDs, type: type,indexPaths: indexArr)
         }
     }
+    
     @IBAction func selectNotification(_ sender: UIButton) {
         
         let notificationData : NSDictionary = arrNotifications[sender.tag]
