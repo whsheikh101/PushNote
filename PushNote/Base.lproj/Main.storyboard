@@ -5430,7 +5430,7 @@
             </objects>
             <point key="canvasLocation" x="1390" y="4228"/>
         </scene>
-        <!--SETTINGS-->
+        <!--Settings-->
         <scene sceneID="IRz-xz-DHS">
             <objects>
                 <viewController storyboardIdentifier="SettingViewController" automaticallyAdjustsScrollViewInsets="NO" id="3YW-My-KRt" customClass="SettingViewController" customModule="PushNote" sceneMemberID="viewController">
@@ -5928,7 +5928,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MORE" image="moreTab" selectedImage="more-activeTab" id="sb6-pJ-fw4"/>
-                    <navigationItem key="navigationItem" title="SETTINGS" id="aMU-sG-O9t">
+                    <navigationItem key="navigationItem" title="Settings" id="aMU-sG-O9t">
                         <barButtonItem key="backBarButtonItem" title=" " id="rSg-ek-Mgi"/>
                     </navigationItem>
                 </viewController>
