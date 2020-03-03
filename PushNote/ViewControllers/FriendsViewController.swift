@@ -762,34 +762,11 @@ UISearchBarDelegate{
         textView.text = ""
         
     }
-    //UISearchBar integration
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = true
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        // searchActive = false;
-        searchBar.showsCancelButton = false
-        // self.createDictionaryOfArray(locData as [AnyObject])
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchBar.showsCancelButton = false
-        searchBar.text = ""
-        self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
-        self._tableView.reloadData()
-    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // self.createDictionaryOfArray(locData as [AnyObject])
         searchBar.resignFirstResponder()
-        
     }
-    
-    
-    
-    
+ 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if(searchText != ""){
@@ -806,7 +783,7 @@ UISearchBarDelegate{
             self.arrFriendsData = arrTempSearch.copy() as! NSArray as! Array<NSDictionary>
             //print(arrTempSearch)
         }
-        else{
+        else {
             self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
         }
         

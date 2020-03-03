@@ -68,9 +68,7 @@ class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
         self._tableView.reloadData()
     }
     func getNewsListforIndex() {
-        
-        
-        
+ 
         let defaults = UserDefaults.standard;
         let userId = defaults.value(forKeyPath: "userData.user_id") as! String
         
@@ -158,10 +156,8 @@ class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
                         }
                         self.arrCategoryDetail = arr
                         self.arrCategoryDetailBackup = arr.copy() as! NSArray
+                        self.searchB.isHidden = false
                         self._tableView.reloadData()
-                        // self._tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Middle)
-                       // self._collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index+2, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: true);
-                        
                     }
                     else {
                         let str: String = jsonResponse["msg"] as! String
@@ -174,61 +170,7 @@ class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
                 self.refreshControl.endRefreshing()
         }
     }
-//    func getContacts() {
-//
-//         var arr: Array<NSDictionary> = []
-//        let store = CNContactStore()
-//               store.requestAccess(for: .contacts, completionHandler: {
-//                   granted, error in
-//
-//
-//                   let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey] as [Any]
-//                   let request = CNContactFetchRequest(keysToFetch: keysToFetch as! [CNKeyDescriptor])
-//                   var cnContacts = [CNContact]()
-//
-//                   do {
-//                       try store.enumerateContacts(with: request){
-//                           (contact, cursor) -> Void in
-//                           cnContacts.append(contact)
-//                       }
-//                   } catch let error {
-//                       NSLog("Fetch contact error: \(error)")
-//                   }
-//
-//                   NSLog(">>>> Contact list:")
-//                    var i : Int = 0 ;
-//                   for contact in cnContacts{
-//                       let fullName = CNContactFormatter.string(from: contact, style: .fullName) ?? "No Name"
-//                    var contactData : [String:String] = [:]
-//
-//                       for phoneNumber in contact.phoneNumbers{
-//
-//                           if let number = phoneNumber.value as? CNPhoneNumber,
-//                               let label = phoneNumber.label {
-//                                let number = number.stringValue.replacingOccurrences(of: "[\\(\\)\\ \\-]", with: "", options: NSString.CompareOptions.regularExpression, range: nil)
-//                                let number1 =  number.condenseWhitespace()
-//                               let number2 = AppUtility.sharedInstance.removeCountryCode(number1)
-//                                let trimmedString = number2.replacingOccurrences(of: " ", with: "")
-//
-//
-//
-//                            self.phoneNumbers.add(trimmedString)
-//                            contactData["contactName"]     = fullName
-//                            contactData["contactPhone"]    = trimmedString
-//                            i = i + 1;
-//
-//                           }
-//                       }
-//                    arr.append(contactData as NSDictionary)
-//                   }
-//
-//               })
-//
-//
-//          //  self.arrContacts = arr.sorted(by: forwards)
-//            self.arrContactsData = arr
-//            self.getFriends()
-//    }
+ 
     @objc func reloadIndex(){
            self.isRefreshing = true
            self.getNewsListforIndex()
@@ -236,7 +178,7 @@ class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
     
      func InitializedPayPalControllerWithItem(categoryDeatil catDetail:NewsFeed){
             PayPalMobile.initializeWithClientIds(forEnvironments: [PayPalEnvironmentSandbox:catDetail.payPalEmail])
-            PayPalMobile.preconnect(withEnvironment: PayPalEnvironmentProduction)
+            PayPalMobile.preconnect(withEnvironment: PayPalEnvironmentSandbox)
             
             var resultText = "" // empty
             let payPalConfig = PayPalConfiguration() // default
@@ -415,6 +357,7 @@ class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
             }
         }
     }
+    
     func actionSubscribe(_ sender:SLButton) {
            
            sender.showLoading()
@@ -433,19 +376,19 @@ class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
             let feedId = catDetail.feedId
             let params : Parameters = ["userId" :userId , "feedId": feedId];
             Alamofire.request( baseUrl + "addUserNewsFeed", parameters:params)
-                .responseJSON { response in
+                .responseJSON { [weak self] response in
                    
                     if let jsonResponse = response.result.value as? NSDictionary{
                        
     //                    self.senderBtn.setTitle("Subscribed!", for: UIControl.State.normal)
     //                    self.senderBtn.setTitle("Subscribed!", for: .selected)
-                        self.senderBtn.perform(#selector(SLButton.hideLoading), with: nil, afterDelay: 0.0);
+                        self?.senderBtn.perform(#selector(SLButton.hideLoading), with: nil, afterDelay: 0.0);
                         Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: "reloadTable", userInfo: nil, repeats: false)
                         
                        
                         if (jsonResponse["status"] as! String == "SUCCESS") {
                             //btn.selected = !btn.selected
-                            let catDetail: NewsFeed = self.arrCategoryDetail[index] as! NewsFeed
+                            let catDetail: NewsFeed = self?.arrCategoryDetail[index] as! NewsFeed
                             catDetail.isSubscribe = true
                             
                           //  self._tableView.reloadData()
@@ -456,13 +399,12 @@ class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
                             
                         }
                     }else{
-    //                    self.senderBtn.setTitle("Subscribed!", for: UIControl.State.normal)
-    //                    self.senderBtn.setTitle("Subscribed!", for: .selected)
-                        self.senderBtn.perform("hideLoading", with: nil, afterDelay: 0.0);
+//                        self?.senderBtn.setTitle("Subscribed!", for: UIControl.State.normal)
+//                        self?.senderBtn.setTitle("Subscribed!", for: .selected)
+                        self?.senderBtn.perform("hideLoading", with: nil, afterDelay: 0.0);
                         Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: "reloadTable", userInfo: nil, repeats: false)
                     }
-                    self.isUserInteractionEnabled = true
-                   // self.hideActivityIndicator()
+                    self?.isUserInteractionEnabled = true
             }
         }
         
@@ -654,33 +596,30 @@ extension CategoryTableView:UIAlertViewDelegate{
                       (activity, success, items, error) in
                       print("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
                       
-                      if(success != false){
+                      if success == true {
                           var shareT = ""
-                          if String(describing: activity!).lowercased().range(of: "facebook") != nil {
+                        if activity?.rawValue.lowercased().range(of: "facebook") != nil {
                               shareT = "Facebook"
-                          }else  if String(describing: activity!).lowercased().range(of: "mail") != nil {
+                          } else if activity?.rawValue.lowercased().range(of: "mail") != nil {
                               shareT = "Mail"
-                          }else  if String(describing: activity!).lowercased().range(of: "message") != nil {
+                          } else if activity?.rawValue.lowercased().range(of: "message") != nil {
                               shareT = "Message"
-                          }else  if String(describing: activity!).lowercased().range(of: "linkedin") != nil {
+                          } else if activity?.rawValue.lowercased().range(of: "linkedin") != nil {
                               shareT = "Linkedin"
-                          }else  if String(describing: activity!).lowercased().range(of: "whatsapp") != nil {
+                          } else if activity?.rawValue.lowercased().range(of: "whatsapp") != nil {
                               shareT = "Whatsapp"
-                          }else  if String(describing: activity!).lowercased().range(of: "twitter") != nil {
+                          } else if activity?.rawValue.lowercased().range(of: "twitter") != nil {
                               shareT = "Twitter"
-                          }else  if String(describing: activity!).lowercased().range(of: "GooglePlus") != nil {
+                          } else if activity?.rawValue.lowercased().range(of: "GooglePlus") != nil {
                               shareT = "GooglePlus"
                           }
-                          if(shareT != ""){
+                        
+                        if !shareT.isEmpty {
                               self.event = "Share"
                               self.shareType = shareT
                               self.saveAnalytics(self.link!, objectID: self.objectId!, merchantID: self.subAdminId!)
                           }
-                          
-                          
-                          
                       }
-                      
                   }
                   if UIDevice.current.userInterfaceIdiom == .pad{
                     activityViewController.popoverPresentationController!.sourceView = self.newBtn;
@@ -799,30 +738,31 @@ extension CategoryTableView:UIAlertViewDelegate{
           }
       }
 }
+
 // MARK: - Search Delgate
-extension CategoryTableView{
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
-        searchBar.showsCancelButton = true
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        // searchActive = false;
-        searchBar.showsCancelButton = false
-        // self.createDictionaryOfArray(locData as [AnyObject])
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchB.showsCancelButton = false
-        searchBar.text = ""
-//        self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
-        
-    }
+extension CategoryTableView {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // self.createDictionaryOfArray(locData as [AnyObject])
         searchBar.resignFirstResponder()
-        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            
+            let arrTempSearch: NSMutableArray = []
+            for friendData in arrCategoryDetailBackup {
+                let catDetail: NewsFeed = friendData as! NewsFeed
+                let options = NSString.CompareOptions.caseInsensitive;
+                let found = catDetail.title.range(of: searchText, options: options)
+                if ((found) != nil) {
+                    arrTempSearch.add(friendData)
+                }
+            }
+            
+            self.arrCategoryDetail = arrTempSearch.copy() as! NSArray
+        } else {
+            self.arrCategoryDetail = arrCategoryDetailBackup.copy() as! NSArray
+        }
+        self._tableView.reloadData()
     }
 }

@@ -123,20 +123,24 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
         self.isRefreshing = false
         
         Alamofire.request(baseUrl + "viewCategory")
-            .responseJSON { response in
+            .responseJSON { [weak self] response in
                 
                 if let jsonResponse = response.result.value as? NSDictionary {
                     print("Feeds:\(jsonResponse)")
                     if (jsonResponse["status"] as! String == "SUCCESS") {
                         
-                        self.arrCategory = jsonResponse["data"] as! Array<NSDictionary>
-                        self.arrCategoryBackup =  self.arrCategory as NSArray
-                        self.collectionViewIndex.reloadData()
+                        self?.arrCategory = jsonResponse["data"] as! Array<NSDictionary>
+                        self?.arrCategoryBackup =  self?.arrCategory as! NSArray
+                        self?.collectionViewIndex.reloadData()
+                        
+                        // select all category
+                        guard self?.arrCategory.isEmpty == false else { return }
+                        self?.categoryView.categoryId = Int(self?.arrCategory[0]["categoryID"] as! String)!
+                        self?.categoryView.getNewsListforIndex()
                     }
                 }
-                self.hideActivityIndicator()
-                self.refreshControl.endRefreshing()
-                
+                self?.hideActivityIndicator()
+                self?.refreshControl.endRefreshing()
         }
     }
     

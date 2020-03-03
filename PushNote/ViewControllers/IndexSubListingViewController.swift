@@ -693,7 +693,7 @@ UICollectionViewDataSource,UISearchBarDelegate {
     //MARK: PayPalPaymentDelegate & Methods
     func InitializedPayPalControllerWithItem(categoryDeatil catDetail:NewsFeed){
         PayPalMobile.initializeWithClientIds(forEnvironments: [PayPalEnvironmentSandbox:catDetail.payPalEmail])
-        PayPalMobile.preconnect(withEnvironment: PayPalEnvironmentProduction)
+        PayPalMobile.preconnect(withEnvironment: PayPalEnvironmentSandbox)
         
         var resultText = "" // empty
         let payPalConfig = PayPalConfiguration() // default

@@ -48,10 +48,9 @@ class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailCompose
         }
         
     }
-    func deletePhone(){
-        if !self.isReachable() {
-            return
-        }
+    func deletePhone() {
+        
+        if !self.isReachable() { return }
         self.view.isUserInteractionEnabled = false
         self.showActivityIndicator()
         
@@ -60,23 +59,25 @@ class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailCompose
         let arrParam : Parameters = ["userId" : userId]
         
         Alamofire.request(baseUrl + "deletePhone", parameters: arrParam)
-            .responseJSON { response in
+            .responseJSON { [weak self] response in
                 
-                if let jsonResponse = response.result.value as? NSDictionary{
+                if let jsonResponse = response.result.value as? NSDictionary {
                     if (jsonResponse["status"] as! String == "SUCCESS") {
                         
                         let defaults = UserDefaults.standard;
                         defaults.set(jsonResponse.value(forKey: "data"), forKey: "userData");
-                        defaults.synchronize();
-                        self.alert("Number Deleted Successfully")
-                        // self.navigationController?.popViewControllerAnimated(true)
-                    }
-                    else {
-                        self.alert(jsonResponse["msg"] as! String)
+                        defaults.synchronize()
+                        
+                        // dismiss
+                        self?.dismiss(animated: true) { [weak self] in
+                            self?.alert("Number Deleted Successfully")
+                        }
+                    } else {
+                        self?.alert(jsonResponse["msg"] as! String)
                     }
                 }
-                self.view.isUserInteractionEnabled = true
-                self.hideActivityIndicator()
+                self?.view.isUserInteractionEnabled = true
+                self?.hideActivityIndicator()
         }
     }
     
@@ -127,11 +128,12 @@ class MoreViewController: BaseViewController,UIAlertViewDelegate , MFMailCompose
                         if (jsonResponse["status"] as! String == "SUCCESS") {
                             
                             defaults.removeObject(forKey: "userData")
-                            defaults.synchronize();
-                            let loginController = self.storyboard!.instantiateViewController(withIdentifier: SEGUE_LOGIN); UIApplication.shared.keyWindow?.rootViewController = loginController;
+                            defaults.synchronize()
+                            
                             self.dismiss(animated: true, completion: { () -> Void in
                                 
-                            });
+                               let loginController = self.storyboard!.instantiateViewController(withIdentifier: SEGUE_LOGIN); UIApplication.shared.keyWindow?.rootViewController = loginController;
+                            })
                         }
                         else {
                             let alert :UIAlertView = UIAlertView(title: "", message: jsonResponse["msg"] as? String, delegate: nil, cancelButtonTitle: "OK")
