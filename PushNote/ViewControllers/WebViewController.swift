@@ -120,7 +120,8 @@ UISearchBarDelegate {
         userCaption.autocorrectionType = UITextAutocorrectionType.no
         searchB.autocorrectionType = UITextAutocorrectionType.no
         //Notification
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(WebViewController.windowNowVisible(_:)),
                     name: UIWindow.didBecomeKeyNotification,
                     object: self.view.window)
@@ -349,7 +350,7 @@ UISearchBarDelegate {
     }
     @IBAction func hidePop(_ sender: UIButton) {
         UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions(), animations: { () -> Void in
-            
+            self.view.endEditing(true)
             let bounds = UIScreen.main.bounds
             let yPosition = bounds.size.height + self.pushView.frame.size.height
             self.pushView.frame = CGRect(x: 0, y: yPosition, width: self.pushView.frame.size.width, height: self.pushView.frame.size.height)
@@ -1068,5 +1069,22 @@ UISearchBarDelegate {
                     }
                 }
         })
+    }
+ @objc   func keyboardWillShow(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            print("notification: Keyboard will show")
+            
+                self.pushView.frame.origin.y -= keyboardSize.height
+            
+        }
+
+    }
+
+    @objc func keyboardWillHide(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+                self.pushView.frame.origin.y += keyboardSize.height
+            
+        }
     }
 }
