@@ -60,7 +60,7 @@
         <!--Login View Controller-->
         <scene sceneID="zFS-tv-vuM">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jHW-pJ-hH6" customClass="LoginViewController" customModule="PushNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jHW-pJ-hH6" customClass="LoginViewController" customModule="PushNote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XeT-qJ-CFE"/>
                         <viewControllerLayoutGuide type="bottom" id="C5S-eb-pEk"/>
