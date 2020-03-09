@@ -68,6 +68,7 @@ UISearchBarDelegate{
     var arrContacts: Array<NSDictionary> = []
     var arrContactsData: Array<NSDictionary> = []
     var arrInviteFriendsData: Array<NSDictionary> = []
+    var arrInviteFriendsDataBackup: Array<NSDictionary> = []
     
     
     var addressBook: ABAddressBook?
@@ -111,35 +112,6 @@ UISearchBarDelegate{
         
     }
     
-    func loadDummyData(){
-         if self.arrFriendsData.count == 0 {
-                    
-                    let dict = NSMutableDictionary()
-                    dict["userId"] = "dummyID"
-                    dict["selected"] = false
-                    dict["userName"] = "dummyUserName"
-                    dict["contactName"] = "dummyContactName"
-                    dict["userNumber"] = "03312275651"
-                    dict["photo"] = ""
-                    
-                    self.arrFriendsData.append(dict)
-                    self.arrFriendsData.append(dict)
-        }
-                
-                if arrInviteFriendsData.count == 0{
-                    
-                    let dict = NSMutableDictionary()
-                    dict["userId"] = "dummyID"
-                    dict["selected"] = false
-                    dict["userName"] = "dummyUserName"
-                    dict["contactName"] = "dummyContactName"
-                    dict["contactPhone"] = "03312275651"
-                    dict["photo"] = ""
-
-                    self.arrInviteFriendsData.append(dict)
-                    self.arrInviteFriendsData.append(dict)
-                }
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) ->Int {
        
         
@@ -183,9 +155,6 @@ UISearchBarDelegate{
                 cell.contactPhone.text = contactData["contactPhone"] as? String
                 cell.inviteBtn.tag = indexPath.row
             }
-            
-            
-            
         }
         
         
@@ -454,6 +423,7 @@ UISearchBarDelegate{
                         let contactData : NSDictionary = ["contactName" : friend["contactName"],"contactPhone" : friend["contactPhone"] , "selected":false]
                         
                         self.arrInviteFriendsData.append(contactData)
+                        arrInviteFriendsDataBackup.append(contactData)
                         
                         
                     }
@@ -482,17 +452,8 @@ UISearchBarDelegate{
         let point = touch.location(in: _tableView) as CGPoint
         
         let indexPath: IndexPath = _tableView.indexPathForRow(at: point) as IndexPath!
-        //let indexPath: NSIndexPath = NSIndexPath(forRow: 0, inSection: 0)
-        
-        let uId = self.arrFriendsData[indexPath.row]["userId"]
-        var blockedBy = "0" ;
-        if let uData = defaults.value(forKey: "userData") as? NSDictionary{
-            blockedBy = uData["user_id"] as! String
-            return;
-            
-        }
-        //Current UserID
-        //self.activityIndicator.startAnimating()
+        guard let uId = self.arrFriendsData[indexPath.row]["userId"], let uData = defaults.value(forKey: "userData") as? NSDictionary, let blockedBy = uData["user_id"] as? String else { return }
+ 
         self.showActivityIndicator()
         let params : Parameters = ["uid": uId,"blockedBy":blockedBy]
         Alamofire.request(baseUrl + "block", parameters: params)
@@ -507,8 +468,6 @@ UISearchBarDelegate{
                         
                         self.arrFriendsData.remove(at: indexPath.row)
                         self.arrFriends.remove(at: indexPath.row)
-                        self._tableView.reloadData()
-                        // self._tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Middle)
                         self._tableView.reloadData()
                     }
                     else {
@@ -766,32 +725,58 @@ UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
+    /*
+     if let contactData = self.arrInviteFriendsData[indexPath.row] as? NSDictionary{
+         cell.contactName.text = contactData["contactName"] as? String
+         cell.contactPhone.text = contactData["contactPhone"] as? String
+         cell.inviteBtn.tag = indexPath.row
+     }
+     */
  
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if(searchText != ""){
-            let arrTempSearch:NSMutableArray = []
-            for friendData:NSDictionary in (self.arrFriendBackup as NSArray as! [NSDictionary]){
-                let options = NSString.CompareOptions.caseInsensitive
-                let found = (friendData["userName"] as? String)?.range(of: searchText, options: options)
-                if ((found) != nil) {
-                    print(friendData["userName"])
-                    arrTempSearch.add(friendData)
+        if(self.segmentControl.selectedSegmentIndex == 0) {
+            if(searchText != ""){
+                let arrTempSearch:NSMutableArray = []
+                for friendData:NSDictionary in (self.arrFriendBackup as NSArray as! [NSDictionary]){
+                    let options = NSString.CompareOptions.caseInsensitive
+                    let found = (friendData["userName"] as? String)?.range(of: searchText, options: options)
+                    if ((found) != nil) {
+                        print(friendData["userName"])
+                        arrTempSearch.add(friendData)
+                    }
                 }
+                
+                self.arrFriendsData = arrTempSearch.copy() as! NSArray as! Array<NSDictionary>
+                //print(arrTempSearch)
+            }
+            else {
+                self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
             }
             
-            self.arrFriendsData = arrTempSearch.copy() as! NSArray as! Array<NSDictionary>
-            //print(arrTempSearch)
+            //let range  : NSRange = NSMakeRange(0, 1)
+            //  let selectedIndices =  NSMutableIndexSet(integersIn: range.toRange() ?? 0..<0)
+            self._tableView.reloadData()
+        } else {
+            if(searchText != ""){
+                
+                let arrTempSearch:NSMutableArray = []
+                for contactData: NSDictionary in arrInviteFriendsDataBackup {
+                    let options = NSString.CompareOptions.caseInsensitive
+                    let found = (contactData["contactName"] as? String)?.range(of: searchText, options: options)
+                    if ((found) != nil) {
+                        print(contactData["contactName"])
+                        arrTempSearch.add(contactData)
+                    }
+                }
+                self.arrInviteFriendsData = arrTempSearch as! Array<NSDictionary>
+            }
+            else {
+                self.arrInviteFriendsData = arrInviteFriendsDataBackup
+            }
+            self._tableView.reloadData()
         }
-        else {
-            self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
-        }
-        
-        //let range  : NSRange = NSMakeRange(0, 1)
-        //  let selectedIndices =  NSMutableIndexSet(integersIn: range.toRange() ?? 0..<0)
-        self._tableView.reloadData()
-        
-        
     }
     func textViewdidBeginEditing(_ textView: UITextView) -> Bool {
         
@@ -819,9 +804,13 @@ UISearchBarDelegate{
     
     
     @IBAction func segmentValueChanged(_ sender: Any) {
+        searchB.text = ""
+        if(self.segmentControl.selectedSegmentIndex == 0) {
+            self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
+        } else {
+           self.arrInviteFriendsData = arrInviteFriendsDataBackup
+        }
         self._tableView.reloadData()
-        
     }
-    
 }
 
