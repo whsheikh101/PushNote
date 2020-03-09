@@ -384,7 +384,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" tag="1005" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indexUserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zq8-jb-o2n">
+                                                        <imageView userInteractionEnabled="NO" tag="1005" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indexUserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zq8-jb-o2n">
                                                             <rect key="frame" x="10" y="10" width="80" height="80"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="80" id="EEy-Sr-4EA"/>
