@@ -138,6 +138,8 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
         let imgView = cell.viewWithTag(100) as! UIImageView
         let lblName = cell.viewWithTag(200) as! Label
         
+        imgView.contentMode = .scaleAspectFill
+        
         if let imgUrlPath = self.arrCategory[indexPath.row]["categoryImage"] as? String {
             if let imgUrl = URL(string: imgUrlPath){
                  let defaultImg = UIImage(named: "PushWoshLogoIcon") // indexUserIcon
