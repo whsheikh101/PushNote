@@ -630,7 +630,9 @@ extension CategoryTableView:UIAlertViewDelegate{
                   
               case 2:
                   
-                  return
+                if let controller = self.controller as? IndexViewController{
+                    controller.animateView()
+                }
                   
                   
      

@@ -17,13 +17,26 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
     var arrCategoryBackup : NSArray = []
     var arrTempSearch : NSArray = []
     var arrayCat:Array<String> = ["All","Technology","Sports","Business","Celeb","CrowdFunding","Finance","Life Style","Music"]
+    @IBOutlet weak var pushView: SharePushView!
+
     
     @IBOutlet weak var collectionViewIndex: UICollectionView!
     @IBOutlet weak var searchB: UISearchBar!
     @IBOutlet weak var categoryView:CategoryTableView!
+    @IBOutlet weak var scrollView: UIScrollView!
+
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(IndexViewController.windowNowVisible(_:)),
+                                               name: UIWindow.didBecomeKeyNotification,
+                                               object: self.view.window)
+        
+        self.pushView.viewController = self
         self.categoryView.controller = self
         self.setTabbar()
         self.navigationItem.title = "Index"
@@ -39,12 +52,62 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
             self.getCategories()
         }
     }
+    @objc func windowNowVisible(_ notification:Notification){
+        print("Remove Activity Indicator")
+        self.hideActivityIndicator()
+        //self.activityIndicator.stopAnimating()
+    }
+    func animateView (){
+        self.scrollView.isHidden = false
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions(), animations: { () -> Void in
+            let bounds = self.scrollView.bounds; print(UIScreen.main.bounds);print(bounds)
+            let yPosition = bounds.size.height - self.pushView.frame.size.height
+            
+            self.pushView.frame = CGRect(x: 0.0, y: yPosition, width: self.pushView.frame.size.width, height: self.pushView.frame.size.height)
+            
+        }, completion: { (finished: Bool) -> Void in
+            
+            // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
+        })
+    }
     
+    @IBAction func hidePop(_ sender: UIButton) {
+           UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions(), animations: { () -> Void in
+            self.view.endEditing(true)
+               let bounds = UIScreen.main.bounds
+               let yPosition = bounds.size.height + self.pushView.frame.size.height
+               self.pushView.frame = CGRect(x: 0, y: yPosition, width: self.pushView.frame.size.width, height: self.pushView.frame.size.height)
+               
+           }, completion: { (finished: Bool) -> Void in
+               self.scrollView.isHidden = true
+               // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
+           })
+           
+           
+       }
     @objc func reloadIndex(){
         self.isRefreshing = true
         self.getCategories()
     }
     
+     @objc   func keyboardWillShow(notification: Notification) {
+           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+               print("notification: Keyboard will show")
+               
+               self.pushView.frame.origin.y -= keyboardSize.height
+               
+           }
+           
+       }
+       
+       @objc func keyboardWillHide(notification: Notification) {
+           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+               
+               self.pushView.frame.origin.y += keyboardSize.height
+               
+           }
+       }
     func setTabbar() {
         
         self.tabBarItem = UITabBarItem(title: "Index", image: UIImage(named: "indexTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "index-activeTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal))
