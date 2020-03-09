@@ -18,6 +18,7 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
     var arrTempSearch : NSArray = []
     var arrayCat:Array<String> = ["All","Technology","Sports","Business","Celeb","CrowdFunding","Finance","Life Style","Music"]
     @IBOutlet weak var pushView: SharePushView!
+    
 
     
     @IBOutlet weak var collectionViewIndex: UICollectionView!
@@ -25,7 +26,7 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
     @IBOutlet weak var categoryView:CategoryTableView!
     @IBOutlet weak var scrollView: UIScrollView!
 
-    
+    var didAdjustKeyboardHeight:Bool = false
   
     
     override func viewDidLoad() {
@@ -92,19 +93,24 @@ class IndexViewController: BaseViewController,UICollectionViewDelegate,UICollect
     }
     
      @objc   func keyboardWillShow(notification: Notification) {
-           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                print("notification: Keyboard will show")
+            if !didAdjustKeyboardHeight{
                
-               self.pushView.frame.origin.y -= keyboardSize.height
+                self.pushView.frame.origin.y -= keyboardSize.height
+                didAdjustKeyboardHeight = !didAdjustKeyboardHeight
+            }
+            
                
            }
            
        }
        
        @objc func keyboardWillHide(notification: Notification) {
-           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                
                self.pushView.frame.origin.y += keyboardSize.height
+            didAdjustKeyboardHeight = false
                
            }
        }

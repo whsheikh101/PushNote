@@ -802,11 +802,16 @@ extension UIView {
             if newValue == true{
                 self.layer.cornerRadius = self.frame.height/2
                 self.layer.masksToBounds = true
+                self.layoutIfNeeded()
+                self.layoutSubviews()
             } else{
                 self.layer.cornerRadius = 0
                 self.layer.masksToBounds = false
+                self.layoutIfNeeded()
+                self.layoutSubviews()
             }
         }
     }
     
+   
 }

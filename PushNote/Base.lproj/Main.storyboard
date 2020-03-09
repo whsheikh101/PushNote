@@ -316,7 +316,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all" translatesAutoresizingMaskIntoConstraints="NO" id="Hfo-IQ-buQ">
-                                                    <rect key="frame" x="1" y="2" width="148" height="103"/>
+                                                    <rect key="frame" x="1" y="2" width="148.00000000000003" height="103.00000000000003"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Lbk-fQ-wvG" customClass="Label" customModule="PushNote" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="104" width="150" height="23"/>
@@ -395,7 +395,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIz-5n-Icm">
-                                                            <rect key="frame" x="96" y="25" width="113" height="20"/>
+                                                            <rect key="frame" x="96" y="25" width="132" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="200" id="Oda-h3-Tta"/>
                                                                 <constraint firstAttribute="height" constant="23" id="uDd-2e-Exe"/>
@@ -411,7 +411,7 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFE-SM-cWU">
-                                                            <rect key="frame" x="96" y="45" width="113" height="26.5"/>
+                                                            <rect key="frame" x="96" y="45" width="132" height="13.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -443,7 +443,7 @@
                                                             </connections>
                                                         </button>
                                                         <imageView userInteractionEnabled="NO" tag="1004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockIcn" translatesAutoresizingMaskIntoConstraints="NO" id="wxz-fu-TAk">
-                                                            <rect key="frame" x="214" y="25.5" width="38.5" height="49"/>
+                                                            <rect key="frame" x="233" y="38" width="19.5" height="24.500000000000007"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="wxz-fu-TAk" secondAttribute="height" multiplier="19:24" id="CUe-nl-YDI"/>
                                                                 <constraint firstAttribute="width" constant="19" id="Ie6-y4-Rk6"/>
@@ -587,8 +587,8 @@
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
-                                                                        <exclude reference="oKc-ac-tYq"/>
                                                                         <exclude reference="KOR-QV-Nge"/>
+                                                                        <exclude reference="oKc-ac-tYq"/>
                                                                     </mask>
                                                                 </variation>
                                                                 <connections>
@@ -809,7 +809,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51W-uf-bvm">
-                                                    <rect key="frame" x="99" y="16" width="110" height="20"/>
+                                                    <rect key="frame" x="99" y="16" width="129" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="Hnk-9f-sc5"/>
                                                         <constraint firstAttribute="width" constant="200" id="dY7-xx-cJu"/>
@@ -825,7 +825,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blooming Businees Week" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfE-cH-Ka8">
-                                                    <rect key="frame" x="99" y="36" width="110" height="26.5"/>
+                                                    <rect key="frame" x="99" y="36" width="129" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -857,7 +857,7 @@
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" tag="1004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockIcn" translatesAutoresizingMaskIntoConstraints="NO" id="fWs-2S-XBP">
-                                                    <rect key="frame" x="214" y="25.5" width="38.5" height="49"/>
+                                                    <rect key="frame" x="233" y="38" width="19.5" height="24.500000000000007"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="fWs-2S-XBP" secondAttribute="height" multiplier="19:24" id="ByH-xa-HpR"/>
                                                         <constraint firstAttribute="width" secondItem="fWs-2S-XBP" secondAttribute="height" multiplier="19:24" id="YD0-Bw-qf2"/>
@@ -3710,7 +3710,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O53-xQ-D1x">
-                                                <rect key="frame" x="20" y="590" width="335" height="107"/>
+                                                <rect key="frame" x="20" y="590" width="335" height="53.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" backgroundImage="SignUp"/>
@@ -3816,7 +3816,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBv-0a-GUP">
-                                <rect key="frame" x="0.0" y="44" width="375" height="413"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="518"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get you favorite content,updates and messages from your lockscreen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHu-ft-7s1">
                                         <rect key="frame" x="8" y="56" width="359" height="56"/>
@@ -3828,7 +3828,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mobile-6" translatesAutoresizingMaskIntoConstraints="NO" id="O0d-vn-CyJ">
-                                        <rect key="frame" x="-187.5" y="109" width="750" height="453.5"/>
+                                        <rect key="frame" x="0.0" y="109" width="375" height="453.5"/>
                                     </imageView>
                                 </subviews>
                                 <color key="tintColor" red="0.10980392156862745" green="0.18823529411764706" blue="0.32550472021102905" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3843,16 +3843,16 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMm-9V-01s">
-                                <rect key="frame" x="113" y="44" width="149" height="61"/>
+                                <rect key="frame" x="136" y="44" width="103" height="45.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckBoxInActive" translatesAutoresizingMaskIntoConstraints="NO" id="uwg-Hy-faQ">
-                                        <rect key="frame" x="19" y="15" width="31" height="31"/>
+                                        <rect key="frame" x="19" y="15" width="15.5" height="15.5"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckBoxInActive" translatesAutoresizingMaskIntoConstraints="NO" id="vcC-Jz-kZu">
-                                        <rect key="frame" x="59" y="15" width="31" height="31"/>
+                                        <rect key="frame" x="43.5" y="15" width="16" height="15.5"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckBoxInActive" translatesAutoresizingMaskIntoConstraints="NO" id="et4-Iq-ORg">
-                                        <rect key="frame" x="100" y="15" width="31" height="31"/>
+                                        <rect key="frame" x="69.5" y="15" width="15.5" height="15.5"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3868,7 +3868,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgs-Lx-opg">
-                                <rect key="frame" x="-136" y="459" width="647" height="106"/>
+                                <rect key="frame" x="24" y="564" width="327" height="53.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qgs-Lx-opg" secondAttribute="height" multiplier="293:48" id="mNO-o7-ynG"/>
                                 </constraints>
@@ -3878,7 +3878,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPi-h0-ZjF">
-                                <rect key="frame" x="-136" y="566" width="647" height="106"/>
+                                <rect key="frame" x="24" y="618.5" width="327" height="53.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="DQi-s3-qDg"/>
                                     <constraint firstAttribute="width" secondItem="TPi-h0-ZjF" secondAttribute="height" multiplier="293:48" id="qTk-Fd-FAd"/>
@@ -4528,7 +4528,7 @@
                                                 <rect key="frame" x="20" y="111" width="295" height="47"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zct-au-eAw" customClass="TextField">
-                                                        <rect key="frame" x="38" y="5" width="257" height="37"/>
+                                                        <rect key="frame" x="23" y="5" width="272" height="37"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="37" id="qXU-pN-ZLE">
@@ -4545,7 +4545,7 @@
                                                         </connections>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="current password" translatesAutoresizingMaskIntoConstraints="NO" id="9r2-VI-Kbc">
-                                                        <rect key="frame" x="0.0" y="5.5" width="30" height="36"/>
+                                                        <rect key="frame" x="0.0" y="14.5" width="15" height="18"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4565,7 +4565,7 @@
                                                 <rect key="frame" x="20" y="168" width="295" height="47"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uot-Xo-myT" customClass="TextField">
-                                                        <rect key="frame" x="38" y="5" width="256" height="37"/>
+                                                        <rect key="frame" x="23" y="5" width="271" height="37"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="37" id="NDt-kC-2fJ">
@@ -4582,7 +4582,7 @@
                                                         </connections>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirm password" translatesAutoresizingMaskIntoConstraints="NO" id="9U0-Sh-YK7">
-                                                        <rect key="frame" x="0.0" y="5.5" width="30" height="36"/>
+                                                        <rect key="frame" x="0.0" y="14.5" width="15" height="18"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6240,7 +6240,7 @@ Afg
         <image name="moreTab" width="20.5" height="6.5"/>
         <image name="notifaction icon" width="10.666666984558105" height="10.333333015441895"/>
         <image name="pausebtn" width="48" height="60"/>
-        <image name="placeholder" width="37" height="37"/>
+        <image name="placeholder" width="148.66667175292969" height="149"/>
         <image name="playbtn" width="65" height="75"/>
         <image name="privacy police" width="26.333333969116211" height="29"/>
         <image name="profile" width="26" height="26"/>
@@ -6251,7 +6251,7 @@ Afg
         <image name="rate" width="50.333332061767578" height="24.333333969116211"/>
         <image name="reset password" width="30.666666030883789" height="30.666666030883789"/>
         <image name="selector" width="52" height="53"/>
-        <image name="separator" width="348" height="1"/>
+        <image name="separator" width="234.33332824707031" height="0.66666668653488159"/>
         <image name="seprator" width="358" height="1.5"/>
         <image name="setting" width="30" height="30"/>
         <image name="settings_bg" width="375.33334350585938" height="812.33331298828125"/>

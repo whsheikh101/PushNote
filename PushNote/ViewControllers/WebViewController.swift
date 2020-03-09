@@ -15,8 +15,8 @@ class WebViewController:
     BaseViewController,
     UITextFieldDelegate,
     PayPalPaymentDelegate,
-UICollectionViewDelegate,
-UICollectionViewDataSource,
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
 UISearchBarDelegate {
     
     @IBOutlet weak var playerView: UIView!
@@ -64,10 +64,10 @@ UISearchBarDelegate {
     var notificationType1   :   String          = "Product"
     var notifictionId       :   Int             = 0
     var musicPlayer         :   AVAudioPlayer?  ;
-   
+    
     var mp3Player           :   MP3Player?
     var timer               :   Timer?
-    
+    var didAdjustKeyboardHeight = false
     @IBOutlet weak var trackName: UILabel!
     @IBOutlet weak var trackTime: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
@@ -80,14 +80,14 @@ UISearchBarDelegate {
             activityIndicator.stopAnimating()
         }else{
             sender.isSelected = true
-             mp3Player?.play()
+            mp3Player?.play()
             startTimer()
         }
     }
     @objc func updateViewsWithTimer(_ theTimer: Timer){
         updateViews()
     }
-   
+    
     func startTimer(){
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WebViewController.updateViewsWithTimer(_:)), userInfo: nil, repeats: true)
     }
@@ -109,13 +109,13 @@ UISearchBarDelegate {
             progressBar.progress = progress
         }
     }
-   
+    
     
     
     override func viewDidLoad() {
-    
+        
         super.viewDidLoad()
-//        self.addBackBtn2()
+        //        self.addBackBtn2()
         userCaption.delegate = self
         userCaption.autocorrectionType = UITextAutocorrectionType.no
         searchB.autocorrectionType = UITextAutocorrectionType.no
@@ -123,9 +123,9 @@ UISearchBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(WebViewController.windowNowVisible(_:)),
-                    name: UIWindow.didBecomeKeyNotification,
-                    object: self.view.window)
-
+                                               name: UIWindow.didBecomeKeyNotification,
+                                               object: self.view.window)
+        
         self.navigationItem.title = titleWeb
         self.getContacts()
         if(self.notificationType == "Music"){
@@ -145,22 +145,22 @@ UISearchBarDelegate {
                                 self.mp3Player = MP3Player()
                                 var  apiUrl = ""
                                 if(songDetails!["music_type"] as! String == "SoundCloud" ){
-                                 let trackId = String(describing: songDetails!["songId"]!)
-                               
-                                 let clientId = "709efb08a8e23396d4faed45224e2fa5"
-                                  apiUrl = "https://api.soundcloud.com/tracks/\(trackId)/stream?client_id="+clientId
+                                    let trackId = String(describing: songDetails!["songId"]!)
+                                    
+                                    let clientId = "709efb08a8e23396d4faed45224e2fa5"
+                                    apiUrl = "https://api.soundcloud.com/tracks/\(trackId)/stream?client_id="+clientId
                                 }else{
                                     apiUrl = String(describing: songDetails!["songId"]!)
                                 }
-                             
-                        if let songUrl = songDetails!["imageUrl"] as? String {
-                            self.songImg.sd_setImage(with: NSURL(string: songUrl) as! URL)
-                        }
-                               
-                               
+                                
+                                if let songUrl = songDetails!["imageUrl"] as? String {
+                                    self.songImg.sd_setImage(with: NSURL(string: songUrl) as! URL)
+                                }
+                                
+                                
                                 self.songTitle.text = songDetails!["music_name"] as? String
                                 self.activityIndicator.startAnimating()
-                              
+                                
                                 Alamofire.request(apiUrl)
                                     .response{ response  in
                                         self.activityIndicator.stopAnimating()
@@ -180,7 +180,7 @@ UISearchBarDelegate {
                         self.previewWebLink()
                     }
             }
-                  
+            
         }else if (self.notificationType == "Product"){
             self.buyBtn.isHidden = false;
             if let pType = self.productData["type"] as? String{
@@ -197,8 +197,8 @@ UISearchBarDelegate {
         }
     }
     
-   
-   
+    
+    
     func previewWebLink(){
         if var url = self.link {
             url = url.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -222,23 +222,23 @@ UISearchBarDelegate {
     @objc func backBtnPressed1() {
         if self.id > 0 {
             //Update Analytics time
-             self.event = "View"
+            self.event = "View"
             self.saveAnalytics(self.link!, objectID:self.objectId!, merchantID: self.subAdminId!)
         }
         
         if self.isFromNotification {
-          //  self.alert("Notification")
+            //  self.alert("Notification")
             self.navigationController?.view.removeFromSuperview()
         }
         else {
-             //self.alert("Notification2")
-             self.navigationController?.popViewController(animated: true)
+            //self.alert("Notification2")
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
-
-         self.activityIndicator.startAnimating()
+        
+        self.activityIndicator.startAnimating()
     }
     func webViewDidFinishLoad(_ webView: UIWebView) {
         //self.hideActivityIndicator()
@@ -266,8 +266,8 @@ UISearchBarDelegate {
         let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {
             (activity, success, items, error) in
-          // self.alert("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
-           // print("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
+            // self.alert("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
+            // print("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
             
             if(success != false){
                 var shareT = ""
@@ -304,39 +304,39 @@ UISearchBarDelegate {
             activityViewController.popoverPresentationController?.sourceRect = self.newBtn.bounds
         }
         present(activityViewController, animated: true, completion: {})
-       
+        
     }
     
     func animateView (){
         self.scrollView.isHidden = false
-       
+        
         UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions(), animations: { () -> Void in
             let bounds = self.scrollView.bounds; print(UIScreen.main.bounds);print(bounds)
             let yPosition = bounds.size.height - self.pushView.frame.size.height 
-          
+            
             self.pushView.frame = CGRect(x: 0.0, y: yPosition, width: self.pushView.frame.size.width, height: self.pushView.frame.size.height)
             
-            }, completion: { (finished: Bool) -> Void in
-                
-                // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
+        }, completion: { (finished: Bool) -> Void in
+            
+            // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
         })
         
         
         //scrollView.hidden = false
         //self.pushView.frame = CGRectMake(0.0, +320, self.pushView.frame.size.width, self.pushView.frame.size.height)
         
-    
-      //  pushView.an
-       /*
-        pushView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-            
-            self.pushView.frame = CGRectMake(0.0, +150, self.pushView.frame.size.width, self.pushView.frame.size.height)
-            
-            }, completion: { (finished: Bool) -> Void in
-                
-                // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
-        })
-*/
+        
+        //  pushView.an
+        /*
+         pushView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+         
+         self.pushView.frame = CGRectMake(0.0, +150, self.pushView.frame.size.width, self.pushView.frame.size.height)
+         
+         }, completion: { (finished: Bool) -> Void in
+         
+         // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
+         })
+         */
     }
     
     @IBAction func actionPush(_ sender: AnyObject) {
@@ -355,34 +355,34 @@ UISearchBarDelegate {
             let yPosition = bounds.size.height + self.pushView.frame.size.height
             self.pushView.frame = CGRect(x: 0, y: yPosition, width: self.pushView.frame.size.width, height: self.pushView.frame.size.height)
             
-            }, completion: { (finished: Bool) -> Void in
-                self.scrollView.isHidden = true
-                // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
+        }, completion: { (finished: Bool) -> Void in
+            self.scrollView.isHidden = true
+            // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
         })
         
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       /*
-        if segue.identifier == "PushFriends" {
-            let destController: ShareFriendsViewController = segue.destinationViewController as! ShareFriendsViewController
-            destController.link = self.link
-            destController.titleWeb = self.titleWeb
-            destController.notificationType = self.notificationType
-            destController.objectId   = self.objectId
-            destController.subAdminId = self.subAdminId
-            
-        }
-        else {
-            let destController: ShareViewController = segue.destinationViewController as! ShareViewController
-            destController.link = self.link
-            destController.titleWeb = self.titleWeb
-            destController.objectId = self.objectId
-            destController.notificationType = self.notificationType
-            destController.subAdminId = self.subAdminId
-        }
-*/
+        /*
+         if segue.identifier == "PushFriends" {
+         let destController: ShareFriendsViewController = segue.destinationViewController as! ShareFriendsViewController
+         destController.link = self.link
+         destController.titleWeb = self.titleWeb
+         destController.notificationType = self.notificationType
+         destController.objectId   = self.objectId
+         destController.subAdminId = self.subAdminId
+         
+         }
+         else {
+         let destController: ShareViewController = segue.destinationViewController as! ShareViewController
+         destController.link = self.link
+         destController.titleWeb = self.titleWeb
+         destController.objectId = self.objectId
+         destController.notificationType = self.notificationType
+         destController.subAdminId = self.subAdminId
+         }
+         */
     }
     
     //MARK: Notification Method
@@ -401,9 +401,9 @@ UISearchBarDelegate {
         }
         let strId = String(id);
         let strNotificationId = String(notifictionId)
-       
-      
-      
+        
+        
+        
         let params : Parameters = [
             "userId"            : userId,
             "link"              :lnk,
@@ -441,17 +441,17 @@ UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if(!isFromNotification){
-//          self.tabBarController!.tabBar.isHidden = true
+            //          self.tabBarController!.tabBar.isHidden = true
         }
         print("HERe");
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if(!isFromNotification){
-           // self.tabBarController!.tabBar.isHidden = false
+            // self.tabBarController!.tabBar.isHidden = false
         }
         print("HERe1");
-       
+        
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -462,15 +462,15 @@ UISearchBarDelegate {
         
         let fName  = friendData["userName"] as? String
         /*
-
-        if(friendData.userName.characters.count > 12){
-            let index1 = fName.startIndex.advancedBy(9)
-            fName = fName.substringToIndex(index1)
-            fName = fName + "..."
-        }*/
+         
+         if(friendData.userName.characters.count > 12){
+         let index1 = fName.startIndex.advancedBy(9)
+         fName = fName.substringToIndex(index1)
+         fName = fName + "..."
+         }*/
         
         cell.friendName.text = fName
-      
+        
         cell.friendSelected.tag = indexPath.row
         let imagePathUrl = URL(string: (friendData["photo"] as? String)! )
         let defaultImg = UIImage(named: "indexUserIcon")
@@ -486,27 +486,27 @@ UISearchBarDelegate {
     }
     func loadDummyData(){
         if self.arrFriendsData.count == 0 {
-                          
-                          let dict = NSMutableDictionary()
-                          dict["userId"] = "dummyID"
-                          dict["selected"] = false
-                          dict["userName"] = "dummyUserName"
-                          dict["contactName"] = "dummyContactName"
-                          dict["userNumber"] = "03312275651"
-                          dict["photo"] = ""
-                          
-                          self.arrFriendsData.append(dict)
-                          self.arrFriendsData.append(dict)
-              }
+            
+            let dict = NSMutableDictionary()
+            dict["userId"] = "dummyID"
+            dict["selected"] = false
+            dict["userName"] = "dummyUserName"
+            dict["contactName"] = "dummyContactName"
+            dict["userNumber"] = "03312275651"
+            dict["photo"] = ""
+            
+            self.arrFriendsData.append(dict)
+            self.arrFriendsData.append(dict)
+        }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      
+        
         return self.arrFriendsData.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       // let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FriendCell", forIndexPath: indexPath) as! CustomCollectionCell
+        // let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FriendCell", forIndexPath: indexPath) as! CustomCollectionCell
         if(self.arrFriendsData[indexPath.row]["selected"] as? Bool == false){
-             print("HERE")
+            print("HERE")
             let fData = self.arrFriendsData[indexPath.row].mutableCopy() as! NSMutableDictionary
             fData["selected"] = true
             self.arrFriendsData[indexPath.row] = fData
@@ -515,11 +515,11 @@ UISearchBarDelegate {
             print("HERE1")
             let fData = self.arrFriendsData[indexPath.row].mutableCopy() as! NSMutableDictionary
             fData["selected"] = false
-             self.arrFriendsData[indexPath.row] = fData
+            self.arrFriendsData[indexPath.row] = fData
             //cell.friendSelected.selected = false
         }
-    
-       self._collectionView.reloadData()
+        
+        self._collectionView.reloadData()
         
         
     }
@@ -533,58 +533,58 @@ UISearchBarDelegate {
     
     func getContacts() {
         
-         var arr: Array<NSDictionary> = []
+        var arr: Array<NSDictionary> = []
         let store = CNContactStore()
-               store.requestAccess(for: .contacts, completionHandler: {
-                   granted, error in
-                  
-                   
-                   let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey] as [Any]
-                   let request = CNContactFetchRequest(keysToFetch: keysToFetch as! [CNKeyDescriptor])
-                   var cnContacts = [CNContact]()
-                   
-                   do {
-                       try store.enumerateContacts(with: request){
-                           (contact, cursor) -> Void in
-                           cnContacts.append(contact)
-                       }
-                   } catch let error {
-                       NSLog("Fetch contact error: \(error)")
-                   }
-                   
-                   NSLog(">>>> Contact list:")
-                    var i : Int = 0 ;
-                   for contact in cnContacts{
-                       let fullName = CNContactFormatter.string(from: contact, style: .fullName) ?? "No Name"
-                    var contactData : [String:String] = [:]
-                         
-                       for phoneNumber in contact.phoneNumbers{
-                        
-                           if let number = phoneNumber.value as? CNPhoneNumber,
-                               let label = phoneNumber.label {
-                                let number = number.stringValue.replacingOccurrences(of: "[\\(\\)\\ \\-]", with: "", options: NSString.CompareOptions.regularExpression, range: nil)
-                                let number1 =  number.condenseWhitespace()
-                                let number2 = AppUtility.sharedInstance.removeCountryCode(number1)
-                                let trimmedString = number2.replacingOccurrences(of: " ", with: "")
-
-
-                            
-                            self.phoneNumbers.add(trimmedString)
-                            contactData["contactName"]     = fullName
-                            contactData["contactPhone"]    = trimmedString
-                            i = i + 1;
+        store.requestAccess(for: .contacts, completionHandler: {
+            granted, error in
+            
+            
+            let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey] as [Any]
+            let request = CNContactFetchRequest(keysToFetch: keysToFetch as! [CNKeyDescriptor])
+            var cnContacts = [CNContact]()
+            
+            do {
+                try store.enumerateContacts(with: request){
+                    (contact, cursor) -> Void in
+                    cnContacts.append(contact)
+                }
+            } catch let error {
+                NSLog("Fetch contact error: \(error)")
+            }
+            
+            NSLog(">>>> Contact list:")
+            var i : Int = 0 ;
+            for contact in cnContacts{
+                let fullName = CNContactFormatter.string(from: contact, style: .fullName) ?? "No Name"
+                var contactData : [String:String] = [:]
                 
-                           }
-                       }
-                    arr.append(contactData as NSDictionary)
-                   }
-                  
-               })
-          
+                for phoneNumber in contact.phoneNumbers{
+                    
+                    if let number = phoneNumber.value as? CNPhoneNumber,
+                        let label = phoneNumber.label {
+                        let number = number.stringValue.replacingOccurrences(of: "[\\(\\)\\ \\-]", with: "", options: NSString.CompareOptions.regularExpression, range: nil)
+                        let number1 =  number.condenseWhitespace()
+                        let number2 = AppUtility.sharedInstance.removeCountryCode(number1)
+                        let trimmedString = number2.replacingOccurrences(of: " ", with: "")
+                        
+                        
+                        
+                        self.phoneNumbers.add(trimmedString)
+                        contactData["contactName"]     = fullName
+                        contactData["contactPhone"]    = trimmedString
+                        i = i + 1;
+                        
+                    }
+                }
+                arr.append(contactData as NSDictionary)
+            }
+            
+        })
         
-          //  self.arrContacts = arr.sorted(by: forwards)
-            self.arrContactsData = arr
-            self.getFriends() 
+        
+        //  self.arrContacts = arr.sorted(by: forwards)
+        self.arrContactsData = arr
+        self.getFriends()
     }
     func getContactNames() {
         var errorRef: Unmanaged<CFError>?
@@ -632,9 +632,9 @@ UISearchBarDelegate {
             }
         }
         
-       // self.arrContacts = arr.sorted(by: forwards)
+        // self.arrContacts = arr.sorted(by: forwards)
         self.arrContactsData = arr
-       
+        
     }
     
     func forwards(_ c1: ContactData, c2: ContactData) -> Bool {
@@ -760,7 +760,7 @@ UISearchBarDelegate {
         if !isAnyPerson {
             self.alert("Please select atleast one Friend")
         }
-        
+            
         else {
             if !self.isReachable() {
                 return
@@ -772,19 +772,19 @@ UISearchBarDelegate {
                 let yPosition = bounds.size.height + self.pushView.frame.size.height
                 self.pushView.frame = CGRect(x: 0, y: yPosition, width: self.pushView.frame.size.width, height: self.pushView.frame.size.height)
                 
-                }, completion: { (finished: Bool) -> Void in
-                    self.scrollView.isHidden = true
-                    // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
+            }, completion: { (finished: Bool) -> Void in
+                self.scrollView.isHidden = true
+                // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
             })
             
             
             
             
-           let defaults = UserDefaults.standard;
-           let senderName = defaults.value(forKeyPath: "userData.username") as! String
-           let userID = defaults.value(forKeyPath: "userData.user_id") as! String
+            let defaults = UserDefaults.standard;
+            let senderName = defaults.value(forKeyPath: "userData.username") as! String
+            let userID = defaults.value(forKeyPath: "userData.user_id") as! String
             
-           self.view.isUserInteractionEnabled = false
+            self.view.isUserInteractionEnabled = false
             self.showActivityIndicator();
             
             let params : Parameters = [
@@ -801,37 +801,37 @@ UISearchBarDelegate {
             print(baseUrl + "sendPush");
             print(params)
             Alamofire.request(baseUrl + "sendPush", parameters:params)
-                    .responseJSON { response in
-                        self.view.isUserInteractionEnabled = true
-                        self.hideActivityIndicator()
-                       
+                .responseJSON { response in
+                    self.view.isUserInteractionEnabled = true
+                    self.hideActivityIndicator()
+                    
+                    
+                    self.userCaption.text! = ""
+                    self.isSelectedAll = true
+                    self.selectAllBtn.isSelected = true
+                    self.selectAllBtnPressed(self.selectAllBtn)
+                    
+                    if let jsonResponse = response.result.value  as? NSDictionary{
                         
-                        self.userCaption.text! = ""
-                        self.isSelectedAll = true
-                        self.selectAllBtn.isSelected = true
-                        self.selectAllBtnPressed(self.selectAllBtn)
-                        
-                        if let jsonResponse = response.result.value  as? NSDictionary{
-                            
-                            if (jsonResponse["status"] as! String == "SUCCESS") {
-                                self.view.isUserInteractionEnabled = true
-                                self.hideActivityIndicator()
-                                self.alert( self.userMessage as String)
-                            }
-                            else {
-                                self.view.isUserInteractionEnabled = true
-                                self.hideActivityIndicator()
-                                //self.activityIndicator.stopAnimating()
-                                self.alert(jsonResponse["message"] as! String)
-                                
-                            }
+                        if (jsonResponse["status"] as! String == "SUCCESS") {
+                            self.view.isUserInteractionEnabled = true
+                            self.hideActivityIndicator()
+                            self.alert( self.userMessage as String)
                         }
-                        else{
+                        else {
                             self.view.isUserInteractionEnabled = true
                             self.hideActivityIndicator()
                             //self.activityIndicator.stopAnimating()
+                            self.alert(jsonResponse["message"] as! String)
+                            
                         }
-                
+                    }
+                    else{
+                        self.view.isUserInteractionEnabled = true
+                        self.hideActivityIndicator()
+                        //self.activityIndicator.stopAnimating()
+                    }
+                    
             }
         }
     }
@@ -841,13 +841,13 @@ UISearchBarDelegate {
         if(sender.isSelected == false){
             sender.isSelected = true;
         }else{
-             sender.isSelected = false;
+            sender.isSelected = false;
         }
         
         isSelectedAll = !isSelectedAll
         var j = 0
         for fData:NSDictionary in self.arrFriendsData {
-             let fData2 = fData.mutableCopy() as! NSMutableDictionary
+            let fData2 = fData.mutableCopy() as! NSMutableDictionary
             fData2["selected"] = isSelectedAll
             self.arrFriendsData[j] = fData2
             j = j + 1
@@ -900,7 +900,7 @@ UISearchBarDelegate {
         if(searchText != ""){
             let arrTempSearch:NSMutableArray = []
             
-             
+            
             for friendData:NSDictionary in (self.arrFriendBackup as NSArray as! [NSDictionary]){
                 let options = NSString.CompareOptions.caseInsensitive
                 let found = (friendData["userName"] as? String)!.range(of: searchText, options: options)
@@ -913,16 +913,16 @@ UISearchBarDelegate {
         else{
             self.arrFriendsData = arrFriendBackup.copy() as! NSArray as! Array<NSDictionary>
         }
-       
+        
         self._collectionView.reloadData()
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-        replacementString string: String) -> Bool
+                   replacementString string: String) -> Bool
     {
         let maxLength = 80
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =
-        currentString.replacingCharacters(in: range, with: string) as NSString
+            currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -934,22 +934,22 @@ UISearchBarDelegate {
     }
     
     /*
-    func selectAllNotification(sender:AnyObject){
-        self.topMenuBtn = "Done"
-        selectedNotifications = []
-        for  arrNot in self.arrNotifications{
-            selectedNotifications.addObject((arrNot["id"] as? String)!)
-        }
-        self.collectionViewData.reloadData()
-        self.updateCollectionView()
-    }
-    func unSelectAllNotification(sender:AnyObject){
-        self.topMenuBtn = "Edit"
-        selectedNotifications = []
-        self.collectionViewData.reloadData()
-        self.updateCollectionView()
-    }
-*/
+     func selectAllNotification(sender:AnyObject){
+     self.topMenuBtn = "Done"
+     selectedNotifications = []
+     for  arrNot in self.arrNotifications{
+     selectedNotifications.addObject((arrNot["id"] as? String)!)
+     }
+     self.collectionViewData.reloadData()
+     self.updateCollectionView()
+     }
+     func unSelectAllNotification(sender:AnyObject){
+     self.topMenuBtn = "Edit"
+     selectedNotifications = []
+     self.collectionViewData.reloadData()
+     self.updateCollectionView()
+     }
+     */
     
     @IBAction func buyNow(_ sender: Any) {
         self.InitializedPayPalControllerWithItem()
@@ -959,7 +959,7 @@ UISearchBarDelegate {
     
     //MARK: PayPalPaymentDelegate & Methods
     func InitializedPayPalControllerWithItem(){
-      
+        
         
         PayPalMobile.initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction:"AZOZoTsIhMCCmxlllyu4ogSCeLtlhMRqJSNoB7y_7ysQeU3ECa4hJXFrDE74H71IFnKXXaao9kvjHCDE"])
         PayPalMobile.preconnect(withEnvironment: PayPalEnvironmentProduction)
@@ -998,39 +998,39 @@ UISearchBarDelegate {
         
         // Optional: include multiple items
         if let pTitle = self.productData["title"] as? String{
-        
-        let item1 = PayPalItem()
-        item1.name = pTitle
-        item1.quantity = 1
-        item1.price = NSDecimalNumber(string: self.productData["price"] as? String)
-        item1.currency = "USD"
-        
-        let items = [item1]
-        let subtotal = PayPalItem.totalPrice(forItems: items)
-        
-        // Optional: include payment details
-        let shipping = NSDecimalNumber(string: "0.00")
-        let tax = NSDecimalNumber(string: "0.00")
-        let paymentDetails = PayPalPaymentDetails(subtotal:subtotal, withShipping: shipping, withTax: tax)
-        
-        let total = subtotal.adding(shipping).adding(tax)
-        
-        let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: pTitle, intent: .sale)
-        
-        payment.items = items
-        payment.paymentDetails = paymentDetails
-        
-        if (payment.processable) {
-            let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
-            present(paymentViewController!, animated: true, completion: nil)
-        }
-        else {
-            // This particular payment will always be processable. If, for
-            // example, the amount was negative or the shortDescription was
-            // empty, this payment wouldn't be processable, and you'd want
-            // to handle that here.
-            print("Payment not processalbe: \(payment)")
-        }
+            
+            let item1 = PayPalItem()
+            item1.name = pTitle
+            item1.quantity = 1
+            item1.price = NSDecimalNumber(string: self.productData["price"] as? String)
+            item1.currency = "USD"
+            
+            let items = [item1]
+            let subtotal = PayPalItem.totalPrice(forItems: items)
+            
+            // Optional: include payment details
+            let shipping = NSDecimalNumber(string: "0.00")
+            let tax = NSDecimalNumber(string: "0.00")
+            let paymentDetails = PayPalPaymentDetails(subtotal:subtotal, withShipping: shipping, withTax: tax)
+            
+            let total = subtotal.adding(shipping).adding(tax)
+            
+            let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: pTitle, intent: .sale)
+            
+            payment.items = items
+            payment.paymentDetails = paymentDetails
+            
+            if (payment.processable) {
+                let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
+                present(paymentViewController!, animated: true, completion: nil)
+            }
+            else {
+                // This particular payment will always be processable. If, for
+                // example, the amount was negative or the shortDescription was
+                // empty, this payment wouldn't be processable, and you'd want
+                // to handle that here.
+                print("Payment not processalbe: \(payment)")
+            }
         }
     }
     
@@ -1041,50 +1041,55 @@ UISearchBarDelegate {
     
     func payPalPaymentViewController(_ paymentViewController: PayPalPaymentViewController!, didComplete completedPayment: PayPalPayment!) {
         
-            paymentViewController?.dismiss(animated: true, completion: { () -> Void in
+        paymentViewController?.dismiss(animated: true, completion: { () -> Void in
             // send completed confirmaion to your server
-                if let paymentInfo = completedPayment.confirmation as? NSDictionary{
-                    
-                    let dicResponse: AnyObject? = paymentInfo.object(forKey: "response") as AnyObject
-                    self.showActivityIndicator();
-                    var params : Parameters = [:]
-                    if let uId =  UserDefaults.standard.value(forKeyPath: "userData.user_id") as? String{
-                        params["userId"] = uId;
-                    }
-                    params["referalUserId"]         = self.senderId;
-                    params["productId"]             = self.productData["productId"];
-                    params["transactionId"]         = dicResponse?.object(forKey: "id") as! String
-                    params["referalId"]             = self.productData["id"];
- 
-                    Alamofire.request(baseUrl + "purchaseProduct",method: HTTPMethod.post, parameters: params)
-                        .responseJSON{ response in
-                            self.hideActivityIndicator()
-                            if let jsonResponse = response.result.value as? NSDictionary {
-                                if (jsonResponse["status"] as! String == "SUCCESS") {
-                                   self.alert(jsonResponse["message"] as! String);
-                                }else{
-                                    self.alert(jsonResponse["message"] as! String);
-                                }
-                            }
-                    }
+            if let paymentInfo = completedPayment.confirmation as? NSDictionary{
+                
+                let dicResponse: AnyObject? = paymentInfo.object(forKey: "response") as AnyObject
+                self.showActivityIndicator();
+                var params : Parameters = [:]
+                if let uId =  UserDefaults.standard.value(forKeyPath: "userData.user_id") as? String{
+                    params["userId"] = uId;
                 }
+                params["referalUserId"]         = self.senderId;
+                params["productId"]             = self.productData["productId"];
+                params["transactionId"]         = dicResponse?.object(forKey: "id") as! String
+                params["referalId"]             = self.productData["id"];
+                
+                Alamofire.request(baseUrl + "purchaseProduct",method: HTTPMethod.post, parameters: params)
+                    .responseJSON{ response in
+                        self.hideActivityIndicator()
+                        if let jsonResponse = response.result.value as? NSDictionary {
+                            if (jsonResponse["status"] as! String == "SUCCESS") {
+                                self.alert(jsonResponse["message"] as! String);
+                            }else{
+                                self.alert(jsonResponse["message"] as! String);
+                            }
+                        }
+                }
+            }
         })
     }
- @objc   func keyboardWillShow(notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            print("notification: Keyboard will show")
-            
-                self.pushView.frame.origin.y -= keyboardSize.height
-            
-        }
-
-    }
-
-    @objc func keyboardWillHide(notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            
-                self.pushView.frame.origin.y += keyboardSize.height
-            
-        }
-    }
+    @objc   func keyboardWillShow(notification: Notification) {
+              if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                  print("notification: Keyboard will show")
+               if !didAdjustKeyboardHeight{
+                  
+                   self.pushView.frame.origin.y -= keyboardSize.height
+                   didAdjustKeyboardHeight = !didAdjustKeyboardHeight
+               }
+               
+                  
+              }
+              
+          }
+          
+          @objc func keyboardWillHide(notification: Notification) {
+              if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                  
+                  self.pushView.frame.origin.y += keyboardSize.height
+               didAdjustKeyboardHeight = false
+                  
+              }
+          }
 }
