@@ -377,12 +377,12 @@ class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
             let params : Parameters = ["userId" :userId , "feedId": feedId];
             Alamofire.request( baseUrl + "addUserNewsFeed", parameters:params)
                 .responseJSON { [weak self] response in
-                   
+                      self?.senderBtn.perform(#selector(SLButton.hideLoading), with: nil, afterDelay: 0.0);
                     if let jsonResponse = response.result.value as? NSDictionary{
                        
     //                    self.senderBtn.setTitle("Subscribed!", for: UIControl.State.normal)
     //                    self.senderBtn.setTitle("Subscribed!", for: .selected)
-                        self?.senderBtn.perform(#selector(SLButton.hideLoading), with: nil, afterDelay: 0.0);
+//                        self?.senderBtn.perform(#selector(SLButton.hideLoading), with: nil, afterDelay: 0.0);
                         Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: "reloadTable", userInfo: nil, repeats: false)
                         
                        
@@ -401,7 +401,7 @@ class CategoryTableView: UIView,PayPalPaymentDelegate,UISearchBarDelegate {
                     }else{
 //                        self?.senderBtn.setTitle("Subscribed!", for: UIControl.State.normal)
 //                        self?.senderBtn.setTitle("Subscribed!", for: .selected)
-                        self?.senderBtn.perform("hideLoading", with: nil, afterDelay: 0.0);
+//                        self?.senderBtn.perform("hideLoading", with: nil, afterDelay: 0.0);
                         Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: "reloadTable", userInfo: nil, repeats: false)
                     }
                     self?.isUserInteractionEnabled = true
