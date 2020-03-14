@@ -12,21 +12,22 @@ import AddressBookUI
 import MessageUI
 import CoreLocation
 import Contacts
+import UserNotifications
 
 class NotificationsViewController: BaseViewController,CLLocationManagerDelegate {
-    var locationManager         = CLLocationManager()
+    
+    var locationManager = CLLocationManager()
+     var addressBook: ABAddressBook?
     
     @IBOutlet weak var scrollViewImages: UIScrollView!
-     var addressBook: ABAddressBook?
     @IBOutlet weak var imgBullet1: UIImageView!
     @IBOutlet weak var imgBullet2: UIImageView!
     @IBOutlet weak var imgBullet3: UIImageView!
     @IBOutlet weak var lblText: UILabel!
-    
     @IBOutlet weak var btnAgree: UIButton!
-    
     @IBOutlet weak var btnNotNow: UIButton!
     @IBOutlet weak var imgViewMobile: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -117,14 +118,21 @@ class NotificationsViewController: BaseViewController,CLLocationManagerDelegate 
         let tabController = self.storyboard?.instantiateViewController(withIdentifier: SEGUE_DASHBOARD);UIApplication.shared.keyWindow?.rootViewController = tabController
         self.present(tabController!, animated: true, completion: nil)
     }
+    
     func registerPushNotification() {
         
-        if (UIDevice.current.systemVersion as NSString).floatValue >= 8.0 {
-            let setting: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
-            UIApplication.shared.registerUserNotificationSettings(setting)
-            UIApplication.shared.registerForRemoteNotifications()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+            // 1. Check if permission granted
+            guard granted else { return }
+            // 2. Attempt registration for remote notifications on the main thread
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
         }
     }
+    
     func extractABAddressBookRef(_ abRef: Unmanaged<ABAddressBook>!) -> ABAddressBook? {
         if let ab = abRef {
             return Unmanaged<NSObject>.fromOpaque(ab.toOpaque()).takeUnretainedValue()

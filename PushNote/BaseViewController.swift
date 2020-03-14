@@ -13,7 +13,7 @@ import Alamofire
 //let baseUrl: String = "http://64.235.52.220/~ipushnote/pnote/pushnote/services/index/"
 //let baseUrl: String   = "http://64.235.52.220/~ipushnote/pushnote-analytics/services/analyticsindex/"
 //let baseUrl: String   = "http://ipushnote.com/pushnote-analytics/services/analyticsindex/"
-let baseUrl = "http://pushwosh.com/pushwoshapp/services/analyticsindex/"
+let baseUrl = "http://184.154.161.201/~pushwosh/pushwoshapp/services/analyticsindex/"
 let servicesPath = "http://pushwosh.com/pushwoshapp/services/"
 //let baseUrl         : String   = "http://localhost/ipushnote/services/analyticsindex/"
 //let servicesPath    : String   = "http://localhost/ipushnote/services/"
