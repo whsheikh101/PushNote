@@ -115,7 +115,7 @@ UISearchBarDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        //        self.addBackBtn2()
+                self.addBackBtn2()
         userCaption.delegate = self
         userCaption.autocorrectionType = UITextAutocorrectionType.no
         searchB.autocorrectionType = UITextAutocorrectionType.no
@@ -214,7 +214,7 @@ UISearchBarDelegate {
     }
     func addBackBtn2(){
         
-        let barbutton = UIBarButtonItem(image: UIImage(named: "backBtn"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(WebViewController.backBtnPressed1))
+        let barbutton = UIBarButtonItem(image: UIImage(named: "back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(WebViewController.backBtnPressed1))
         //barbutton.tintColor = UIColor.whiteColor()
         // let image = UIImage(named: IMG_MENU)?.imageWithRenderingMode(.AlwaysOriginal)
         navigationItem.leftBarButtonItem = barbutton

@@ -111,10 +111,24 @@ UISearchBarDelegate{
         self.tabBarItem = UITabBarItem(title: "Friends", image: UIImage(named: "friendsTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), selectedImage: UIImage(named: "friends-activeTab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal))
         
     }
-    
+    func loadDummyData(){
+           if self.arrFriendsData.count == 0 {
+               
+               let dict = NSMutableDictionary()
+               dict["userId"] = "dummyID"
+               dict["selected"] = false
+               dict["userName"] = "dummyUserName"
+               dict["contactName"] = "dummyContactName"
+               dict["userNumber"] = "03312275651"
+               dict["photo"] = ""
+               
+               self.arrFriendsData.append(dict)
+               self.arrFriendsData.append(dict)
+           }
+       }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) ->Int {
        
-        
+        self.loadDummyData()
         return (self.segmentControl.selectedSegmentIndex == 0) ? self.arrFriendsData.count : self.arrInviteFriendsData.count
         
     }
